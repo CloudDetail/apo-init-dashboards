@@ -1,5 +1,5 @@
 # 使用 busybox 作为基础镜像
-FROM registry.cn-hangzhou.aliyuncs.com/kindlingx/busybox:1.36.1
+FROM busybox:1.36.1
 
 # 创建目标目录 /dashboard
 RUN mkdir -p /dashboards

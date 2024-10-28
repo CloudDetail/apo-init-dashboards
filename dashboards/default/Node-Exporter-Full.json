@@ -100,7 +100,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -114,7 +114,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -125,7 +125,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Resource pressure via PSI",
       "fieldConfig": {
@@ -190,7 +190,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -206,7 +206,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -223,7 +223,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -244,7 +244,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Busy state of all CPU cores together",
       "fieldConfig": {
@@ -314,7 +314,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -334,7 +334,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "System load  over all CPU cores together",
       "fieldConfig": {
@@ -404,7 +404,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -424,7 +424,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Non available RAM memory",
       "fieldConfig": {
@@ -485,7 +485,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -501,7 +501,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -521,7 +521,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Used Swap",
       "fieldConfig": {
@@ -591,7 +591,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -609,7 +609,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Used Root FS",
       "fieldConfig": {
@@ -679,7 +679,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -698,7 +698,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Total number of CPU cores",
       "fieldConfig": {
@@ -763,7 +763,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -780,7 +780,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "System uptime",
       "fieldConfig": {
@@ -847,7 +847,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -865,7 +865,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Total RootFS",
       "fieldConfig": {
@@ -935,7 +935,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -955,7 +955,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Total RAM",
       "fieldConfig": {
@@ -1021,7 +1021,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1039,7 +1039,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Total SWAP",
       "fieldConfig": {
@@ -1105,7 +1105,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1124,7 +1124,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -1138,7 +1138,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -1149,7 +1149,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Basic CPU info",
       "fieldConfig": {
@@ -1340,7 +1340,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1357,7 +1357,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -1372,7 +1372,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -1386,7 +1386,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=~\".*irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -1400,7 +1400,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\",  mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq'}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -1414,7 +1414,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -1432,7 +1432,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -1885,7 +1885,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -1898,7 +1898,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"} - (node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\"})",
           "format": "time_series",
@@ -1911,7 +1911,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -1923,7 +1923,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -1935,7 +1935,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "(node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\"})",
           "format": "time_series",
@@ -1951,7 +1951,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Basic network info per interface",
       "fieldConfig": {
@@ -2392,7 +2392,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "irate(node_network_receive_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
           "format": "time_series",
@@ -2404,7 +2404,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "irate(node_network_transmit_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
           "format": "time_series",
@@ -2420,7 +2420,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "description": "Disk space used of all filesystems mounted",
       "fieldConfig": {
@@ -2505,7 +2505,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "100 - ((node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'} * 100) / node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'})",
           "format": "time_series",
@@ -2522,7 +2522,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -2535,7 +2535,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -2744,7 +2744,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2759,7 +2759,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2773,7 +2773,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"nice\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2787,7 +2787,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum by(instance) (irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2801,7 +2801,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2815,7 +2815,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"softirq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2829,7 +2829,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"steal\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2843,7 +2843,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
@@ -2862,7 +2862,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -3251,7 +3251,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_Slab_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_PageTables_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_SwapCached_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3264,7 +3264,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_PageTables_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3277,7 +3277,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_SwapCached_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3289,7 +3289,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_Slab_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3302,7 +3302,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3315,7 +3315,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3328,7 +3328,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3341,7 +3341,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "(node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\"})",
               "format": "time_series",
@@ -3354,7 +3354,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_memory_HardwareCorrupted_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -3371,7 +3371,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -3529,7 +3529,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
               "format": "time_series",
@@ -3541,7 +3541,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
               "format": "time_series",
@@ -3557,7 +3557,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -3644,7 +3644,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'} - node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
               "format": "time_series",
@@ -3660,7 +3660,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -4074,7 +4074,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
               "intervalFactor": 4,
@@ -4085,7 +4085,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
               "intervalFactor": 1,
@@ -4100,7 +4100,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -4301,7 +4301,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_read_bytes_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
               "format": "time_series",
@@ -4314,7 +4314,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_written_bytes_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
               "format": "time_series",
@@ -4331,7 +4331,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -4446,7 +4446,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_io_time_seconds_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"} [$__rate_interval])",
               "format": "time_series",
@@ -4464,7 +4464,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -4578,7 +4578,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum by(instance) (irate(node_cpu_guest_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\"}[1m])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[1m])))",
@@ -4590,7 +4590,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "sum by(instance) (irate(node_cpu_guest_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"nice\"}[1m])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[1m])))",
@@ -4608,7 +4608,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -4620,7 +4620,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -4634,7 +4634,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -4645,7 +4645,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -4990,7 +4990,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Inactive_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5002,7 +5002,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Active_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5018,7 +5018,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -5382,7 +5382,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Committed_AS_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5394,7 +5394,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_CommitLimit_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5410,7 +5410,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -5755,7 +5755,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Inactive_file_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5768,7 +5768,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Inactive_anon_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5781,7 +5781,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Active_file_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5794,7 +5794,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Active_anon_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -5811,7 +5811,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -6185,7 +6185,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Writeback_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -6197,7 +6197,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_WritebackTmp_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -6209,7 +6209,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Dirty_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -6225,7 +6225,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -6591,7 +6591,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Mapped_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -6603,7 +6603,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Shmem_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -6615,7 +6615,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_ShmemHugePages_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -6628,7 +6628,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_ShmemPmdMapped_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -6645,7 +6645,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -7016,7 +7016,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_SUnreclaim_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -7028,7 +7028,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -7044,7 +7044,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -7400,7 +7400,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_VmallocChunk_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -7413,7 +7413,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_VmallocTotal_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -7426,7 +7426,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_VmallocUsed_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -7443,7 +7443,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -7785,7 +7785,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Bounce_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -7801,7 +7801,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -8169,7 +8169,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_AnonHugePages_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -8181,7 +8181,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_AnonPages_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -8197,7 +8197,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -8539,7 +8539,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_KernelStack_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -8551,7 +8551,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Percpu_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -8568,7 +8568,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -8923,7 +8923,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_HugePages_Free{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -8935,7 +8935,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_HugePages_Rsvd{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -8947,7 +8947,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_HugePages_Surp{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -8963,7 +8963,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -9318,7 +9318,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_HugePages_Total{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -9330,7 +9330,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Hugepagesize_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -9346,7 +9346,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -9701,7 +9701,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_DirectMap1G_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -9713,7 +9713,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_DirectMap2M_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -9726,7 +9726,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_DirectMap4k_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -9743,7 +9743,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -10085,7 +10085,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Unevictable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -10097,7 +10097,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_Mlocked_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -10113,7 +10113,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -10484,7 +10484,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "expr": "node_memory_NFS_Unstable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
           "format": "time_series",
@@ -10501,7 +10501,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -10514,7 +10514,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -10614,7 +10614,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_pgpgin{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -10626,7 +10626,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_pgpgout{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -10642,7 +10642,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -10742,7 +10742,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_pswpin{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -10754,7 +10754,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_pswpout{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -10770,7 +10770,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -11134,7 +11134,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_pgfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -11146,7 +11146,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_pgmajfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -11158,7 +11158,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_pgfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])  - irate(node_vmstat_pgmajfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -11174,7 +11174,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -11548,7 +11548,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_vmstat_oom_kill{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -11567,7 +11567,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -11579,7 +11579,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -11592,7 +11592,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -11696,7 +11696,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_estimated_error_seconds{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -11710,7 +11710,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_offset_seconds{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -11724,7 +11724,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_maxerror_seconds{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -11742,7 +11742,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -11830,7 +11830,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_loop_time_constant{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -11847,7 +11847,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -11948,7 +11948,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_sync_status{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -11961,7 +11961,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_frequency_adjustment_ratio{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -11978,7 +11978,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -12063,7 +12063,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_tick_seconds{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12076,7 +12076,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_timex_tai_offset_seconds{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12095,7 +12095,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -12107,7 +12107,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -12120,7 +12120,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -12208,7 +12208,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_procs_blocked{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12220,7 +12220,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_procs_running{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12236,7 +12236,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "Enable with --collector.processes argument on node-exporter",
           "fieldConfig": {
@@ -12325,7 +12325,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_processes_state{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12342,7 +12342,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -12430,7 +12430,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_forks_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -12447,7 +12447,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -12548,7 +12548,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(process_virtual_memory_bytes{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "hide": false,
@@ -12561,7 +12561,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "process_resident_memory_max_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "hide": false,
@@ -12574,7 +12574,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(process_virtual_memory_bytes{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "hide": false,
@@ -12587,7 +12587,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(process_virtual_memory_max_bytes{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "hide": false,
@@ -12604,7 +12604,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "Enable with --collector.processes argument on node-exporter",
           "fieldConfig": {
@@ -12713,7 +12713,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_processes_pids{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12726,7 +12726,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_processes_max_processes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12743,7 +12743,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -12843,7 +12843,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_schedstat_running_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -12856,7 +12856,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_schedstat_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -12873,7 +12873,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "Enable with --collector.processes argument on node-exporter",
           "fieldConfig": {
@@ -12982,7 +12982,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_processes_threads{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -12995,7 +12995,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_processes_max_threads{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -13014,7 +13014,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -13026,7 +13026,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -13039,7 +13039,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -13127,7 +13127,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_context_switches_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -13139,7 +13139,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_intr_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -13156,7 +13156,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -13244,7 +13244,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_load1{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -13256,7 +13256,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_load5{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -13268,7 +13268,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_load15{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -13284,7 +13284,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -13446,7 +13446,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "node_cpu_scaling_frequency_hertz{instance_name=\"$node\",job_name=\"$job\"}",
@@ -13462,7 +13462,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "avg(node_cpu_scaling_frequency_max_hertz{instance_name=\"$node\",job_name=\"$job\"})",
@@ -13478,7 +13478,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "avg(node_cpu_scaling_frequency_min_hertz{instance_name=\"$node\",job_name=\"$job\"})",
@@ -13498,7 +13498,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "https://docs.kernel.org/accounting/psi.html",
           "fieldConfig": {
@@ -13648,7 +13648,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "rate(node_pressure_cpu_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
@@ -13662,7 +13662,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "rate(node_pressure_memory_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
@@ -13677,7 +13677,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "rate(node_pressure_memory_stalled_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
@@ -13692,7 +13692,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "rate(node_pressure_io_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
@@ -13707,7 +13707,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "rate(node_pressure_io_stalled_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
@@ -13726,7 +13726,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "Enable with --collector.interrupts argument on node-exporter",
           "fieldConfig": {
@@ -13854,7 +13854,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_interrupts_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -13871,7 +13871,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -13958,7 +13958,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_schedstat_timeslices_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -13975,7 +13975,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -14063,7 +14063,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_entropy_available_bits{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14079,7 +14079,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -14166,7 +14166,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(process_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -14183,7 +14183,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -14291,7 +14291,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "process_max_fds{instance_name=\"$node\",job_name=\"$job\"}",
               "interval": "",
@@ -14303,7 +14303,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "process_open_fds{instance_name=\"$node\",job_name=\"$job\"}",
               "interval": "",
@@ -14321,7 +14321,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -14333,7 +14333,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -14346,7 +14346,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -14473,7 +14473,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_hwmon_temp_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14486,7 +14486,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_hwmon_temp_crit_alarm_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14500,7 +14500,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_hwmon_temp_crit_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14513,7 +14513,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_hwmon_temp_crit_hyst_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14527,7 +14527,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_hwmon_temp_max_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14545,7 +14545,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -14652,7 +14652,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_cooling_device_cur_state{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14666,7 +14666,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_cooling_device_max_state{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14683,7 +14683,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -14770,7 +14770,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_power_supply_online{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -14790,7 +14790,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -14802,7 +14802,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -14815,7 +14815,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -14903,7 +14903,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_systemd_socket_accepted_connections_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -14920,7 +14920,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -15083,7 +15083,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"activating\"}",
               "format": "time_series",
@@ -15096,7 +15096,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"active\"}",
               "format": "time_series",
@@ -15109,7 +15109,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"deactivating\"}",
               "format": "time_series",
@@ -15122,7 +15122,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"failed\"}",
               "format": "time_series",
@@ -15135,7 +15135,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"inactive\"}",
               "format": "time_series",
@@ -15154,7 +15154,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -15166,7 +15166,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -15179,7 +15179,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "The number (after merges) of I/O requests completed per second for the device",
           "fieldConfig": {
@@ -15578,7 +15578,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "intervalFactor": 4,
@@ -15589,7 +15589,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "intervalFactor": 1,
@@ -15604,7 +15604,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "The number of bytes read from or written to the device per second",
           "fieldConfig": {
@@ -16003,7 +16003,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_read_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -16015,7 +16015,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_written_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -16031,7 +16031,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "The average time for requests issued to the device to be served. This includes the time spent by the requests in queue and the time spent servicing them.",
           "fieldConfig": {
@@ -16430,7 +16430,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_read_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval]) / irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "hide": false,
@@ -16443,7 +16443,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_write_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval]) / irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "hide": false,
@@ -16460,7 +16460,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "The average queue length of the requests that were issued to the device",
           "fieldConfig": {
@@ -16848,7 +16848,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_io_time_weighted_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -16864,7 +16864,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "The number of read and write requests merged per second that were queued to the device",
           "fieldConfig": {
@@ -17263,7 +17263,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_reads_merged_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "intervalFactor": 1,
@@ -17274,7 +17274,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_writes_merged_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "intervalFactor": 1,
@@ -17289,7 +17289,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "Percentage of elapsed time during which I/O requests were issued to the device (bandwidth utilization for the device). Device saturation occurs when this value is close to 100% for devices serving requests serially.  But for devices  serving requests in parallel, such as RAID arrays and modern SSDs, this number does not reflect their performance limits.",
           "fieldConfig": {
@@ -17677,7 +17677,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_io_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -17689,7 +17689,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_discard_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -17705,7 +17705,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "The number of outstanding requests at the instant the sample was taken. Incremented as requests are given to appropriate struct request_queue and decremented as they finish.",
           "fieldConfig": {
@@ -18093,7 +18093,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_disk_io_now{instance_name=\"$node\",job_name=\"$job\"}",
               "interval": "",
@@ -18109,7 +18109,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -18496,7 +18496,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_discards_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -18508,7 +18508,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_disk_discards_merged_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -18526,7 +18526,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -18538,7 +18538,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -18551,7 +18551,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -18638,7 +18638,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
               "format": "time_series",
@@ -18652,7 +18652,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_free_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
               "format": "time_series",
@@ -18665,7 +18665,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
               "format": "time_series",
@@ -18682,7 +18682,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -18769,7 +18769,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_files_free{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
               "format": "time_series",
@@ -18786,7 +18786,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -18873,7 +18873,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filefd_maximum{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -18885,7 +18885,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filefd_allocated{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -18901,7 +18901,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -18988,7 +18988,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_files{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
               "format": "time_series",
@@ -19005,7 +19005,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -19109,7 +19109,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_readonly{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
               "format": "time_series",
@@ -19121,7 +19121,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_filesystem_device_error{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs',fstype!~'tmpfs'}",
               "format": "time_series",
@@ -19140,7 +19140,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -19152,7 +19152,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -19165,7 +19165,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -19324,7 +19324,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_packets_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19337,7 +19337,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_packets_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19354,7 +19354,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -19453,7 +19453,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_errs_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19465,7 +19465,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_errs_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19481,7 +19481,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -19580,7 +19580,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_drop_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19592,7 +19592,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_drop_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19608,7 +19608,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -19707,7 +19707,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_compressed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19719,7 +19719,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_compressed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19735,7 +19735,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -19834,7 +19834,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_multicast_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19850,7 +19850,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -19949,7 +19949,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_fifo_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19961,7 +19961,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_fifo_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -19977,7 +19977,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20076,7 +20076,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_receive_frame_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -20093,7 +20093,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20179,7 +20179,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_carrier_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -20195,7 +20195,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20294,7 +20294,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_network_transmit_colls_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -20310,7 +20310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20416,7 +20416,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_nf_conntrack_entries{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -20428,7 +20428,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_nf_conntrack_entries_limit{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -20444,7 +20444,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20530,7 +20530,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_arp_entries{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -20546,7 +20546,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20633,7 +20633,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_network_mtu_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -20649,7 +20649,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20736,7 +20736,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_network_speed_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -20752,7 +20752,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20839,7 +20839,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_network_transmit_queue_length{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -20855,7 +20855,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -20954,7 +20954,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_softnet_processed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -20967,7 +20967,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_softnet_dropped_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -20984,7 +20984,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21070,7 +21070,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_softnet_times_squeezed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -21087,7 +21087,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21173,7 +21173,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_network_up{operstate=\"up\",instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21185,7 +21185,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_network_carrier{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21202,7 +21202,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -21214,7 +21214,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -21227,7 +21227,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21314,7 +21314,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_TCP_alloc{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21327,7 +21327,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_TCP_inuse{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21340,7 +21340,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_TCP_mem{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21354,7 +21354,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_TCP_orphan{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21367,7 +21367,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_TCP_tw{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21384,7 +21384,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21471,7 +21471,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_UDPLITE_inuse{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21484,7 +21484,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_UDP_inuse{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21497,7 +21497,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_UDP_mem{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21514,7 +21514,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21601,7 +21601,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_FRAG_inuse{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21614,7 +21614,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_RAW_inuse{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21631,7 +21631,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21718,7 +21718,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_TCP_mem_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21731,7 +21731,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_UDP_mem_bytes{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21744,7 +21744,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_FRAG_memory{instance_name=\"$node\",job_name=\"$job\"}",
               "interval": "",
@@ -21759,7 +21759,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21846,7 +21846,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_sockstat_sockets_used{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -21865,7 +21865,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -21877,7 +21877,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -21890,7 +21890,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -21991,7 +21991,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_IpExt_InOctets{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22004,7 +22004,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_IpExt_OutOctets{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22020,7 +22020,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -22109,7 +22109,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Ip_Forwarding{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22126,7 +22126,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -22226,7 +22226,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Icmp_InMsgs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22239,7 +22239,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Icmp_OutMsgs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22256,7 +22256,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -22356,7 +22356,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Icmp_InErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22373,7 +22373,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -22485,7 +22485,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Udp_InDatagrams{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22498,7 +22498,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Udp_OutDatagrams{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22515,7 +22515,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -22602,7 +22602,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Udp_InErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22615,7 +22615,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Udp_NoPorts{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22628,7 +22628,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_UdpLite_InErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -22638,7 +22638,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Udp_RcvbufErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22651,7 +22651,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Udp_SndbufErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22668,7 +22668,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -22780,7 +22780,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Tcp_InSegs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22794,7 +22794,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Tcp_OutSegs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22811,7 +22811,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -22900,7 +22900,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_TcpExt_ListenOverflows{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22914,7 +22914,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_TcpExt_ListenDrops{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22928,7 +22928,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_TcpExt_TCPSynRetrans{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -22941,7 +22941,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Tcp_RetransSegs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -22951,7 +22951,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Tcp_InErrs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -22961,7 +22961,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Tcp_OutRsts{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "interval": "",
@@ -22971,7 +22971,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "irate(node_netstat_TcpExt_TCPRcvQDrop{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
@@ -22984,7 +22984,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "irate(node_netstat_TcpExt_TCPOFOQueue{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
@@ -23001,7 +23001,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -23109,7 +23109,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_netstat_Tcp_CurrEstab{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -23123,7 +23123,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_netstat_Tcp_MaxConn{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -23141,7 +23141,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -23242,7 +23242,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_TcpExt_SyncookiesFailed{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -23256,7 +23256,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_TcpExt_SyncookiesRecv{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -23270,7 +23270,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_TcpExt_SyncookiesSent{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -23288,7 +23288,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "fieldConfig": {
             "defaults": {
@@ -23376,7 +23376,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Tcp_ActiveOpens{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -23389,7 +23389,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "irate(node_netstat_Tcp_PassiveOpens{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
               "format": "time_series",
@@ -23406,7 +23406,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "Enable with --collector.tcpstat argument on node-exporter",
           "fieldConfig": {
@@ -23491,7 +23491,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "node_tcp_connection_states{state=\"established\",instance_name=\"$node\",job_name=\"$job\"}",
@@ -23506,7 +23506,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "node_tcp_connection_states{state=\"fin_wait2\",instance_name=\"$node\",job_name=\"$job\"}",
@@ -23522,7 +23522,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "node_tcp_connection_states{state=\"listen\",instance_name=\"$node\",job_name=\"$job\"}",
@@ -23538,7 +23538,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
               "expr": "node_tcp_connection_states{state=\"time_wait\",instance_name=\"$node\",job_name=\"$job\"}",
@@ -23560,7 +23560,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -23572,7 +23572,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "000000001"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -23585,7 +23585,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -23673,7 +23673,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_scrape_collector_duration_seconds{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -23691,7 +23691,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "description": "",
           "fieldConfig": {
@@ -23802,7 +23802,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_scrape_collector_success{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -23816,7 +23816,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APO-VICTORIAMETRIC}"
+                "uid": "APO-VictoriaMetric"
               },
               "expr": "node_textfile_scrape_error{instance_name=\"$node\",job_name=\"$job\"}",
               "format": "time_series",
@@ -23836,7 +23836,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "000000001"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
@@ -23876,7 +23876,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_APO-VICTORIAMETRIC}"
+          "uid": "APO-VictoriaMetric"
         },
         "definition": "label_values(node_uname_info,job_name)",
         "hide": 0,
@@ -23903,7 +23903,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_APO-VICTORIAMETRIC}"
+          "uid": "APO-VictoriaMetric"
         },
         "definition": "label_values(node_uname_info{job_name=\"$job\"},instance_name)",
         "hide": 0,

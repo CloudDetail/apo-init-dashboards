@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 9,
+  "id": 14,
   "links": [],
   "panels": [
     {
@@ -115,7 +115,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 74
+            "y": 1
           },
           "id": 6,
           "options": {
@@ -221,7 +221,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 74
+            "y": 1
           },
           "id": 7,
           "options": {
@@ -343,7 +343,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 75
+            "y": 2
           },
           "id": 8,
           "options": {
@@ -1344,8 +1344,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1361,7 +1360,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 78
+            "y": 5
           },
           "id": 58,
           "options": {
@@ -1434,7 +1433,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1489,6 +1489,17 @@
                   {
                     "id": "custom.width",
                     "value": 60
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "系统"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width"
                   }
                 ]
               }
@@ -1654,7 +1665,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1753,7 +1765,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1877,7 +1890,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1990,7 +2004,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2102,7 +2117,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2201,7 +2217,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2299,7 +2316,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2395,7 +2413,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2492,7 +2511,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2532,12 +2552,26 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"true\"}",
+              "expr": "sum(jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"true\"})",
+              "hide": false,
+              "instant": false,
+              "interval": "$resolution",
+              "legendFormat": "total",
+              "range": true,
+              "refId": "total"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"true\",jvm_thread_state!=\"\"}",
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "{{jvm_thread_state}}",
               "range": true,
-              "refId": "A"
+              "refId": "thread_status"
             }
           ],
           "title": "守护线程各状态线程数统计",
@@ -2591,7 +2625,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2631,12 +2666,26 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"false\"}",
+              "expr": "sum(jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"false\"})",
+              "instant": false,
+              "interval": "$resolution",
+              "legendFormat": "total",
+              "range": true,
+              "refId": "total"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"false\",jvm_thread_state!=\"\"}",
+              "hide": false,
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "{{jvm_thread_state}}",
               "range": true,
-              "refId": "A"
+              "refId": "thread_status"
             }
           ],
           "title": "非守护线程各状态线程数统计",
@@ -3904,8 +3953,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4352,8 +4400,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4592,8 +4639,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4734,8 +4780,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5169,7 +5214,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "1m",
           "value": "1m"
         },
@@ -5282,26 +5327,26 @@
         "current": {
           "selected": true,
           "text": [
-            "None"
+            "All"
           ],
           "value": [
-            ""
+            "$__all"
           ]
         },
         "datasource": {
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "query_result(jvm_cpu_count{host_name=~\"$pod\"} or jvm_cpu_count{host_name=~\"$related_nodes\", process_pid =~\"$related_pid\",service_name=~\"$service_name\"})",
+        "definition": "query_result(jvm_cpu_count{host_name=~\"$pod\"} or jvm_cpu_count{service_name=~\"$service_name\",vm=\"$service_type\"})",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "JVM实例",
         "multi": true,
         "name": "jvm_instance",
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result(jvm_cpu_count{host_name=~\"$pod\"} or jvm_cpu_count{host_name=~\"$related_nodes\", process_pid =~\"$related_pid\",service_name=~\"$service_name\"})",
+          "query": "query_result(jvm_cpu_count{host_name=~\"$pod\"} or jvm_cpu_count{service_name=~\"$service_name\",vm=\"$service_type\"})",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,

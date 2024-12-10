@@ -209,7 +209,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -244,7 +244,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -366,7 +366,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -401,7 +401,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -459,7 +459,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -485,7 +485,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -543,7 +543,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -586,7 +586,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -680,7 +680,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -703,7 +703,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -726,7 +726,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -759,7 +759,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -899,7 +899,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -922,7 +922,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -945,7 +945,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -978,7 +978,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -1061,7 +1061,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -1083,7 +1083,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -1115,7 +1115,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -1168,7 +1168,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -1194,7 +1194,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -1315,7 +1315,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1337,7 +1337,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1371,7 +1371,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -1562,7 +1562,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1585,7 +1585,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1608,7 +1608,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1631,7 +1631,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1654,7 +1654,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1677,7 +1677,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -1712,7 +1712,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -1937,7 +1937,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -1959,7 +1959,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -1982,7 +1982,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -2031,7 +2031,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -2134,7 +2134,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2157,7 +2157,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2203,7 +2203,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -2333,7 +2333,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2355,7 +2355,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2391,7 +2391,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -2514,7 +2514,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2537,7 +2537,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2572,7 +2572,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -2637,7 +2637,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2672,7 +2672,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -2731,7 +2731,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 1,
@@ -2757,7 +2757,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -2845,7 +2845,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2868,7 +2868,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -2915,7 +2915,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -3034,7 +3034,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3057,7 +3057,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3093,7 +3093,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -3201,7 +3201,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3224,7 +3224,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3259,7 +3259,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -3392,7 +3392,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3414,7 +3414,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3451,7 +3451,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "ce5zzfsnxf11cd"
+          "uid": "APO-Clickhouse"
         },
         "fieldConfig": {
           "defaults": {
@@ -3535,7 +3535,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3558,7 +3558,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "editorType": "sql",
             "format": 0,
@@ -3604,7 +3604,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -3733,7 +3733,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -3768,7 +3768,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -3897,7 +3897,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -3932,7 +3932,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -4016,7 +4016,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -4052,7 +4052,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -4136,7 +4136,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -4159,7 +4159,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -4191,7 +4191,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -4277,7 +4277,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -4312,7 +4312,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -4400,7 +4400,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -4423,7 +4423,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -4469,7 +4469,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -4616,7 +4616,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -4642,7 +4642,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -4806,7 +4806,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -4832,7 +4832,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5009,7 +5009,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -5049,7 +5049,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5137,7 +5137,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -5172,7 +5172,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5257,7 +5257,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -5293,7 +5293,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5377,7 +5377,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -5412,7 +5412,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5497,7 +5497,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -5533,7 +5533,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5632,7 +5632,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -5658,7 +5658,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5811,7 +5811,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -5837,7 +5837,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -5997,7 +5997,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6037,7 +6037,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6153,7 +6153,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6179,7 +6179,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6326,7 +6326,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6362,7 +6362,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6423,7 +6423,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6449,7 +6449,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6510,7 +6510,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6536,7 +6536,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6596,7 +6596,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6622,7 +6622,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6679,7 +6679,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6705,7 +6705,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6764,7 +6764,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6790,7 +6790,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6852,7 +6852,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -6878,7 +6878,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -6974,7 +6974,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -7009,7 +7009,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -7118,7 +7118,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -7153,7 +7153,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -7253,7 +7253,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -7288,7 +7288,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -7385,7 +7385,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -7411,7 +7411,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -7559,7 +7559,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -7600,7 +7600,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -7729,7 +7729,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -7751,7 +7751,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -7787,7 +7787,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -7979,7 +7979,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -8002,7 +8002,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -8025,7 +8025,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -8048,7 +8048,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -8071,7 +8071,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -8094,7 +8094,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -8129,7 +8129,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -8339,7 +8339,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -8361,7 +8361,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -8384,7 +8384,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -8433,7 +8433,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -8561,7 +8561,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -8596,7 +8596,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -8818,7 +8818,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 2,
@@ -8884,7 +8884,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -8963,7 +8963,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -8985,7 +8985,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -9012,7 +9012,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -9097,7 +9097,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -9123,7 +9123,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -9290,7 +9290,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -9330,7 +9330,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -9459,7 +9459,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9481,7 +9481,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9517,7 +9517,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -9709,7 +9709,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9732,7 +9732,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9755,7 +9755,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9778,7 +9778,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9801,7 +9801,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9824,7 +9824,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9859,7 +9859,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -9966,7 +9966,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -9988,7 +9988,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -10024,7 +10024,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -10153,7 +10153,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 0,
@@ -10188,7 +10188,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -10410,7 +10410,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 2,
@@ -10475,7 +10475,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -10610,7 +10610,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -10650,7 +10650,7 @@
           {
             "datasource": {
               "type": "grafana-clickhouse-datasource",
-              "uid": "ce5zzfsnxf11cd"
+              "uid": "APO-Clickhouse"
             },
             "fieldConfig": {
               "defaults": {
@@ -10884,7 +10884,7 @@
               {
                 "datasource": {
                   "type": "grafana-clickhouse-datasource",
-                  "uid": "ce5zzfsnxf11cd"
+                  "uid": "APO-Clickhouse"
                 },
                 "editorType": "sql",
                 "format": 1,
@@ -10972,7 +10972,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "ce5zzfsnxf11cd"
+            "uid": "APO-Clickhouse"
           },
           "definition": "select concat(database, '.', name)\nfrom system.tables\nwhere database = 'apo' and name like 'logs_%'",
           "hide": 0,
@@ -10997,7 +10997,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "ce5zzfsnxf11cd"
+            "uid": "APO-Clickhouse"
           },
           "definition": "SELECT\nconcat(server_ip ,'#server_ip = \\'',server_ip,'\\'') \nfrom $project PREWHERE $__timeFilter(timestamp) \ngroup by server_ip",
           "description": "关联所有图表",
@@ -11023,7 +11023,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "ce5zzfsnxf11cd"
+            "uid": "APO-Clickhouse"
           },
           "definition": "select\nconcat(domain,'#domain = \\'',domain,'\\'') \nFROM ${project}\n\tPREWHERE $__timeFilter(timestamp) and ${server_ip}\n\tgroup by domain \n\torder by count() desc\n",
           "description": "关联所有图表",
@@ -11103,7 +11103,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "ce5zzfsnxf11cd"
+            "uid": "APO-Clickhouse"
           },
           "definition": "select path FROM ${project}\n\tPREWHERE $__timeFilter(timestamp) and ${server_ip} and ${domain}  and ${status}\n\tgroup by path\n\torder by count() desc\nlimit 100\n",
           "description": "请选择请求URI（列表仅展示时间范围内请求量前100的URI），如未找到，可直接输入完整的请求URI（不包含参数），如：/StarsL/api",
@@ -11129,7 +11129,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "ce5zzfsnxf11cd"
+            "uid": "APO-Clickhouse"
           },
           "definition": "select client_ip FROM ${project}\n\tPREWHERE $__timeFilter(timestamp) and ${server_ip} and ${domain}  and ${status}\n\tgroup by client_ip\n\torder by count() desc\nlimit 100\n",
           "description": "请选择用户IP（列表仅展示时间范围内请求量前100的用户IP），如未找到，可直接输入完整的用户IP，如：123.123.123.123",

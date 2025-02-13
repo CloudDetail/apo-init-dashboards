@@ -36,7 +36,9 @@ jobs:
       run: |
         DATE=$(date +"%Y%m%d%H%M%S%Z")
         IMAGE_TAG_NAME="${BRANCH_NAME}-${COMMIT_HASH::7}-${DATE}"
+        IMAGE_TAG_NAME_ARM64="${BRANCH_NAME}-${COMMIT_HASH::7}-${DATE}-arm64"
         echo "IMAGE_TAG_NAME=$IMAGE_TAG_NAME" >> "$GITHUB_ENV"
+        echo "IMAGE_TAG_NAME_ARM64=$IMAGE_TAG_NAME_ARM64" >> "$GITHUB_ENV"
 
     - name: Build and push amd64 image
       uses: docker/build-push-action@v2
@@ -69,4 +71,4 @@ jobs:
         build-args: |
           APP_NAME=${{ env.CONTAINER_NAME }}
         tags: |
-          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${{ env.IMAGE_TAG_NAME }}-arm64
+          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${{ env.IMAGE_TAG_NAME_ARM64 }}

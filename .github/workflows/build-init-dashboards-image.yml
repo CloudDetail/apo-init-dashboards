@@ -22,28 +22,31 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Build init-dashboards image
-      id: build-image
-      env:
-        BRANCH_NAME: ${{ github.ref_name }}
-        COMMIT_HASH: ${{ github.sha }}
-      run: |
-        DATE=$(date +"%Y%m%d%H%M%S%Z")
-        IMAGE_TAG_NAME="${BRANCH_NAME}-${COMMIT_HASH::7}-${DATE}"
-        echo "IMAGE_TAG_NAME=$IMAGE_TAG_NAME" >> "$GITHUB_OUTPUT"
-
-        IMAGE_FULL_NAME="${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/${{ env.CONTAINER_NAME }}:$IMAGE_TAG_NAME"
-        echo "IMAGE_FULL_NAME=$IMAGE_FULL_NAME" >> "$GITHUB_ENV"
-        docker build -t $IMAGE_FULL_NAME .
-
     - name: Log in to container registry
       uses: docker/login-action@v3
       with:
         registry: ${{ env.REGISTRY_HOST }}
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
-
-    - name: Push to container registry
+    
+    - name: Generate image tag
+      env:
+        BRANCH_NAME: ${{ github.ref_name }}
+        COMMIT_HASH: ${{ github.sha }}
       run: |
-        echo "IMAGE_FULL_NAME=$IMAGE_FULL_NAME"
-        docker push $IMAGE_FULL_NAME
+        DATE=$(date +"%Y%m%d%H%M%S%Z")
+        IMAGE_TAG_NAME="${BRANCH_NAME}-${COMMIT_HASH::7}-${DATE}"
+        echo "IMAGE_TAG_NAME=$IMAGE_TAG_NAME" >> "$GITHUB_ENV"
+
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        platforms: |
+          linux/amd64
+          linux/arm64
+        push: true
+        build-args: |
+          APP_NAME=${{ env.CONTAINER_NAME }}
+        tags: |
+          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}:${{ env.IMAGE_TAG_NAME }}

@@ -38,15 +38,35 @@ jobs:
         IMAGE_TAG_NAME="${BRANCH_NAME}-${COMMIT_HASH::7}-${DATE}"
         echo "IMAGE_TAG_NAME=$IMAGE_TAG_NAME" >> "$GITHUB_ENV"
 
-    - name: Build and push
+    - name: Build and push amd64 image
       uses: docker/build-push-action@v2
       with:
         context: .
         platforms: |
           linux/amd64
+        push: true
+        build-args: |
+          APP_NAME=${{ env.CONTAINER_NAME }}
+        tags: |
+          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${{ env.IMAGE_TAG_NAME }}
+
+          - name: Generate image tag
+          env:
+            BRANCH_NAME: ${{ github.ref_name }}
+            COMMIT_HASH: ${{ github.sha }}
+          run: |
+            DATE=$(date +"%Y%m%d%H%M%S%Z")
+            IMAGE_TAG_NAME="${BRANCH_NAME}-${COMMIT_HASH::7}-${DATE}"
+            echo "IMAGE_TAG_NAME=$IMAGE_TAG_NAME" >> "$GITHUB_ENV"
+    
+    - name: Build and push arm64 image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        platforms: |
           linux/arm64
         push: true
         build-args: |
           APP_NAME=${{ env.CONTAINER_NAME }}
         tags: |
-          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}:${{ env.IMAGE_TAG_NAME }}
+          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${{ env.IMAGE_TAG_NAME }}-arm64

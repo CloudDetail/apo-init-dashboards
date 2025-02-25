@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_APO-VICTORIAMETRIC",
-      "label": "APO-VictoriaMetric",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "__elements": {},
   "__requires": [
     {
@@ -55,7 +45,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -138,7 +128,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -156,7 +146,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -240,7 +230,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -258,7 +248,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_APO-VICTORIAMETRIC}"
+        "uid": "APO-VictoriaMetric"
       },
       "fieldConfig": {
         "defaults": {
@@ -366,7 +356,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APO-VICTORIAMETRIC}"
+            "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
           "expr": "sum by (svc_name, db_system, db_name, name, db_url) (irate(kindling_db_duration_nanoseconds_count{svc_name=\"$service\"}[$__rate_interval]))  ",
@@ -448,7 +438,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_APO-VICTORIAMETRIC}"
+          "uid": "APO-VictoriaMetric"
         },
         "definition": "label_values(kindling_db_duration_nanoseconds_sum,svc_name)",
         "hide": 0,

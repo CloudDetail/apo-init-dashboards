@@ -1,4 +1,47 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_APO-VICTORIAMETRIC",
+      "label": "APO-VictoriaMetric",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -25,7 +68,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 10,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -49,7 +92,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "fieldConfig": {
         "defaults": {
@@ -106,7 +149,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -119,11 +162,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg(sum by (core) (rate(windows_cpu_time_total{mode!=\"idle\", cluster=\"$cluster\"}[$__rate_interval])))",
+          "expr": "avg(sum by (core) (rate(windows_cpu_time_total{mode!=\"idle\", cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])))",
           "hide": true,
           "interval": "",
           "legendFormat": "Real Windows",
@@ -133,10 +176,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", cluster=\"$cluster\"}) / sum(machine_cpu_cores{cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_cpu_cores{cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Requests",
           "range": true,
@@ -145,10 +188,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", cluster=\"$cluster\"}) / sum(machine_cpu_cores{cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_cpu_cores{cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Limits",
           "range": true,
@@ -196,7 +239,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "fieldConfig": {
         "defaults": {
@@ -255,7 +298,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -269,11 +312,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(windows_memory_available_bytes{cluster=\"$cluster\"} + windows_memory_cache_bytes{cluster=\"$cluster\"}) / sum(windows_os_visible_memory_bytes{cluster=\"$cluster\"})",
+          "expr": "sum(windows_memory_available_bytes{cluster=\"$cluster\", job_name=\"$job_name\"} + windows_memory_cache_bytes{cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(windows_os_visible_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "interval": "",
           "legendFormat": "Real Windows",
@@ -283,10 +326,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", cluster=\"$cluster\"}) / sum(machine_memory_bytes{cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Requests",
           "range": true,
@@ -295,10 +338,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", cluster=\"$cluster\"}) / sum(machine_memory_bytes{cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Limits",
           "range": true,
@@ -347,7 +390,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "命名空间数量(Namespaces)",
       "fieldConfig": {
@@ -368,7 +411,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 2,
+        "w": 3,
         "x": 17,
         "y": 1
       },
@@ -396,10 +439,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "count(group by (namespace) (container_memory_rss))",
+          "expr": "count(group by (namespace) (container_memory_rss{job_name=\"$cadvisor_job_name\"}))",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -412,7 +455,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "节点数(Node)",
       "fieldConfig": {
@@ -433,7 +476,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 2,
+        "w": 3,
         "x": 17,
         "y": 5
       },
@@ -461,11 +504,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "count(group by (instance_name) (container_memory_rss))",
+          "expr": "count(group by (instance_name) (container_memory_rss{job_name=\"$cadvisor_job_name\"}))",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -478,7 +521,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "fieldConfig": {
         "defaults": {
@@ -527,7 +570,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -541,11 +584,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(windows_cpu_time_total{mode!=\"idle\", cluster=\"$cluster\"}[$__rate_interval]))",
+          "expr": "sum(rate(windows_cpu_time_total{mode!=\"idle\", cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval]))",
           "hide": true,
           "interval": "",
           "legendFormat": "Real Windows",
@@ -555,10 +598,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Requests",
           "range": true,
@@ -567,10 +610,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Limits",
           "range": true,
@@ -579,10 +622,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "max_over_time(sum ((group by (instance_name,cpu) (node_cpu_seconds_total)))[5m])",
+          "expr": "max_over_time(sum ((group by (instance_name,cpu) (node_cpu_seconds_total{job_name=\"$job_name\"})))[5m])",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Total",
@@ -643,7 +686,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "内存使用量(RAM Usage)",
       "fieldConfig": {
@@ -693,7 +736,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -706,11 +749,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(windows_os_visible_memory_bytes{cluster=\"$cluster\"} - windows_memory_available_bytes{cluster=\"$cluster\"} - windows_memory_cache_bytes{cluster=\"$cluster\"})",
+          "expr": "sum(windows_os_visible_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"} - windows_memory_available_bytes{cluster=\"$cluster\", job_name=\"$job_name\"} - windows_memory_cache_bytes{cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "interval": "",
           "legendFormat": "Real Windows",
@@ -720,10 +763,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Requests",
           "range": true,
@@ -732,10 +775,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", cluster=\"$cluster\"})",
+          "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": true,
           "legendFormat": "Limits",
           "range": true,
@@ -744,10 +787,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(max_over_time(node_memory_MemTotal_bytes{cluster=\"$cluster\"}[5m]))",
+          "expr": "sum(max_over_time(node_memory_MemTotal_bytes{cluster=\"$cluster\", job_name=\"$job_name\"}[5m]))",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Total",
@@ -802,7 +845,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "运行的Pod数(Running Pod)",
       "fieldConfig": {
@@ -823,7 +866,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 2,
+        "w": 3,
         "x": 17,
         "y": 9
       },
@@ -851,10 +894,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(group by (pod) (container_memory_rss))",
+          "expr": "sum(group by (pod) (container_memory_rss{job_name=\"$cadvisor_job_name\"}))",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -867,7 +910,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "集群CPU使用率 (Cluster CPU Utilization)",
       "fieldConfig": {
@@ -958,7 +1001,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -971,11 +1014,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "1 - avg(rate(windows_cpu_time_total{cluster=\"$cluster\",mode=\"idle\"}[$__rate_interval]))",
+          "expr": "1 - avg(rate(windows_cpu_time_total{cluster=\"$cluster\",mode=\"idle\", job_name=\"$job_name\"}[$__rate_interval]))",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Windows",
@@ -1002,7 +1045,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "集群内存使用率(Cluster Memory Utilization)",
       "fieldConfig": {
@@ -1093,7 +1136,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1106,11 +1149,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(windows_os_visible_memory_bytes{cluster=\"$cluster\"} - windows_memory_available_bytes{cluster=\"$cluster\"}) / sum(windows_os_visible_memory_bytes{cluster=\"$cluster\"})",
+          "expr": "sum(windows_os_visible_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"} - windows_memory_available_bytes{cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(windows_os_visible_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"})",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Windows",
@@ -1137,7 +1180,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "设备的网络利用率(Global Network Utilization by device),移除了常见的虚拟设备以避免噪音(veth,azv,lxc,cali)",
       "fieldConfig": {
@@ -1243,7 +1286,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1256,7 +1299,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1269,11 +1312,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(windows_net_bytes_received_total{cluster=\"$cluster\"}[$__rate_interval])) by (nic)",
+          "expr": "sum(rate(windows_net_bytes_received_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (nic)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Received : {{ nic }}",
@@ -1283,11 +1326,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "- sum(rate(windows_net_bytes_sent_total{cluster=\"$cluster\"}[$__rate_interval])) by (nic)",
+          "expr": "- sum(rate(windows_net_bytes_sent_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (nic)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Transmitted : {{ device }}",
@@ -1301,7 +1344,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "网络饱和 - 丢包数(Network Saturation - Packets Dropped)",
       "fieldConfig": {
@@ -1382,7 +1425,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1395,7 +1438,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1408,11 +1451,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(windows_net_packets_received_discarded_total{cluster=\"$cluster\"}[$__rate_interval]))",
+          "expr": "sum(rate(windows_net_packets_received_discarded_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval]))",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Windows Packets dropped (receive)",
@@ -1422,11 +1465,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "- sum(rate(windows_net_packets_outbound_discarded_total{cluster=\"$cluster\"}[$__rate_interval]))",
+          "expr": "- sum(rate(windows_net_packets_outbound_discarded_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval]))",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Windows Packets dropped (transmit)",
@@ -1502,7 +1545,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "节点CPU使用率(CPU Utilization by instance)",
       "fieldConfig": {
@@ -1590,7 +1633,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1603,11 +1646,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg(sum by (instance_name,core) (rate(windows_cpu_time_total{mode!=\"idle\", cluster=\"$cluster\"}[$__rate_interval]))) by (instance_name)",
+          "expr": "avg(sum by (instance_name,core) (rate(windows_cpu_time_total{mode!=\"idle\", cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval]))) by (instance_name)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "{{ node }}",
@@ -1621,7 +1664,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "节点内存使用量(Memory Utilization by instance)",
       "fieldConfig": {
@@ -1708,7 +1751,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1722,11 +1765,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(windows_os_visible_memory_bytes{cluster=\"$cluster\"} - windows_memory_available_bytes{cluster=\"$cluster\"}) by (instance_name)",
+          "expr": "sum(windows_os_visible_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"} - windows_memory_available_bytes{cluster=\"$cluster\", job_name=\"$job_name\"}) by (instance_name)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "{{ instance_name }}",
@@ -1740,7 +1783,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "节点的网络使用量(Total Network Received with all virtual devices by instance), 含虚拟设备和回环网卡",
       "fieldConfig": {
@@ -1795,32 +1838,7 @@
           },
           "unit": "bytes"
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "接收: large-server-6"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -1846,7 +1864,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1859,7 +1877,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "expr": "- sum(rate(node_network_transmit_bytes_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
@@ -1872,11 +1890,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(windows_net_bytes_received_total{cluster=\"$cluster\"}[$__rate_interval])) by (instance_name)",
+          "expr": "sum(rate(windows_net_bytes_received_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Received bytes in {{ instance_name }}",
@@ -1886,10 +1904,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "- sum(rate(windows_net_bytes_sent_total{cluster=\"$cluster\"}[$__rate_interval])) by (instance_name)",
+          "expr": "- sum(rate(windows_net_bytes_sent_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Transmitted bytes in {{ instance_name }}",
@@ -1903,7 +1921,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "节点的网络使用量,不含回环/虚拟设备(Network Received without loopback by instance)",
       "fieldConfig": {
@@ -1984,7 +2002,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1997,7 +2015,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "expr": "- sum(rate(node_network_transmit_bytes_total{device!~\"(veth|azv|lxc|lo|cali).*\", cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
@@ -2010,11 +2028,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(windows_net_bytes_received_total{nic!~\".*Virtual.*\",cluster=\"$cluster\"}[$__rate_interval])) by (instance_name)",
+          "expr": "sum(rate(windows_net_bytes_received_total{nic!~\".*Virtual.*\",cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Received bytes in {{ instance_name }}",
@@ -2024,11 +2042,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "- sum(rate(windows_net_bytes_sent_total{nic!~\".*Virtual.*\",cluster=\"$cluster\"}[$__rate_interval])) by (instance_name)",
+          "expr": "- sum(rate(windows_net_bytes_sent_total{nic!~\".*Virtual.*\",cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "Transmitted bytes in {{ instance_name }}",
@@ -2042,7 +2060,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "节点(Network Received (loopback only) by instance)",
       "fieldConfig": {
@@ -2123,7 +2141,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2136,7 +2154,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "expr": "- sum(rate(node_network_transmit_bytes_total{device=\"lo\", cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
@@ -2153,7 +2171,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "节点CPU限流时长(CPU Core Throttled by instance), 没数据说明CPU充足或未做限制",
       "fieldConfig": {
@@ -2244,7 +2262,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2274,7 +2292,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "命名空间的CPU使用量(CPU Utilization by namespace)",
       "fieldConfig": {
@@ -2365,17 +2383,32 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(container_cpu_usage_seconds_total{image!=\"\", cluster=\"$cluster\"}[$__rate_interval])) by (namespace) OR (group by (namespace) (container_memory_rss{job_name=\"$container_metric_source\",cluster=\"$cluster\"}) * 0 ) ",
+          "expr": "sum(rate(container_cpu_usage_seconds_total{image!=\"\", cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}[$__rate_interval])) by (namespace) OR (group by (namespace) (container_memory_rss{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}) * 0 ) ",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "{{ namespace }}",
           "range": true,
-          "refId": "A"
+          "refId": "Containerd"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APO-VICTORIAMETRIC}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "sum(rate(container_cpu_usage_seconds_total{ cluster=\"$cluster\",job_name=\"$cadvisor_job_name\",id=~\".*docker.*\"}[$__rate_interval])) by (namespace) OR (group by (namespace) (container_memory_rss{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\",id=~\".*docker.*\"}) * 0 ) ",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$resolution",
+          "legendFormat": "{{ namespace }}",
+          "range": true,
+          "refId": "Docker"
         }
       ],
       "title": "命名空间的CPU使用量",
@@ -2384,7 +2417,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "命名空间的CPU限流时长(CPU Throttled seconds by namespace), 没数据说明没有被限制,意味着CPU充足或者未进行限制",
       "fieldConfig": {
@@ -2475,15 +2508,30 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(container_cpu_cfs_throttled_seconds_total{image!=\"\", cluster=\"$cluster\"}[$__rate_interval])) by (namespace) > 0",
+          "expr": "sum(rate(container_cpu_cfs_throttled_seconds_total{image!=\"\", cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}[$__rate_interval])) by (namespace) > 0",
+          "hide": false,
           "interval": "$resolution",
           "legendFormat": "{{ namespace }}",
           "range": true,
-          "refId": "A"
+          "refId": "Containerd"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APO-VICTORIAMETRIC}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "sum(rate(container_cpu_cfs_throttled_seconds_total{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\",id=~\".*docker.*\"}[$__rate_interval])) by (namespace) > 0",
+          "hide": false,
+          "interval": "$resolution",
+          "legendFormat": "{{ namespace }}",
+          "range": true,
+          "refId": "Docker"
         }
       ],
       "title": "命名空间的CPU限流时长",
@@ -2492,7 +2540,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "命名空间的网络使用量(Network Received by namespace)",
       "fieldConfig": {
@@ -2558,10 +2606,14 @@
       "id": 79,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "hidden",
-          "placement": "bottom",
-          "showLegend": false
+          "calcs": [
+            "min",
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -2573,11 +2625,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(container_network_receive_bytes_total{cluster=\"$cluster\",namespace!=\"\"}[$__rate_interval])) by (namespace)\nOR (group by (namespace) (container_memory_rss{job_name=\"$container_metric_source\",cluster=\"$cluster\"}) * 0 ) ",
+          "expr": "sum(rate(container_network_receive_bytes_total{cluster=\"$cluster\",namespace!=\"\",job_name=\"$cadvisor_job_name\"}[$__rate_interval])) by (namespace)\nOR (group by (namespace) (container_memory_rss{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}) * 0 ) ",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "接收 : {{ namespace }}",
@@ -2587,10 +2639,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "- (sum(rate(container_network_transmit_bytes_total{cluster=\"$cluster\",namespace!=\"\"}[$__rate_interval])) by (namespace)\nOR (group by (namespace) (container_memory_rss{job_name=\"$container_metric_source\",cluster=\"$cluster\"}) * 0 ) )",
+          "expr": "- (sum(rate(container_network_transmit_bytes_total{cluster=\"$cluster\",namespace!=\"\",job_name=\"$cadvisor_job_name\"}[$__rate_interval])) by (namespace)\nOR (group by (namespace) (container_memory_rss{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}) * 0 ) )",
           "hide": false,
           "interval": "$resolution",
           "legendFormat": "发送 : {{ namespace }}",
@@ -2604,7 +2656,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "命名空间的内存使用量(Memory Utilization by namespace)",
       "fieldConfig": {
@@ -2691,15 +2743,30 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(container_memory_working_set_bytes{image!=\"\", cluster=\"$cluster\"}) by (namespace)\n OR (group by (namespace) (container_memory_rss{job_name=\"$container_metric_source\",cluster=\"$cluster\"}) * 0 ) ",
+          "expr": "sum(container_memory_working_set_bytes{image!=\"\", cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}) by (namespace)\n OR (group by (namespace) (container_memory_rss{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}) * 0 ) ",
+          "hide": false,
           "interval": "$resolution",
           "legendFormat": "{{ namespace }}",
           "range": true,
-          "refId": "A"
+          "refId": "Containerd"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APO-VICTORIAMETRIC}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\",id=~\".*docker.*\"}) by (namespace)\n OR (group by (namespace) (container_memory_rss{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\",id=~\".*docker.*\"}) * 0 ) ",
+          "hide": false,
+          "interval": "$resolution",
+          "legendFormat": "{{ namespace }}",
+          "range": true,
+          "refId": "Docker"
         }
       ],
       "title": "命名空间的内存使用量",
@@ -2730,15 +2797,10 @@
         "type": "datasource"
       },
       {
-        "current": {
-          "isNone": true,
-          "selected": false,
-          "text": "None",
-          "value": ""
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
         "definition": "label_values(kube_node_info,cluster)",
         "hide": 0,
@@ -2807,24 +2869,16 @@
         "type": "custom"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "integrations/unix"
-          ],
-          "value": [
-            "integrations/unix"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
         "definition": "label_values(node_cpu_seconds_total{cluster=\"$cluster\"},job_name)",
-        "hide": 2,
+        "hide": 0,
         "includeAll": false,
-        "label": "",
-        "multi": true,
+        "label": "主机指标 Job",
+        "multi": false,
         "name": "job_name",
         "options": [],
         "query": {
@@ -2837,6 +2891,30 @@
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_APO-VICTORIAMETRIC}"
+        },
+        "definition": "label_values(container_cpu_usage_seconds_total,job_name)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "容器指标 Job",
+        "multi": false,
+        "name": "cadvisor_job_name",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(container_cpu_usage_seconds_total,job_name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -2848,6 +2926,6 @@
   "timezone": "",
   "title": "集群总览",
   "uid": "k8s_views_global",
-  "version": 10,
+  "version": 8,
   "weekStart": ""
 }

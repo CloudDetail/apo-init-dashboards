@@ -1,4 +1,41 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_APO-VICTORIAMETRIC",
+      "label": "APO-VictoriaMetric",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -18,7 +55,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 14,
+  "id": null,
   "links": [],
   "panels": [
     {
@@ -34,7 +71,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -139,15 +176,28 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval])) by (container,pod)",
+              "expr": "sum by (container,pod) (rate(container_cpu_usage_seconds_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval])) ",
               "interval": "$resolution",
               "legendFormat": "{{pod}}: {{ container }}",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APO-VICTORIAMETRIC}"
+              },
+              "editorMode": "code",
+              "expr": "sum by (pod) (rate(container_cpu_usage_seconds_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\", id=~\".*docker.*\" }[$__rate_interval])) ",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "{{pod}}",
+              "range": true,
+              "refId": "Docker"
             }
           ],
           "title": "容器CPU使用率",
@@ -156,7 +206,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "容器CPU节流时间(CPU Throttled seconds),没有数据说明CPU充足或者未做限制",
           "fieldConfig": {
@@ -247,15 +297,28 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(container_cpu_cfs_throttled_seconds_total{namespace=~\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval])) by (container,pod)",
+              "expr": "sum by (container,pod) (rate(container_cpu_cfs_throttled_seconds_total{namespace=~\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval])) ",
               "interval": "$resolution",
               "legendFormat": "{{pod}}:{{ container }}",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APO-VICTORIAMETRIC}"
+              },
+              "editorMode": "code",
+              "exemplar": true,
+              "expr": "sum by (pod) (rate(container_cpu_cfs_throttled_seconds_total{namespace=~\"$namespace\", pod=~\"$pod\",  job_name=\"$cadvisor_job_name\", id=~\".*docker.*\"}[$__rate_interval])) ",
+              "interval": "$resolution",
+              "legendFormat": "{{pod}}",
+              "range": true,
+              "refId": "Docker"
             }
           ],
           "title": "容器CPU节流时间",
@@ -278,7 +341,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -367,15 +430,28 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(container_memory_working_set_bytes{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}) by (container,pod)",
+              "expr": "sum(container_memory_working_set_bytes{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}) by (container,pod)",
               "interval": "$resolution",
               "legendFormat": "{{pod}}: {{ container }}",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APO-VICTORIAMETRIC}"
+              },
+              "editorMode": "code",
+              "exemplar": true,
+              "expr": "sum(container_memory_working_set_bytes{namespace=\"$namespace\", pod=~\"$pod\",job_name=\"$cadvisor_job_name\", id=~\".*docker.*\"}) by (pod)",
+              "interval": "$resolution",
+              "legendFormat": "{{pod}}",
+              "range": true,
+              "refId": "Docker"
             }
           ],
           "title": "容器内存使用率",
@@ -398,7 +474,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -458,7 +534,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 75
+            "y": 3
           },
           "id": 21,
           "options": {
@@ -477,29 +553,56 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
-              "expr": "sum by (pod,container)(rate(container_fs_reads_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "sum by (pod,container)(rate(container_fs_reads_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "Read {{pod}}:{{container}}",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd Read"
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
-              "expr": "- sum by (pod,container)(rate(container_fs_writes_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "- sum by (pod,container)(rate(container_fs_writes_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "hide": false,
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "Write {{pod}}:{{container}}",
               "range": true,
-              "refId": "B"
+              "refId": "Containerd Write"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APO-VICTORIAMETRIC}"
+              },
+              "editorMode": "code",
+              "expr": "sum by (pod)(rate(container_fs_reads_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\", id=~\".*docker.*\"}[$__rate_interval]))",
+              "instant": false,
+              "interval": "$resolution",
+              "legendFormat": "Read {{pod}}",
+              "range": true,
+              "refId": "Docker Read"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APO-VICTORIAMETRIC}"
+              },
+              "editorMode": "code",
+              "expr": "- sum by (pod)(rate(container_fs_writes_bytes_total{namespace=\"$namespace\", pod=~\"$pod\",job_name=\"$cadvisor_job_name\", id=~\".*docker.*\"}[$__rate_interval]))",
+              "hide": false,
+              "instant": false,
+              "interval": "$resolution",
+              "legendFormat": "Write {{pod}}",
+              "range": true,
+              "refId": "Docker Write"
             }
           ],
           "title": "读写字节数 /s",
@@ -508,7 +611,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -568,7 +671,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 75
+            "y": 3
           },
           "id": 22,
           "options": {
@@ -587,29 +690,29 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
-              "expr": "sum by (pod,container)(rate(container_fs_read_seconds_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "sum by (pod,container)(rate(container_fs_read_seconds_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "Read {{pod}}:{{container}}",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd Read"
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
-              "expr": "- sum by (pod,container)(rate(container_fs_write_seconds_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "- sum by (pod,container)(rate(container_fs_write_seconds_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "hide": false,
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "Write {{pod}}:{{container}}",
               "range": true,
-              "refId": "B"
+              "refId": "Containerd Write"
             }
           ],
           "title": "读写花费时间 /s",
@@ -618,7 +721,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -679,7 +782,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 83
+            "y": 11
           },
           "id": 23,
           "options": {
@@ -698,29 +801,56 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
-              "expr": "sum by (pod,container)(rate(container_fs_reads_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "sum by (pod,container)(rate(container_fs_reads_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "Read {{pod}}:{{container}}",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd Read"
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
-              "expr": "- sum by (pod,container)(rate(container_fs_writes_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "- sum by (pod,container)(rate(container_fs_writes_total{namespace=\"$namespace\", pod=~\"$pod\", image!=\"\", container!=\"\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "hide": false,
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "Write {{pod}}:{{container}}",
               "range": true,
-              "refId": "B"
+              "refId": "Containerd Write"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APO-VICTORIAMETRIC}"
+              },
+              "editorMode": "code",
+              "expr": "sum by (pod)(rate(container_fs_reads_total{namespace=\"$namespace\", pod=~\"$pod\",job_name=\"$cadvisor_job_name\",id=~\".*docker.*\"}[$__rate_interval]))",
+              "instant": false,
+              "interval": "$resolution",
+              "legendFormat": "Read {{pod}}",
+              "range": true,
+              "refId": "Docker Read"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APO-VICTORIAMETRIC}"
+              },
+              "editorMode": "code",
+              "expr": "- sum by (pod)(rate(container_fs_writes_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\",id=~\".*docker.*\"}[$__rate_interval]))",
+              "hide": false,
+              "instant": false,
+              "interval": "$resolution",
+              "legendFormat": "Write {{pod}}",
+              "range": true,
+              "refId": "Docker Write"
             }
           ],
           "title": "读写次数 /s",
@@ -743,7 +873,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -803,7 +933,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 76
+            "y": 4
           },
           "id": 55,
           "options": {
@@ -822,7 +952,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "disableTextWrap": false,
               "editorMode": "builder",
@@ -843,7 +973,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -904,7 +1034,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 84
+            "y": 12
           },
           "id": 9,
           "options": {
@@ -924,28 +1054,28 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(container_network_receive_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "sum(rate(container_network_receive_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "接收",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd Receive"
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "- sum(rate(container_network_transmit_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "- sum(rate(container_network_transmit_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "发送",
               "range": true,
-              "refId": "B"
+              "refId": "Containerd Send"
             }
           ],
           "title": "网络带宽使用",
@@ -954,7 +1084,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "每秒钟收发的包数量  1 p/s = 1000 mp/s",
           "fieldConfig": {
@@ -1015,7 +1145,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 84
+            "y": 12
           },
           "id": 10,
           "options": {
@@ -1035,28 +1165,28 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(container_network_receive_packets_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "sum(rate(container_network_receive_packets_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "接收",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd Receive"
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "- sum(rate(container_network_transmit_packets_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "- sum(rate(container_network_transmit_packets_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "发送",
               "range": true,
-              "refId": "B"
+              "refId": "Containerd Send"
             }
           ],
           "title": "包传输速率",
@@ -1065,7 +1195,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1125,7 +1255,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 92
+            "y": 20
           },
           "id": 11,
           "options": {
@@ -1145,28 +1275,28 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(container_network_receive_packets_dropped_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "sum(rate(container_network_receive_packets_dropped_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "Received",
               "range": true,
-              "refId": "A"
+              "refId": "Containerd Receive"
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "- sum(rate(container_network_transmit_packets_dropped_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "- sum(rate(container_network_transmit_packets_dropped_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "Transmitted",
               "range": true,
-              "refId": "B"
+              "refId": "Containerd Send"
             }
           ],
           "title": "丢包数",
@@ -1175,7 +1305,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -1236,7 +1366,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 92
+            "y": 20
           },
           "id": 12,
           "options": {
@@ -1256,11 +1386,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(container_network_receive_errors_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "sum(rate(container_network_receive_errors_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "接收",
               "range": true,
@@ -1269,11 +1399,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "- sum(rate(container_network_transmit_errors_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$container_metric_source\"}[$__rate_interval]))",
+              "expr": "- sum(rate(container_network_transmit_errors_total{namespace=\"$namespace\", pod=~\"$pod\", job_name=\"$cadvisor_job_name\"}[$__rate_interval]))",
               "interval": "$resolution",
               "legendFormat": "发送",
               "range": true,
@@ -1300,7 +1430,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1379,10 +1509,10 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "disableTextWrap": false,
-              "editorMode": "builder",
+              "editorMode": "code",
               "expr": "kindling_network_rtt{node_name=~\"$related_nodes\", pid=~\"$related_pid\"}",
               "fullMetaSearch": false,
               "includeNullMetadata": true,
@@ -1414,7 +1544,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1433,8 +1563,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1509,7 +1638,7 @@
             "h": 4,
             "w": 24,
             "x": 0,
-            "y": 6
+            "y": 21
           },
           "id": 74,
           "options": {
@@ -1530,7 +1659,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1620,7 +1749,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -1665,8 +1794,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1682,7 +1810,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 10
+            "y": 25
           },
           "id": 75,
           "options": {
@@ -1704,7 +1832,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "irate(jvm_cpu_time_seconds_total{instance=\"$jvm_instance\"}[$__rate_interval])",
@@ -1721,7 +1849,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1765,8 +1893,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1781,7 +1908,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 10
+            "y": 25
           },
           "id": 81,
           "options": {
@@ -1803,7 +1930,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_class_count{instance=\"$jvm_instance\"}",
@@ -1815,7 +1942,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_class_unloaded_total{instance=\"$jvm_instance\"}",
@@ -1828,7 +1955,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_class_count{instance=\"$jvm_instance\"}",
@@ -1845,7 +1972,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -1890,8 +2017,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1907,7 +2033,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 18
+            "y": 33
           },
           "id": 70,
           "options": {
@@ -1929,7 +2055,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_memory_used_bytes{instance=~\"$jvm_instance\",jvm_memory_type=\"heap\"}",
@@ -1942,7 +2068,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_memory_limit{instance=~\"$jvm_instance\",jvm_memory_type=\"heap\"}",
@@ -1959,7 +2085,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -2004,8 +2130,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2021,7 +2146,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 18
+            "y": 33
           },
           "id": 71,
           "options": {
@@ -2043,7 +2168,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_memory_used_bytes{instance=~\"$jvm_instance\",jvm_memory_type=\"non_heap\"}",
@@ -2055,7 +2180,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm.memory.limit{instance=~\"$jvm_instance\",jvm_memory_type=\"non_heap\"}",
@@ -2072,7 +2197,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -2117,8 +2242,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2134,7 +2258,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 26
+            "y": 41
           },
           "id": 72,
           "options": {
@@ -2156,7 +2280,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_memory_committed_bytes{instance=\"$jvm_instance\",jvm_memory_type=\"heap\"}",
@@ -2172,7 +2296,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -2217,8 +2341,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2234,7 +2357,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 26
+            "y": 41
           },
           "id": 73,
           "options": {
@@ -2256,7 +2379,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_memory_committed_bytes{instance=\"$jvm_instance\",jvm_memory_type=\"non_heap\"}",
@@ -2272,7 +2395,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2316,8 +2439,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2333,7 +2455,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 34
+            "y": 49
           },
           "id": 78,
           "options": {
@@ -2352,7 +2474,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "increase(jvm_gc_duration_seconds_count{instance=\"$jvm_instance\"}[$__interval])",
@@ -2369,7 +2491,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2413,8 +2535,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2430,7 +2551,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 34
+            "y": 49
           },
           "id": 80,
           "options": {
@@ -2449,7 +2570,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "increase(jvm_gc_duration_seconds_sum{instance=\"$jvm_instance\"}[$__interval])",
@@ -2466,7 +2587,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -2511,8 +2632,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2527,7 +2647,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 42
+            "y": 57
           },
           "id": 76,
           "options": {
@@ -2549,7 +2669,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "sum(jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"true\"})",
@@ -2563,7 +2683,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"true\",jvm_thread_state!=\"\"}",
@@ -2580,7 +2700,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "description": "",
           "fieldConfig": {
@@ -2625,8 +2745,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2641,7 +2760,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 42
+            "y": 57
           },
           "id": 77,
           "options": {
@@ -2663,7 +2782,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "sum(jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"false\"})",
@@ -2676,7 +2795,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_APO-VICTORIAMETRIC}"
               },
               "editorMode": "code",
               "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"false\",jvm_thread_state!=\"\"}",
@@ -2715,7 +2834,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "",
       "fieldConfig": {
@@ -2926,10 +3045,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -2941,10 +3060,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -2956,10 +3075,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"nice\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"nice\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -2971,10 +3090,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum by(instance) (irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum by(instance) (irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -2986,10 +3105,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3001,10 +3120,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"softirq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"softirq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3016,10 +3135,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"steal\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"steal\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3031,10 +3150,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3051,7 +3170,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "",
       "fieldConfig": {
@@ -3442,10 +3561,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"} - node_memory_MemFree_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"} - node_memory_Buffers_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"} - node_memory_Cached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"} - node_memory_Slab_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"} - node_memory_PageTables_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"} - node_memory_SwapCached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_MemTotal_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"} - node_memory_MemFree_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"} - node_memory_Buffers_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"} - node_memory_Cached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"} - node_memory_Slab_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"} - node_memory_PageTables_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"} - node_memory_SwapCached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3458,10 +3577,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_PageTables_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_PageTables_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3474,10 +3593,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_SwapCached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_SwapCached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3489,10 +3608,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_Slab_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_Slab_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3505,10 +3624,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_Cached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_Cached_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3521,10 +3640,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_Buffers_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_Buffers_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3537,10 +3656,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemFree_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_MemFree_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3553,10 +3672,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "(node_memory_SwapTotal_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"} - node_memory_SwapFree_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"})",
+          "expr": "(node_memory_SwapTotal_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"} - node_memory_SwapFree_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"})",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3569,10 +3688,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_memory_HardwareCorrupted_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_memory_HardwareCorrupted_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3589,7 +3708,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "",
       "fieldConfig": {
@@ -3750,10 +3869,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_receive_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}[$__rate_interval])*8",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3765,10 +3884,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_transmit_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}[$__rate_interval])*8",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3784,7 +3903,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "文件描述符打开数(File Descriptor)",
       "fieldConfig": {
@@ -3873,10 +3992,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_filefd_maximum{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_filefd_maximum{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 4,
@@ -3888,10 +4007,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_filefd_allocated{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\"}",
+          "expr": "node_filefd_allocated{instance_name=~\"${related_nodes}\",job_name=\"$job_name\"}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3907,7 +4026,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "",
       "fieldConfig": {
@@ -4322,10 +4441,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_reads_completed_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_reads_completed_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "interval": "$resolution",
           "intervalFactor": 4,
           "legendFormat": "{{device}} - 读取",
@@ -4336,10 +4455,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_writes_completed_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_writes_completed_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "interval": "$resolution",
           "intervalFactor": 1,
           "legendFormat": "{{device}} - 写入",
@@ -4354,7 +4473,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "",
       "fieldConfig": {
@@ -4556,10 +4675,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_read_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_read_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4572,10 +4691,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_written_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_written_bytes_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4592,7 +4711,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "",
       "fieldConfig": {
@@ -4680,10 +4799,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_avail_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device!~'rootfs'}",
+          "expr": "node_filesystem_avail_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "hide": true,
           "interval": "$resolution",
@@ -4697,10 +4816,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_free_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device!~'rootfs'}",
+          "expr": "node_filesystem_free_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4713,10 +4832,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device!~'rootfs'}",
+          "expr": "node_filesystem_size_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4733,7 +4852,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "",
       "fieldConfig": {
@@ -4821,10 +4940,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device!~'rootfs'} - node_filesystem_avail_bytes{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device!~'rootfs'}",
+          "expr": "node_filesystem_size_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device!~'rootfs'} - node_filesystem_avail_bytes{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -4840,7 +4959,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_APO-VICTORIAMETRIC}"
       },
       "description": "系统在特定时间段内用于处理 I/O 操作的时间占总时间的比例,反映了系统在处理 I/O 任务时的繁忙程度",
       "fieldConfig": {
@@ -4956,10 +5075,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_APO-VICTORIAMETRIC}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_io_time_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$node_metric_source\",device=~\"$diskdevices\"} [$__rate_interval])",
+          "expr": "irate(node_disk_io_time_seconds_total{instance_name=~\"${related_nodes}\",job_name=\"$job_name\",device=~\"$diskdevices\"} [$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -5000,75 +5119,8 @@
       {
         "current": {
           "selected": false,
-          "text": "integrations/kubernetes/cadvisor",
-          "value": "integrations/kubernetes/cadvisor"
-        },
-        "hide": 2,
-        "includeAll": false,
-        "label": "容器指标数据源",
-        "multi": false,
-        "name": "container_metric_source",
-        "options": [
-          {
-            "selected": true,
-            "text": "integrations/kubernetes/cadvisor",
-            "value": "integrations/kubernetes/cadvisor"
-          }
-        ],
-        "query": "integrations/kubernetes/cadvisor",
-        "queryValue": "",
-        "skipUrlSync": false,
-        "type": "custom"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "integrations/unix",
-          "value": "integrations/unix"
-        },
-        "hide": 2,
-        "includeAll": false,
-        "label": "主机指标数据源",
-        "multi": false,
-        "name": "node_metric_source",
-        "options": [
-          {
-            "selected": true,
-            "text": "integrations/unix",
-            "value": "integrations/unix"
-          }
-        ],
-        "query": "integrations/unix",
-        "skipUrlSync": false,
-        "type": "custom"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "prometheus.scrape.agent_metrics",
-          "value": "prometheus.scrape.agent_metrics"
-        },
-        "description": "",
-        "hide": 2,
-        "includeAll": false,
-        "multi": false,
-        "name": "agent_metric_source",
-        "options": [
-          {
-            "selected": true,
-            "text": "prometheus.scrape.agent_metrics",
-            "value": "prometheus.scrape.agent_metrics"
-          }
-        ],
-        "query": "prometheus.scrape.agent_metrics",
-        "skipUrlSync": false,
-        "type": "custom"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "按虚机查询",
-          "value": ""
+          "text": "按K8s查询",
+          "value": ".*"
         },
         "hide": 0,
         "includeAll": false,
@@ -5077,12 +5129,12 @@
         "name": "service_type",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "按K8s查询",
             "value": ".*"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "按虚机查询",
             "value": ""
           }
@@ -5093,17 +5145,12 @@
         "type": "custom"
       },
       {
-        "current": {
-          "isNone": true,
-          "selected": false,
-          "text": "None",
-          "value": ""
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
-        "definition": "query_result(group by (namespace) (container_memory_rss{job_name=\"$container_metric_source\",namespace=~\"$service_type\"}))",
+        "definition": "query_result(group by (namespace) (container_memory_rss{job_name=\"$cadvisor_job_name\",namespace=~\"$service_type\"}))",
         "hide": 0,
         "includeAll": false,
         "label": "命名空间",
@@ -5112,7 +5159,7 @@
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result(group by (namespace) (container_memory_rss{job_name=\"$container_metric_source\",namespace=~\"$service_type\"}))",
+          "query": "query_result(group by (namespace) (container_memory_rss{job_name=\"$cadvisor_job_name\",namespace=~\"$service_type\"}))",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -5122,20 +5169,12 @@
         "type": "query"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
-        "definition": "query_result(group by (pod) (container_memory_rss{namespace=\"$namespace\",job_name=\"$container_metric_source\"}))",
+        "definition": "query_result(group by (pod) (container_memory_rss{namespace=\"$namespace\",job_name=\"$cadvisor_job_name\"}))",
         "hide": 0,
         "includeAll": true,
         "multi": true,
@@ -5143,7 +5182,7 @@
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result(group by (pod) (container_memory_rss{namespace=\"$namespace\",job_name=\"$container_metric_source\"}))",
+          "query": "query_result(group by (pod) (container_memory_rss{namespace=\"$namespace\",job_name=\"$cadvisor_job_name\"}))",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -5153,14 +5192,10 @@
         "type": "query"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "ts-travel-plan-service",
-          "value": "ts-travel-plan-service"
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
         "definition": "query_result(group by (svc_name) (kindling_span_trace_duration_nanoseconds_count{vm=\"$service_type\"}) or group by (svc_name) (kindling_span_trace_duration_nanoseconds_count{pod=~\"$pod\",namespace=~\"$namespace\"}))",
         "hide": 0,
@@ -5181,18 +5216,10 @@
         "type": "query"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
         "definition": "query_result( group by (node_name) (container_memory_rss{job_name=\"integrations/kubernetes/cadvisor\",pod=~\"$pod\",pod!=\"\"}) or group by (node_name) ( kindling_span_trace_duration_nanoseconds_count{svc_name=\"$service_name\",svc_name!=\"\"}))",
         "hide": 0,
@@ -5292,21 +5319,13 @@
         "type": "custom"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
         "definition": "label_values(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\"},pid)",
-        "hide": 0,
+        "hide": 2,
         "includeAll": true,
         "multi": true,
         "name": "related_pid",
@@ -5324,18 +5343,10 @@
       },
       {
         "allValue": "",
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_APO-VICTORIAMETRIC}"
         },
         "definition": "query_result(jvm_cpu_count{host_name=~\"$pod\"} or jvm_cpu_count{service_name=~\"$service_name\",vm=\"$service_type\"})",
         "hide": 0,
@@ -5354,6 +5365,54 @@
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_APO-VICTORIAMETRIC}"
+        },
+        "definition": "label_values(node_cpu_seconds_total,job_name)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "主机指标 Job",
+        "multi": false,
+        "name": "job_name",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(node_cpu_seconds_total,job_name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_APO-VICTORIAMETRIC}"
+        },
+        "definition": "label_values(container_cpu_usage_seconds_total,job_name)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "容器指标 Job",
+        "multi": false,
+        "name": "cadvisor_job_name",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(container_cpu_usage_seconds_total,job_name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -5365,6 +5424,6 @@
   "timezone": "browser",
   "title": "基础设施情况",
   "uid": "adst2iva9181se",
-  "version": 3,
+  "version": 19,
   "weekStart": ""
 }

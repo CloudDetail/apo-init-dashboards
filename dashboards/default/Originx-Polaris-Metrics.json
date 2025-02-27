@@ -59,7 +59,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -138,7 +138,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -155,7 +155,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -236,7 +236,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{is_error=\"false\", svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) OR on() vector(0)",
@@ -253,7 +253,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -334,7 +334,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/1000000",
@@ -351,7 +351,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -432,7 +432,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -446,7 +446,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.95, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -460,7 +460,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.99, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -491,7 +491,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -571,7 +571,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -585,7 +585,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -599,7 +599,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -613,7 +613,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_file_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -627,7 +627,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_futex_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -641,7 +641,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_cpu_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -655,7 +655,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -669,7 +669,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_other_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -687,7 +687,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -767,7 +767,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange)) + histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -781,7 +781,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -799,7 +799,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -896,7 +896,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -909,7 +909,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -927,7 +927,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1006,7 +1006,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_cpu_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_cpu_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -1023,7 +1023,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1102,7 +1102,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_net_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_net_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -1119,7 +1119,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1198,7 +1198,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_cpu_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -1215,7 +1215,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1294,7 +1294,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -1312,7 +1312,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1391,7 +1391,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_epoll_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_epoll_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -1408,7 +1408,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1487,7 +1487,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_futex_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_futex_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -1504,7 +1504,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1583,7 +1583,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -1600,7 +1600,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1679,7 +1679,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_futex_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -1696,7 +1696,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1775,7 +1775,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_other_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_other_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -1792,7 +1792,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1871,7 +1871,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_runq_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_runq_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -1888,7 +1888,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1967,7 +1967,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_file_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_file_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
@@ -1984,7 +1984,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2063,7 +2063,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -2080,7 +2080,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2159,7 +2159,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_file_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
@@ -2184,7 +2184,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kindling_span_trace_duration_nanoseconds_count,svc_name)",
         "hide": 0,
@@ -2209,7 +2209,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\"},content_key)",
         "hide": 0,

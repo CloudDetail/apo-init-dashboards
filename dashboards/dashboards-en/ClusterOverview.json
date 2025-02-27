@@ -82,7 +82,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -139,7 +139,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -152,7 +152,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -166,7 +166,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_cpu_cores{cluster=\"$cluster\"})",
@@ -178,7 +178,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_cpu_cores{cluster=\"$cluster\"})",
@@ -229,7 +229,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -288,7 +288,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -302,7 +302,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -316,7 +316,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"})",
@@ -328,7 +328,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"}) / sum(machine_memory_bytes{cluster=\"$cluster\", job_name=\"$job_name\"})",
@@ -380,7 +380,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Number of Namespaces",
       "fieldConfig": {
@@ -429,7 +429,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "count(group by (namespace) (container_memory_rss{job_name=\"$cadvisor_job_name\"}))",
@@ -445,7 +445,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Number of Nodes",
       "fieldConfig": {
@@ -494,7 +494,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -511,7 +511,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -560,7 +560,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -574,7 +574,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -588,7 +588,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"})",
@@ -600,7 +600,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", cluster=\"$cluster\", job_name=\"$job_name\"})",
@@ -612,7 +612,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "max_over_time(sum ((group by (instance_name,cpu) (node_cpu_seconds_total{job_name=\"$job_name\"})))[5m])",
@@ -676,7 +676,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "RAM Usage",
       "fieldConfig": {
@@ -726,7 +726,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -739,7 +739,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -753,7 +753,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"})",
@@ -765,7 +765,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", cluster=\"$cluster\", job_name=\"$job_name\"})",
@@ -777,7 +777,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(max_over_time(node_memory_MemTotal_bytes{cluster=\"$cluster\", job_name=\"$job_name\"}[5m]))",
@@ -835,7 +835,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Running Pod Count",
       "fieldConfig": {
@@ -884,7 +884,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(group by (pod) (container_memory_rss{job_name=\"$cadvisor_job_name\"}))",
@@ -900,7 +900,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Cluster CPU Utilization",
       "fieldConfig": {
@@ -991,7 +991,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1004,7 +1004,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1035,7 +1035,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Cluster Memory Utilization",
       "fieldConfig": {
@@ -1126,7 +1126,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1139,7 +1139,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1170,7 +1170,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Global Network Utilization by Device, excluding common virtual devices to reduce noise (veth, azv, lxc, cali)",
       "fieldConfig": {
@@ -1252,7 +1252,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1265,7 +1265,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1278,7 +1278,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1292,7 +1292,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1310,7 +1310,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Network Saturation - Packets Dropped",
       "fieldConfig": {
@@ -1392,7 +1392,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1405,7 +1405,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1418,7 +1418,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1432,7 +1432,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1512,7 +1512,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "CPU Utilization by Instance",
       "fieldConfig": {
@@ -1601,7 +1601,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1614,7 +1614,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1632,7 +1632,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Memory Utilization by Instance",
       "fieldConfig": {
@@ -1720,7 +1720,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1734,7 +1734,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1752,7 +1752,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Total Network Received with all virtual devices by instance, including virtual devices and loopback",
       "fieldConfig": {
@@ -1834,7 +1834,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1847,7 +1847,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "- sum(rate(node_network_transmit_bytes_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
@@ -1860,7 +1860,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1874,7 +1874,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "- sum(rate(windows_net_bytes_sent_total{cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
@@ -1891,7 +1891,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Network Received without loopback by instance",
       "fieldConfig": {
@@ -1973,7 +1973,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1986,7 +1986,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "- sum(rate(node_network_transmit_bytes_total{device!~\"(veth|azv|lxc|lo|cali).*\", cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
@@ -1999,7 +1999,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2013,7 +2013,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2031,7 +2031,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Network Received (loopback only) by instance",
       "fieldConfig": {
@@ -2113,7 +2113,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2126,7 +2126,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "- sum(rate(node_network_transmit_bytes_total{device=\"lo\", cluster=\"$cluster\", job_name=\"$job_name\"}[$__rate_interval])) by (instance_name)",
@@ -2143,7 +2143,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "CPU Core Throttled by instance, no data means sufficient CPU or no throttling",
       "fieldConfig": {
@@ -2235,7 +2235,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2265,7 +2265,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "CPU Utilization by Namespace",
       "fieldConfig": {
@@ -2357,7 +2357,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2372,7 +2372,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2391,7 +2391,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "CPU Throttled Seconds by Namespace, no data means no throttling, implying sufficient CPU or no limits applied",
       "fieldConfig": {
@@ -2483,7 +2483,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2496,7 +2496,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2514,7 +2514,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Network Received by Namespace",
       "fieldConfig": {
@@ -2600,7 +2600,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2614,7 +2614,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "- (sum(rate(container_network_transmit_bytes_total{cluster=\"$cluster\",namespace!=\"\",job_name=\"$cadvisor_job_name\"}[$__rate_interval])) by (namespace)\nOR (group by (namespace) (container_memory_rss{cluster=\"$cluster\",job_name=\"$cadvisor_job_name\"}) * 0 ) )",
@@ -2631,7 +2631,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Memory Utilization by Namespace",
       "fieldConfig": {
@@ -2719,7 +2719,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2732,7 +2732,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -2775,7 +2775,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kube_node_info,cluster)",
         "hide": 0,
@@ -2847,7 +2847,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(node_cpu_seconds_total,job_name)",
         "hide": 0,
@@ -2871,7 +2871,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(container_cpu_user_seconds_total,job_name)",
         "hide": 0,

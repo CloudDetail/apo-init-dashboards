@@ -45,7 +45,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -128,7 +128,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -146,7 +146,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -230,7 +230,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -248,7 +248,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -356,7 +356,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (svc_name, db_system, db_name, name, db_url) (irate(kindling_db_duration_nanoseconds_count{svc_name=\"$service\"}[$__rate_interval]))  ",
@@ -438,7 +438,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kindling_db_duration_nanoseconds_sum,svc_name)",
         "hide": 0,

@@ -58,7 +58,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -122,7 +122,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "kafka_brokers{job=\"$job\",name=\"$name\"}",
@@ -138,7 +138,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "包括无消费组消费的Topic",
       "fieldConfig": {
@@ -207,7 +207,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "expr": "count(kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\"})",
           "format": "time_series",
@@ -221,7 +221,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -289,7 +289,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "expr": "sum (kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\"})",
           "format": "time_series",
@@ -303,7 +303,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -371,7 +371,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "count(kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\"})",
@@ -387,7 +387,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -455,7 +455,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\"})",
@@ -471,7 +471,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -531,7 +531,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "expr": "sum(kafka_topic_partition_replicas{job=\"$job\",name=\"$name\"})",
           "format": "time_series",
@@ -545,7 +545,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -605,7 +605,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "expr": "sum(kafka_topic_partition_in_sync_replica{job=\"$job\",name=\"$name\"})",
           "format": "time_series",
@@ -619,7 +619,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "Partitions not on preferred node",
       "fieldConfig": {
@@ -689,7 +689,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "expr": "count(kafka_topic_partition_leader_is_preferred{job=\"$job\",name=\"$name\"}<1)",
           "format": "time_series",
@@ -703,7 +703,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -768,7 +768,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\"}[3m]))",
@@ -784,7 +784,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -849,7 +849,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name'}[3m]))",
@@ -865,7 +865,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -930,7 +930,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\"})",
@@ -959,7 +959,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "- 菜单为全部消费组、全部Topic时，该表格显示的是所有已关联Topic的消费组列表。\n- 在菜单中选择消费组后，该表格的右侧会显示该消费组会消费的Topic列表；而当前表格显示的是参与消费右侧所有topic的消费组列表。",
       "fieldConfig": {
@@ -1039,7 +1039,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1082,7 +1082,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "- 菜单为全部消费组、全部Topic时，该表格显示的是所有已关联消费组的Topic列表。\n- 在菜单中选择topic后，该表格的左侧会显示消费该topic的消费者列表。",
       "fieldConfig": {
@@ -1163,7 +1163,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1197,7 +1197,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "No data为无积压超过100的消费组。",
       "fieldConfig": {
@@ -1301,7 +1301,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\",consumergroup=~\"$consumer_group\",consumergroup!~\"__.*\",topic!~\"__.*\"}) by (consumergroup, topic)>100",
@@ -1319,7 +1319,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1421,7 +1421,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\",topic=~\"$topic\"}[3m])) by (topic)>0",
@@ -1438,7 +1438,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1522,7 +1522,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',consumergroup=~\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}[3m])) by (consumergroup, topic)",
@@ -1539,7 +1539,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "在Topic维度展示每秒该Topic整体被消费的情况。",
       "fieldConfig": {
@@ -1630,7 +1630,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}[3m])) by (topic) - sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic!~\"__.*\",topic=~\"$topic\"}[3m])) by (topic) * count(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\",topic=~\"$topic\"}) by(topic) != 0",
@@ -1647,7 +1647,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "description": "No data为所有消费组都关联了Topic",
       "fieldConfig": {
@@ -1730,7 +1730,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1767,7 +1767,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1886,7 +1886,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1900,7 +1900,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (topic,job,name)(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\"}[3m])) unless count by (topic,job,name)(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\"}) ",
@@ -1927,7 +1927,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2031,7 +2031,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "APO-VictoriaMetric"
+                "uid": "${datasource}"
               },
               "editorMode": "code",
               "expr": "sum(kafka_consumergroup_lag{job=\"$job\",name=\"$name\",consumergroup=\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}) by (consumergroup, topic,partition)",
@@ -2049,7 +2049,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2152,7 +2152,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "APO-VictoriaMetric"
+                "uid": "${datasource}"
               },
               "editorMode": "code",
               "expr": "irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',consumergroup=\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}[3m])",
@@ -2189,7 +2189,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kafka_brokers,job)",
         "hide": 0,
@@ -2217,7 +2217,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kafka_brokers{job=~\"$job\"},name)",
         "hide": 0,
@@ -2247,7 +2247,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "query_result(count by (consumergroup)(kafka_consumergroup_members{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\"}))",
         "description": "显示所有消费组列表",
@@ -2276,7 +2276,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",topic !~\"__.*\",consumergroup=~\"$consumer_group\"},topic)",
         "description": "仅显示有消费组消费的Topic，无消费组消费的Topic在下方图表展示。",
@@ -2304,7 +2304,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kafka_consumergroup_lag_sum{job=\"$job\", name=~\"$name\", topic!~\"__.*\", topic=~\"$topic\", consumergroup!~\"__.*\"},consumergroup)",
         "hide": 2,

@@ -2426,6 +2426,25 @@
     "list": [
       {
         "current": {
+          "selected": false,
+          "text": "APO-VictoriaMetric",
+          "value": "APO-VictoriaMetric"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "数据源",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
           "isNone": true,
           "selected": false,
           "text": "None",

@@ -53,7 +53,7 @@
       },
       "id": 3,
       "panels": [],
-      "title": "RED指标",
+      "title": "RED Metric",
       "type": "row"
     },
     {
@@ -149,7 +149,7 @@
           "refId": "A"
         }
       ],
-      "title": "请求次数",
+      "title": "Request Count",
       "type": "timeseries"
     },
     {
@@ -247,7 +247,7 @@
           "refId": "A"
         }
       ],
-      "title": "请求成功率",
+      "title": "Request Success Rate",
       "type": "timeseries"
     },
     {
@@ -265,7 +265,7 @@
             "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "响应时间",
+            "axisLabel": "Response Time",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -345,7 +345,7 @@
           "refId": "A"
         }
       ],
-      "title": "平均响应时间",
+      "title": "Avg Response Latency",
       "type": "timeseries"
     },
     {
@@ -439,7 +439,7 @@
           "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "P90: 服务名={{svc_name}}, 请求端点={{content_key}}",
+          "legendFormat": "P90: Service Name={{svc_name}}, Request Endpoint={{content_key}}",
           "range": true,
           "refId": "P90"
         },
@@ -453,7 +453,7 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "P95: 服务名={{svc_name}}, 请求端点={{content_key}}",
+          "legendFormat": "P95: Service Name={{svc_name}}, Request Endpoint={{content_key}}",
           "range": true,
           "refId": "P95"
         },
@@ -467,12 +467,12 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "P99: 服务名={{svc_name}}, 请求端点={{content_key}}",
+          "legendFormat": "P99: Service Name={{svc_name}}, Request Endpoint={{content_key}}",
           "range": true,
           "refId": "P99"
         }
       ],
-      "title": "响应时间分位数",
+      "title": "Response Latency Percentiles",
       "type": "timeseries"
     },
     {
@@ -485,7 +485,7 @@
       },
       "id": 4,
       "panels": [],
-      "title": "北极星指标",
+      "title": "Polaris metrics",
       "type": "row"
     },
     {
@@ -578,7 +578,7 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "延时",
+          "legendFormat": "Latency",
           "range": true,
           "refId": "B"
         },
@@ -606,7 +606,7 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "异步网络",
+          "legendFormat": "Asynchronous Network",
           "range": true,
           "refId": "C"
         },
@@ -620,7 +620,7 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "文件IO",
+          "legendFormat": "File IO",
           "range": true,
           "refId": "D"
         },
@@ -634,7 +634,7 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "锁或者GC",
+          "legendFormat": "Lock or GC",
           "range": true,
           "refId": "E"
         },
@@ -681,7 +681,7 @@
           "refId": "H"
         }
       ],
-      "title": "北极星综合指标",
+      "title": "Polaris Comprehensive Metrics",
       "type": "timeseries"
     },
     {
@@ -774,7 +774,7 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "{{svc_name}} 对外调用耗时",
+          "legendFormat": "{{svc_name}} External Call Duration",
           "range": true,
           "refId": "A"
         },
@@ -788,12 +788,12 @@
           "hide": false,
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "{{svc_name}} 延时",
+          "legendFormat": "{{svc_name}} Latency",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "快速判断是否是网络问题：将应用和下游应用同时看即可",
+      "title": "Quickly Determine If It's a Network Issue: Just Compare Application and Downstream Applications",
       "type": "timeseries"
     },
     {
@@ -902,7 +902,7 @@
           "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
-          "legendFormat": "CPU资源等待耗时",
+          "legendFormat": "CPU Resource Waiting Duration",
           "range": true,
           "refId": "A"
         },
@@ -921,7 +921,7 @@
           "refId": "B"
         }
       ],
-      "title": "快速判断容器规格是否需要提升",
+      "title": "Quickly Determine If Container Specifications Need to Be Upgraded",
       "type": "timeseries"
     },
     {
@@ -1017,7 +1017,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中在CPU上执行的平均耗时",
+      "title": "Average CPU Execution Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1113,7 +1113,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的网络平均耗时",
+      "title": "Average Network Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1209,7 +1209,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中在CPU上执行的耗时90%分位数",
+      "title": "90th Percentile CPU Execution Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1306,7 +1306,7 @@
           "refId": "B"
         }
       ],
-      "title": "每次请求中的网络耗时90%分位数",
+      "title": "90th Percentile Network Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1402,7 +1402,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的epoll网络平均耗时",
+      "title": "Average Epoll Network Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1498,7 +1498,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的锁等待或GC平均耗时",
+      "title": "Average Lock Wait or GC Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1594,7 +1594,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的epoll网络耗时90%分位数",
+      "title": "90th Percentile Epoll Network Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1690,7 +1690,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的锁等待或GC耗时90%分位数",
+      "title": "90th Percentile Lock Wait or GC Time Per Request",
       "type": "timeseries"
     },
     {
@@ -1786,7 +1786,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的等待其他资源平均耗时",
+      "title": "Average Time Waiting for Other Resources Per Request",
       "type": "timeseries"
     },
     {
@@ -1882,7 +1882,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的等待调度到CPU平均耗时",
+      "title": "Average Time Waiting for CPU Scheduling Per Request",
       "type": "timeseries"
     },
     {
@@ -1978,7 +1978,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的文件读写平均耗时",
+      "title": "Average File Read/Write Time Per Request",
       "type": "timeseries"
     },
     {
@@ -2074,7 +2074,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的等待调度到CPU耗时90%分位数",
+      "title": "90th Percentile Time Waiting for CPU Scheduling Per Request",
       "type": "timeseries"
     },
     {
@@ -2170,7 +2170,7 @@
           "refId": "A"
         }
       ],
-      "title": "每次请求中的文件读写耗时90%分位数",
+      "title": "90th Percentile File Read/Write Time Per Request",
       "type": "timeseries"
     }
   ],
@@ -2208,7 +2208,7 @@
         "definition": "label_values(kindling_span_trace_duration_nanoseconds_count,svc_name)",
         "hide": 0,
         "includeAll": false,
-        "label": "服务名",
+        "label": "Service Name",
         "multi": true,
         "name": "service_name",
         "options": [],
@@ -2340,8 +2340,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Originx 北极星指标 (服务层级)",
-  "uid": "b0102ebf-9e5e-4f21-80aa-9c2565cd3dcb",
-  "version": 1,
+  "title": "Originx Polaris Metrics",
+  "uid": "3ab420aae391a1",
+  "version": 8,
   "weekStart": ""
 }

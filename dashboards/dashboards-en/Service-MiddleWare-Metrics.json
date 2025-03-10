@@ -140,7 +140,7 @@
           "refId": "A"
         }
       ],
-      "title": "平均响应时间",
+      "title": "Avg Response Latency",
       "type": "timeseries"
     },
     {
@@ -242,7 +242,7 @@
           "refId": "A"
         }
       ],
-      "title": "请求错误率(%)",
+      "title": "Request Error Rate(%)",
       "type": "timeseries"
     },
     {
@@ -367,7 +367,7 @@
           "refId": "A"
         }
       ],
-      "title": "每秒钟请求数(TPS)",
+      "title": "Request Throughput Per Second (TPS)",
       "type": "timeseries"
     }
   ],
@@ -485,8 +485,8 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "服务调用中间件",
-  "uid": "ae3aqpssill34f",
-  "version": 14,
+  "title": "Service MiddleWare Metrics",
+  "uid": "05afd511b2fe54",
+  "version": 1,
   "weekStart": ""
 }

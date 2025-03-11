@@ -20,7 +20,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 14191,
   "graphTooltip": 1,
-  "id": 14,
+  "id": 22,
   "links": [
     {
       "asDropdown": true,
@@ -73,7 +73,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -87,12 +87,12 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "关键指标",
+      "title": "KPI",
       "type": "row"
     },
     {
@@ -189,7 +189,7 @@
           "refId": "A"
         }
       ],
-      "title": "集群健康",
+      "title": "Cluster health",
       "type": "stat"
     },
     {
@@ -285,7 +285,7 @@
           "refId": "A"
         }
       ],
-      "title": "断路器次数",
+      "title": "Tripped for breakers",
       "type": "stat"
     },
     {
@@ -370,7 +370,7 @@
           "step": 60
         }
       ],
-      "title": "CPU 平均使用率",
+      "title": "CPU usage Avg.",
       "type": "stat"
     },
     {
@@ -455,7 +455,7 @@
           "step": 60
         }
       ],
-      "title": "JVM 内存平均使用率",
+      "title": "JVM memory used Avg.",
       "type": "stat"
     },
     {
@@ -537,7 +537,7 @@
           "step": 60
         }
       ],
-      "title": "集群节点数",
+      "title": "Nodes",
       "type": "stat"
     },
     {
@@ -619,7 +619,7 @@
           "step": 60
         }
       ],
-      "title": "集群数据节点数",
+      "title": "Data nodes",
       "type": "stat"
     },
     {
@@ -706,7 +706,7 @@
           "step": 60
         }
       ],
-      "title": "集群等待任务数",
+      "title": "Pending tasks",
       "type": "stat"
     },
     {
@@ -777,14 +777,14 @@
           "step": 60
         }
       ],
-      "title": "文件数",
+      "title": "Open file descriptors per cluster",
       "type": "stat"
     },
     {
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -798,12 +798,12 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "分片",
+      "title": "Shards",
       "type": "row"
     },
     {
@@ -885,7 +885,7 @@
           "step": 60
         }
       ],
-      "title": "主分片数",
+      "title": "Active primary shards",
       "type": "stat"
     },
     {
@@ -966,7 +966,7 @@
           "step": 60
         }
       ],
-      "title": "索引总和",
+      "title": "Active shards",
       "type": "stat"
     },
     {
@@ -1048,7 +1048,7 @@
           "step": 60
         }
       ],
-      "title": "新创建的分片数",
+      "title": "Initializing shards",
       "type": "stat"
     },
     {
@@ -1129,7 +1129,7 @@
           "step": 60
         }
       ],
-      "title": "移动分片数",
+      "title": "Relocating shards",
       "type": "stat"
     },
     {
@@ -1210,7 +1210,7 @@
           "step": 60
         }
       ],
-      "title": "延迟分片数",
+      "title": "Delayed shards",
       "type": "stat"
     },
     {
@@ -1291,14 +1291,14 @@
           "step": 60
         }
       ],
-      "title": "未分配分片数",
+      "title": "Unassigned shards",
       "type": "stat"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -1318,6 +1318,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -1347,12 +1353,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1377,7 +1384,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "垃圾回收次数",
+          "title": "GC count",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -1392,14 +1399,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:211",
               "format": "short",
               "label": "GCs",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:212",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -1419,6 +1424,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -1448,12 +1459,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1478,7 +1490,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "垃圾回收时间",
+          "title": "GC time",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -1493,14 +1505,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:274",
               "format": "s",
               "label": "Time",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:275",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -1515,19 +1525,19 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "JVM 垃圾回收",
+      "title": "JVM Garbage Collection",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -1544,6 +1554,12 @@
           "dashes": false,
           "datasource": {
             "uid": "$datasource"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
           },
           "fill": 1,
           "fillGradient": 0,
@@ -1568,12 +1584,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1595,7 +1612,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "事务日志数",
+          "title": "Total translog operations",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -1609,13 +1626,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:269",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:270",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -1632,6 +1647,12 @@
           "dashes": false,
           "datasource": {
             "uid": "$datasource"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
           },
           "fill": 1,
           "fillGradient": 0,
@@ -1656,12 +1677,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1683,7 +1705,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "事务日志大小（bytes）",
+          "title": "Total translog size in bytes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -1697,13 +1719,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:417",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:418",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -1718,19 +1738,19 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "事务日志",
+      "title": "Translog",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -1747,6 +1767,12 @@
           "dashes": false,
           "datasource": {
             "uid": "$datasource"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
           },
           "fill": 1,
           "fillGradient": 0,
@@ -1771,12 +1797,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1798,7 +1825,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "断路器次数",
+          "title": "Tripped for breakers",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -1812,13 +1839,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:956",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:957",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -1835,6 +1860,12 @@
           "dashes": false,
           "datasource": {
             "uid": "$datasource"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
           },
           "fill": 1,
           "fillGradient": 0,
@@ -1859,12 +1890,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1896,7 +1928,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "断路器估计大小（bytes）",
+          "title": "Estimated size in bytes of breaker",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -1910,13 +1942,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:1067",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:1068",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -1931,19 +1961,19 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "断路器",
+      "title": "Breakers",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
@@ -1952,502 +1982,505 @@
         "y": 11
       },
       "id": 95,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 0,
-            "y": 12
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 30,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "avg",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_os_load1{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "load1: {{name}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            },
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_os_load5{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "load5: {{name}}",
-              "metric": "",
-              "refId": "B",
-              "step": 20
-            },
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_os_load15{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "load15: {{name}}",
-              "metric": "",
-              "refId": "C",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "平均负载",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 2,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:361",
-              "format": "short",
-              "label": "CPU usage",
-              "logBase": 1,
-              "max": 100,
-              "min": 0,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:362",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 12,
-            "y": 12
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 88,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "avg",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_process_cpu_percent{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "CPU 使用率",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 2,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:440",
-              "format": "percent",
-              "label": "CPU usage",
-              "logBase": 1,
-              "max": 100,
-              "min": 0,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:441",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "editable": true,
-          "error": false,
-          "fill": 0,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 0,
-            "y": 23
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 31,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "avg",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_jvm_memory_used_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}} used: {{area}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            },
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_jvm_memory_max_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}} max: {{area}}",
-              "refId": "C",
-              "step": 20
-            },
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_jvm_memory_pool_peak_used_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}} peak used pool: {{pool}}",
-              "refId": "D",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "JVM 内存占用",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 2,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:534",
-              "format": "bytes",
-              "label": "Memory",
-              "logBase": 1,
-              "min": 0,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:535",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "editable": true,
-          "error": false,
-          "fill": 0,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 12,
-            "y": 23
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 54,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "avg",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_jvm_memory_committed_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}} committed: {{area}}",
-              "refId": "B",
-              "step": 20
-            },
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_jvm_memory_max_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}} max: {{area}}",
-              "refId": "C",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "JVM 已提交内存",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 2,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:90",
-              "format": "bytes",
-              "label": "Memory",
-              "logBase": 1,
-              "min": 0,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:91",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        }
-      ],
+      "panels": [],
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "CPU 和 内存",
+      "title": "CPU and Memory",
       "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 30,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_os_load1{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "load1: {{name}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_os_load5{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "load5: {{name}}",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_os_load15{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "load15: {{name}}",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Load average",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "CPU usage",
+          "logBase": 1,
+          "max": 100,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 88,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_process_cpu_percent{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "CPU usage",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "label": "CPU usage",
+          "logBase": 1,
+          "max": 100,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 23
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 31,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_jvm_memory_used_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}} used: {{area}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_jvm_memory_max_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}} max: {{area}}",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_jvm_memory_pool_peak_used_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}} peak used pool: {{pool}}",
+          "refId": "D",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "JVM memory usage",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": "Memory",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 23
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 54,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_jvm_memory_committed_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}} committed: {{area}}",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_jvm_memory_max_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}} max: {{area}}",
+          "refId": "C",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "JVM memory committed",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": "Memory",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 34
       },
       "id": 96,
       "panels": [
@@ -2461,6 +2494,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -2468,7 +2507,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 13
+            "y": 7
           },
           "height": "400",
           "hiddenSeries": false,
@@ -2490,12 +2529,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2535,7 +2575,7 @@
             }
           ],
           "timeRegions": [],
-          "title": "磁盘使用",
+          "title": "Disk usage",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -2550,7 +2590,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:699",
               "format": "percentunit",
               "label": "Disk Usage %",
               "logBase": 1,
@@ -2559,7 +2598,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:700",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -2579,6 +2617,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -2586,7 +2630,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 13
+            "y": 7
           },
           "height": "400",
           "hiddenSeries": false,
@@ -2608,18 +2652,18 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [
             {
-              "$$hashKey": "object:802",
               "alias": "sent",
               "transform": "negative-Y"
             }
@@ -2654,7 +2698,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "网络使用",
+          "title": "Network usage",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -2669,14 +2713,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:809",
               "format": "Bps",
               "label": "Bytes/sec",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:810",
               "format": "pps",
               "label": "",
               "logBase": 1,
@@ -2692,556 +2734,575 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "磁盘 和 网络",
+      "title": "Disk and Network",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 35
       },
       "id": 97,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "decimals": 2,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 0,
-            "y": 14
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 1,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "avg",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "elasticsearch_indices_docs{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "节点文档数",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:1190",
-              "decimals": 2,
-              "format": "short",
-              "label": "",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:1191",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 12,
-            "y": 14
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 24,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "irate(elasticsearch_indices_indexing_index_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "文档索引率",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:1313",
-              "format": "short",
-              "label": "index calls/s",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:1314",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "description": "Count of deleted documents on this node",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 8,
-            "x": 0,
-            "y": 25
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 25,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "avg",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "irate(elasticsearch_indices_docs_deleted{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "文档删除率",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:1436",
-              "format": "short",
-              "label": "Documents/s",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:1437",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "decimals": 2,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 8,
-            "x": 8,
-            "y": 25
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 26,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "rate(elasticsearch_indices_merges_docs_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "文档合并率",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:1511",
-              "decimals": 2,
-              "format": "short",
-              "label": "Documents/s",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:1512",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 11,
-            "w": 8,
-            "x": 16,
-            "y": 25
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 52,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "uid": "$datasource"
-              },
-              "expr": "irate(elasticsearch_indices_merges_total_size_bytes_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "metric": "",
-              "refId": "A",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "文档合并大小（bytes）",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:1586",
-              "format": "decbytes",
-              "label": "Bytes/s",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:1587",
-              "format": "short",
-              "logBase": 1,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        }
-      ],
+      "panels": [],
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "文档",
+      "title": "Documents",
       "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 1,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "elasticsearch_indices_docs{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Documents count on node",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 24,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "irate(elasticsearch_indices_indexing_index_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Documents indexed rate",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "index calls/s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "description": "Count of deleted documents on this node",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 0,
+        "y": 47
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 25,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "irate(elasticsearch_indices_docs_deleted{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Documents deleted rate",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "Documents/s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 8,
+        "y": 47
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 26,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "rate(elasticsearch_indices_merges_docs_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Documents merged rate",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "short",
+          "label": "Documents/s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 16,
+        "y": 47
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 52,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "expr": "irate(elasticsearch_indices_merges_total_size_bytes_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Documents merged bytes",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": "Bytes/s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 58
       },
       "id": 98,
       "panels": [
@@ -3255,6 +3316,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -3262,7 +3329,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 15
+            "y": 9
           },
           "height": "400",
           "hiddenSeries": false,
@@ -3282,12 +3349,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3312,7 +3380,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "请求时间",
+          "title": "Query time",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -3327,14 +3395,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:1677",
               "format": "s",
               "label": "Time",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:1678",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -3354,6 +3420,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -3361,7 +3433,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 15
+            "y": 9
           },
           "height": "400",
           "hiddenSeries": false,
@@ -3381,12 +3453,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3411,7 +3484,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "索引时间",
+          "title": "Indexing time",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -3426,14 +3499,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:1748",
               "format": "s",
               "label": "Time",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:1749",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -3453,6 +3524,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -3460,7 +3537,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 26
+            "y": 20
           },
           "height": "400",
           "hiddenSeries": false,
@@ -3482,12 +3559,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3512,7 +3590,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "合并时间",
+          "title": "Merging time",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -3527,14 +3605,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:1867",
               "format": "s",
               "label": "Time",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:1868",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -3554,6 +3630,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -3561,7 +3643,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 26
+            "y": 20
           },
           "height": "400",
           "hiddenSeries": false,
@@ -3583,12 +3665,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3613,7 +3696,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "索引存储限流时间",
+          "title": "Throttle time for index store",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -3628,14 +3711,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:1938",
               "format": "s",
               "label": "Time",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:1939",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -3650,25 +3731,25 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "时间",
+      "title": "Times",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 59
       },
       "id": 99,
       "panels": [
@@ -3682,6 +3763,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -3689,7 +3776,7 @@
             "h": 11,
             "w": 24,
             "x": 0,
-            "y": 16
+            "y": 10
           },
           "height": "400",
           "hiddenSeries": false,
@@ -3711,12 +3798,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3840,7 +3928,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "操作率",
+          "title": "Total Operations  rate",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -3855,14 +3943,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2017",
               "format": "short",
               "label": "Operations/s",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2018",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -3882,6 +3968,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -3889,7 +3981,7 @@
             "h": 11,
             "w": 24,
             "x": 0,
-            "y": 27
+            "y": 21
           },
           "height": "400",
           "hiddenSeries": false,
@@ -3911,12 +4003,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4051,7 +4144,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "操作时间",
+          "title": "Total Operations time",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4066,14 +4159,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2096",
               "format": "s",
               "label": "Time",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2097",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -4088,25 +4179,25 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "操作统计",
+      "title": "Total Operations stats",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 60
       },
       "id": 100,
       "panels": [
@@ -4120,13 +4211,19 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 20,
             "w": 6,
             "x": 0,
-            "y": 17
+            "y": 11
           },
           "hiddenSeries": false,
           "id": 45,
@@ -4143,12 +4240,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4171,7 +4269,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "线程池拒绝数",
+          "title": "Thread Pool operations rejected",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4186,13 +4284,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2175",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2176",
               "format": "short",
               "logBase": 1,
               "show": true
@@ -4212,13 +4308,19 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 20,
             "w": 6,
             "x": 6,
-            "y": 17
+            "y": 11
           },
           "hiddenSeries": false,
           "id": 46,
@@ -4237,12 +4339,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4265,7 +4368,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "线程池等待任务数",
+          "title": "Thread Pool operations queued",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4280,13 +4383,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2250",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2251",
               "format": "short",
               "logBase": 1,
               "show": true
@@ -4306,13 +4407,19 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 20,
             "w": 6,
             "x": 12,
-            "y": 17
+            "y": 11
           },
           "height": "",
           "hiddenSeries": false,
@@ -4332,12 +4439,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4360,7 +4468,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "线程池活跃线程数",
+          "title": "Thread Pool threads active",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4375,13 +4483,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2325",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2326",
               "format": "short",
               "logBase": 1,
               "show": true
@@ -4401,13 +4507,19 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 20,
             "w": 6,
             "x": 18,
-            "y": 17
+            "y": 11
           },
           "hiddenSeries": false,
           "id": 44,
@@ -4426,12 +4538,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4454,7 +4567,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "线程池完成任务数",
+          "title": "Thread Pool operations completed",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4469,13 +4582,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2400",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2401",
               "format": "short",
               "logBase": 1,
               "show": true
@@ -4490,25 +4601,25 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "线程池",
+      "title": "Thread Pool",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 17
+        "y": 61
       },
       "id": 101,
       "panels": [
@@ -4522,6 +4633,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -4529,7 +4646,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 18
+            "y": 12
           },
           "height": "400",
           "hiddenSeries": false,
@@ -4551,12 +4668,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4581,7 +4699,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "字段数据内存大小",
+          "title": "Field data memory size",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4596,14 +4714,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2495",
               "format": "bytes",
               "label": "Memory",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2496",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -4623,6 +4739,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -4630,7 +4752,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 18
+            "y": 12
           },
           "height": "400",
           "hiddenSeries": false,
@@ -4652,12 +4774,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4682,7 +4805,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "字段数据驱逐数",
+          "title": "Field data evictions",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4697,14 +4820,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2570",
               "format": "short",
               "label": "Evictions/s",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2571",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -4724,6 +4845,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -4731,7 +4858,7 @@
             "h": 11,
             "w": 8,
             "x": 0,
-            "y": 29
+            "y": 23
           },
           "height": "400",
           "hiddenSeries": false,
@@ -4753,12 +4880,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4783,7 +4911,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "请求缓存大小",
+          "title": "Query cache size",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4798,14 +4926,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2645",
               "format": "bytes",
               "label": "Size",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2646",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -4825,6 +4951,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -4832,7 +4964,7 @@
             "h": 11,
             "w": 8,
             "x": 8,
-            "y": 29
+            "y": 23
           },
           "height": "400",
           "hiddenSeries": false,
@@ -4854,12 +4986,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4884,7 +5017,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "请求缓存驱逐",
+          "title": "Query cache evictions",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -4899,14 +5032,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2720",
               "format": "short",
               "label": "Evictions/s",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2721",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -4926,6 +5057,12 @@
           },
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "grid": {},
@@ -4933,7 +5070,7 @@
             "h": 11,
             "w": 8,
             "x": 16,
-            "y": 29
+            "y": 23
           },
           "height": "400",
           "hiddenSeries": false,
@@ -4955,12 +5092,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "connected",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -4985,7 +5123,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "过滤器缓存驱逐",
+          "title": "Evictions from filter cache",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -5000,14 +5138,12 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2795",
               "format": "short",
               "label": "Evictions/s",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2796",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5022,25 +5158,25 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "缓存",
+      "title": "Caches",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 18
+        "y": 62
       },
       "id": 102,
       "panels": [
@@ -5052,13 +5188,19 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 19
+            "y": 13
           },
           "hiddenSeries": false,
           "id": 85,
@@ -5077,12 +5219,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5104,7 +5247,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "索引分段数",
+          "title": "Count of index segments",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5118,13 +5261,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2886",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2887",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5142,13 +5283,19 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 26
+            "y": 20
           },
           "hiddenSeries": false,
           "id": 86,
@@ -5167,12 +5314,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5194,7 +5342,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "分段内存大小 （bytes）",
+          "title": "Current memory size of segments in bytes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5208,13 +5356,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:2949",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:2950",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5229,25 +5375,25 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "分段",
+      "title": "Segments",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 19
+        "y": 63
       },
       "id": 103,
       "panels": [
@@ -5259,13 +5405,19 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 20
+            "y": 14
           },
           "hiddenSeries": false,
           "id": 75,
@@ -5284,12 +5436,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5312,7 +5465,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "主分片文档数",
+          "title": "Count of documents with only primary shards",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5326,13 +5479,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:3072",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:3073",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5350,13 +5501,19 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 27
+            "y": 21
           },
           "hiddenSeries": false,
           "id": 83,
@@ -5375,12 +5532,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5403,7 +5561,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "所有节点上仅包含主分片的索引数据总大小",
+          "title": "Total size of stored index data in bytes with only primary shards on all nodes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5417,13 +5575,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:3139",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:3140",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5441,13 +5597,19 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 34
+            "y": 28
           },
           "hiddenSeries": false,
           "id": 76,
@@ -5466,12 +5628,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5494,7 +5657,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "所有节点上所有分片的索引数据总大小",
+          "title": "Total size of stored index data in bytes with all shards on all nodes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5508,13 +5671,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:3210",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:3211",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5529,25 +5690,25 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "索引文档数 和 总大小",
+      "title": "Indices: Count of documents and Total size",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 64
       },
       "id": 106,
       "panels": [
@@ -5560,14 +5721,12 @@
             "uid": "$datasource"
           },
           "fill": 1,
-          "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 21
+            "y": 129
           },
-          "hiddenSeries": false,
           "id": 57,
           "legend": {
             "alignAsTable": true,
@@ -5584,12 +5743,9 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
           "percentage": false,
-          "pluginVersion": "",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5610,8 +5766,7 @@
             }
           ],
           "thresholds": [],
-          "timeRegions": [],
-          "title": "所有节点主分片文档值大小 （bytes）",
+          "title": "Doc values with only primary shards on all nodes in bytes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5625,21 +5780,16 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:3289",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:3290",
               "format": "short",
               "logBase": 1,
               "show": false
             }
-          ],
-          "yaxis": {
-            "align": false
-          }
+          ]
         },
         {
           "aliasColors": {},
@@ -5650,14 +5800,12 @@
             "uid": "$datasource"
           },
           "fill": 1,
-          "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 28
+            "y": 136
           },
-          "hiddenSeries": false,
           "id": 58,
           "legend": {
             "alignAsTable": true,
@@ -5674,12 +5822,9 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
           "percentage": false,
-          "pluginVersion": "",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5700,8 +5845,7 @@
             }
           ],
           "thresholds": [],
-          "timeRegions": [],
-          "title": "所有节点所有分片文档值大小 （bytes）",
+          "title": "Doc values with all shards on all nodes in bytes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5715,46 +5859,41 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:3368",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:3369",
               "format": "short",
               "logBase": 1,
               "show": false
             }
-          ],
-          "yaxis": {
-            "align": false
-          }
+          ]
         }
       ],
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "索引文档值",
+      "title": "Indices: Doc values",
       "type": "row"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "APO-VictoriaMetric"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 65
       },
       "id": 107,
       "panels": [
@@ -5766,13 +5905,19 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 36
+            "y": 16
           },
           "hiddenSeries": false,
           "id": 59,
@@ -5791,12 +5936,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5818,7 +5964,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "所有节点主分片字段大小 （bytes）",
+          "title": "Size of fields with only primary shards on all nodes in bytes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5832,13 +5978,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:3455",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:3456",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5856,13 +6000,19 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 43
+            "y": 23
           },
           "hiddenSeries": false,
           "id": 60,
@@ -5881,12 +6031,13 @@
           },
           "lines": true,
           "linewidth": 1,
+          "links": [],
           "nullPointMode": "null",
           "options": {
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "",
+          "pluginVersion": "7.3.6",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -5908,7 +6059,7 @@
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "所有节点所有分片字段大小 （bytes）",
+          "title": "Size of fields with all shards on all nodes in bytes",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -5922,13 +6073,11 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:3526",
               "format": "bytes",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:3527",
               "format": "short",
               "logBase": 1,
               "show": false
@@ -5943,18 +6092,21 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "APO-VictoriaMetric"
           },
           "refId": "A"
         }
       ],
-      "title": "索引字段",
+      "title": "Indices: Fields",
       "type": "row"
     }
   ],
   "refresh": false,
   "schemaVersion": 39,
-  "tags": [],
+  "tags": [
+    "elasticsearch",
+    "App"
+  ],
   "templating": {
     "list": [
       {
@@ -6003,9 +6155,10 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": false,
-          "text": "elasticsearch",
-          "value": "elasticsearch"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "uid": "$datasource"
@@ -6106,8 +6259,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Elasticsearch 指标",
-  "uid": "bdwo3oaipx3b4a",
-  "version": 62,
+  "title": "Elasticsearch Exporter Quickstart and Dashboard",
+  "uid": "4yyL6dBMk",
+  "version": 1,
   "weekStart": ""
 }

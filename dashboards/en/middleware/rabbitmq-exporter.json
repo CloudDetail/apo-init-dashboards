@@ -1408,7 +1408,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "RabbitMQ 指标(kbudde/rabbitmq_exporter)",
+  "title": "RabbitMQ Metrics(kbudde/rabbitmq_exporter)",
   "uid": "ae6r21uj1gcg0b",
   "version": 1,
   "weekStart": ""

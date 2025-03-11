@@ -8,4 +8,7 @@ COPY plugins /app/plugins
 
 WORKDIR /app
 
-CMD ["sh", "-c", "cp -r ./dashboards/ /tmp/ & cp -r ./plugins/ /var/lib/grafana/plugins/"]
+CMD ["sh", "-c", "cp -r ./dashboards/${LANGUAGE}/default /var/lib/grafana/dashboards/ &\
+      cp -r ./dashboards/${LANGUAGE}/middleware /var/lib/grafana/dashboards/ &\
+      cp ./dashboards/${LANGUAGE}/dashboardproviders.yaml /etc/grafana/provisioning/dashboards/ &\
+      cp -r ./plugins/ /var/lib/grafana/plugins/"]

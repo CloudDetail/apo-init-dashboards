@@ -8,10 +8,10 @@ providers:
   editable: true
   options:
     path: /var/lib/grafana/dashboards/default
-- name: '中间件'
+- name: 'middleware'
   orgId: 1
   folderUid: edwu5b9rkv94wb
-  folder: 'middleware'
+  folder: '中间件'
   type: file
   disableDeletion: false
   editable: true

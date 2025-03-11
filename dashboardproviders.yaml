@@ -1,6 +1,6 @@
 apiVersion: 1
 providers:
-- name: 'APO DashBoards'
+- name: 'apo-dashboards-en'
   orgId: 1
   folder: 'APO DashBoards'
   type: file
@@ -8,16 +8,16 @@ providers:
   editable: true
   options:
     path: /var/lib/grafana/dashboards/en/default
-- name: 'middleware'
+- name: 'middleware-en'
   orgId: 1
-  folderUid: edwu5b9rkv94wb
+  folderUid: edwu5b9rkv94wb-en
   folder: 'MiddleWare'
   type: file
   disableDeletion: false
   editable: true
   options:
     path: /var/lib/grafana/dashboards/en/middleware
-- name: 'APO DashBoards'
+- name: 'apo-dashboards-zh'
   orgId: 1
   folder: 'APO大盘'
   type: file
@@ -25,9 +25,9 @@ providers:
   editable: true
   options:
     path: /var/lib/grafana/dashboards/zh/default
-- name: 'middleware'
+- name: 'middleware-zh'
   orgId: 1
-  folderUid: edwu5b9rkv94wb
+  folderUid: edwu5b9rkv94wb-zh
   folder: '中间件'
   type: file
   disableDeletion: false

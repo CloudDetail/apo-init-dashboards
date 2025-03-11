@@ -1,0 +1,4030 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 14057,
+  "graphTooltip": 1,
+  "id": 14,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 382,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "description": "**运行时间**\n\nMySQL 服务启动运行的时间",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 300
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": 3600
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 12,
+      "interval": "1m",
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "calculatedInterval": "10m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_uptime{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "title": "运行时间",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "description": "**每秒查询数**\n\n根据 MySQL 的“SHOW STATUS”命令报告的查询MySQL在最后一秒内执行的语句数。",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 35
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 13,
+      "interval": "1m",
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "MySQL Server Status Variables",
+          "url": "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Queries"
+        }
+      ],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "calculatedInterval": "10m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_queries{job=~\"$job\", instance=~\"$instance\"}[$__interval])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "title": "每秒查询数",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "description": "**InnoDB 缓存池大小**\nInnoDB 维护一个称为缓冲池的存储区域，用于在内存中缓存数据和索引。了解 InnoDB 缓冲池的工作原理，并利用它将经常访问的数据保存在内存中，是 MySQL 调优的最重要方面之一。目标是将工作集保存在内存中。在大多数情况下，这应该是专用数据库主机上可用内存的 60%-90%，但取决于许多因素。",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 90
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 51,
+      "interval": "1m",
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Tuning the InnoDB Buffer Pool Size",
+          "url": "https://www.percona.com/blog/2015/06/02/80-ram-tune-innodb_buffer_pool_size/"
+        }
+      ],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "calculatedInterval": "10m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_variables_innodb_buffer_pool_size{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "title": "InnoDB 缓冲池",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 383,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "连接",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 0,
+      "description": "**最大连接数** \n\nMax Connections 是允许同时连接的最大客户端数量。增加此值会增加 mysqld 所需的文件描述符数量。如果所需的描述符数量不可用，服务器会降低 Max Connections 的值。\n\nmysqld 实际上允许 Max Connections + 1 个客户端进行连接。额外的连接保留给具有 SUPER 权限的帐户使用，例如 root。\n\nMax Used Connections 是自服务器启动以来同时使用的最大连接数。\n\nConnections 是尝试连接 MySQL 服务器的次数（无论成功与否）。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
+      "height": "250px",
+      "hiddenSeries": false,
+      "id": 92,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "MySQL Server System Variables",
+          "url": "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:313",
+          "alias": "Max Connections",
+          "fill": 0
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(max_over_time(mysql_global_status_threads_connected{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Connections",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(mysql_global_status_max_used_connections{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Max Used Connections",
+          "metric": "",
+          "refId": "C",
+          "step": 20,
+          "target": ""
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(mysql_global_variables_max_connections{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Max Connections",
+          "metric": "",
+          "refId": "B",
+          "step": 20,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 连接数",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:334",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:335",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL 活跃线程数**\n\n已连接线程数是打开的连接数，而运行线程数是未休眠的线程数。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:605",
+          "alias": "Peak Threads Running",
+          "color": "#E24D42",
+          "lines": false,
+          "pointradius": 1,
+          "points": true
+        },
+        {
+          "$$hashKey": "object:606",
+          "alias": "Peak Threads Connected",
+          "color": "#1F78C1"
+        },
+        {
+          "$$hashKey": "object:607",
+          "alias": "Avg Threads Running",
+          "color": "#EAB839"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(max_over_time(mysql_global_status_threads_connected{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Peak Threads Connected",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(max_over_time(mysql_global_status_threads_running{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Peak Threads Running",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(avg_over_time(mysql_global_status_threads_running{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Avg Threads Running",
+          "refId": "C",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 客户端线程活跃数",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": [
+          "total"
+        ]
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "Threads",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "id": 384,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "表锁定统计",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL 请求数**\n\n服务器执行的语句数。这仅包括客户端发送到服务器的语句，而不包括存储程序内执行的语句，这与 QPS 计算中使用的查询不同。\n\n此变量不计算以下命令：\n* ``COM_PING``\n* ``COM_STATISTICS``\n* ``COM_STMT_PREPARE``\n* ``COM_STMT_CLOSE``\n* ``COM_STMT_RESET``",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 13
+      },
+      "hiddenSeries": false,
+      "id": 53,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "MySQL Queries and Questions",
+          "url": "https://www.percona.com/blog/2014/05/29/how-mysql-queries-and-questions-are-measured/"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_questions{job=~\"$job\", instance=~\"$instance\"}[$__interval])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 请求数",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL 线程缓存**\n\nthread_cache_size 变量设置服务器应缓存多少个线程以供重用。当客户端断开连接时，如果缓存未满，则客户端的线程将放入缓存中。它在 MySQL 5.6.8 及更高版本中自动调整大小（上限为 100）。如果可能，通过重用从缓存中获取的线程来满足线程请求，并且只有当缓存为空时才会创建新线程。\n\n* *Threads_created*：为处理连接而创建的线程数。\n* *Threads_cached*：线程缓存中的线程数。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "hiddenSeries": false,
+      "id": 11,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Tuning information",
+          "url": "https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_thread_cache_size"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:849",
+          "alias": "Threads Created",
+          "fill": 0
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(mysql_global_variables_thread_cache_size{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Thread Cache Size",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(mysql_global_status_threads_cached{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Threads Cached",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_threads_created{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Threads Created",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 线程缓存",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 385,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "临时对象统计",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 22,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_created_tmp_tables{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Created Tmp Tables",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_created_tmp_disk_tables{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Created Tmp Disk Tables",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_created_tmp_files{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Created Tmp Files",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 临时对象数",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:989",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:990",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL 查询类型**\n\n与大多数关系数据库一样，基于索引进行选择比扫描整个表的数据更有效。\n\n* ***Select Scan*** 表示有多少查询导致全表扫描，其中必须读取表中的所有数据并丢弃或返回。\n* ***Select Range*** 表示有多少查询使用了范围扫描，这意味着 MySQL 扫描了给定范围内的所有行。\n* ***Select Full Join*** 表示未在索引上连接的连接数，这通常会对性能造成巨大影响。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "height": "250px",
+      "hiddenSeries": false,
+      "id": 311,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_select_full_join{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Select Full Join",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_select_full_range_join{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Select Full Range Join",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_select_range{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Select Range",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_select_range_check{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Select Range Check",
+          "metric": "",
+          "refId": "D",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_select_scan{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Select Scan",
+          "metric": "",
+          "refId": "E",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 查询类型",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1257",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1258",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "id": 386,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "排序",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Sorts**\n\n由于查询的结构、顺序或其他要求，MySQL 会在返回行之前对行进行排序。例如，如果某个表的排序顺序为 1 到 10，但您希望将结果反转，则 MySQL 必须对行进行排序以返回 10 到 1 的顺序。\n\n此图还显示了何时排序必须扫描整个表或给定范围的表才能返回结果，以及哪些无法通过索引进行排序。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 29
+      },
+      "hiddenSeries": false,
+      "id": 30,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": false,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_sort_rows{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Sort Rows",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_sort_range{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Sort Range",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_sort_merge_passes{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Sort Merge Passes",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_sort_scan{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Sort Scan",
+          "metric": "",
+          "refId": "D",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 排序数",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1382",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1383",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Slow Queries**\n\n慢查询是指比 long_query_time 设置更慢的查询。例如，如果您将 long_query_time 设置为 3，则所有需要超过 3 秒才能完成的查询都会显示在这张图上。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 29
+      },
+      "hiddenSeries": false,
+      "id": 48,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_slow_queries{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Slow Queries",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 慢查询",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1507",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1508",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 387,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "中断",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**中断连接数**\n\n当给定主机连接到 MySQL 并且连接在中途中断（例如由于凭据错误）时，MySQL 会将该信息保存在系统表中（自 5.6 起，此表在 performance_schema 中公开）。\n\n如果没有成功连接的失败请求数量达到 max_connect_errors 的值，mysqld 会假定出现问题并阻止主机进一步连接。\n\n要再次允许来自该主机的连接，您需要发出“FLUSH HOSTS”语句。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 37
+      },
+      "hiddenSeries": false,
+      "id": 47,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_aborted_connects{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Aborted Connects (attempts)",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_aborted_clients{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Aborted Clients (timeout)",
+          "metric": "",
+          "refId": "B",
+          "step": 20,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 中断连接数",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1696",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1697",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**Table Locks**\n\nMySQL 出于各种原因采用多种不同的锁定。在此图中，我们可以看到 MySQL 从存储引擎请求了多少个表级锁定。在 InnoDB 的情况下，很多时候锁定实际上可能是行锁定，因为它只在少数特定情况下采用表级锁定。\n\n比较立即锁定和等待锁定是最有用的。如果等待锁定在上升，则意味着存在锁定争用。否则，立即锁定的上升和下降是正常活动。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 37
+      },
+      "hiddenSeries": false,
+      "id": 32,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_table_locks_immediate{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Table Locks Immediate",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_table_locks_waited{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Table Locks Waited",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 表锁定",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1829",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1830",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 44
+      },
+      "id": 388,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "网络状态",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Network Traffic**\n\n这里我们可以看到 MySQL 产生了多少网络流量。outbound是 MySQL 发出的网络流量，inbound是 MySQL 收到的网络流量。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 6,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "hiddenSeries": false,
+      "id": 9,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_bytes_received{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Inbound",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(rate(mysql_global_status_bytes_sent{job=~\"$job\", instance=~\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Outbound",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 网络流量",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1962",
+          "format": "Bps",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1963",
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 52
+      },
+      "id": 389,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "内存使用",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 0,
+      "description": "***System Memory***: 系统的总内存。\\\n***InnoDB Buffer Pool Data***: InnoDB 维护一个称为缓冲池的存储区域，用于在内存中缓存数据和索引。\\\n***TokuDB Cache Size***: 功能与 InnoDB 缓冲池类似，TokuDB 将为其自己的缓存分配 50% 的已安装 RAM。\\\n***Key Buffer Size***: MYISAM 表的索引块被缓冲并由所有线程共享。key_buffer_size 是用于索引块的缓冲区的大小。\\\n***Adaptive Hash Index Size***: 当 InnoDB 注意到某些索引值被非常频繁地访问时，它会在 B-Tree 索引之上的内存中为它们构建一个哈希索引。\\\n ***Query Cache Size***: 查询缓存将 SELECT 语句的文本与发送给客户端的相应结果一起存储。查询缓存存在巨大的可扩展性问题，因为同一时间只有一个线程可以在查询缓存中执行操作。\\\n***InnoDB Dictionary Size***:数据字典是 InnoDB 的内部表目录。InnoDB 将数据字典存储在磁盘上，并在服务器运行时将条目加载到内存中。\\\n***InnoDB Log Buffer Size***: MySQL InnoDB 日志缓冲区允许事务运行，而无需在事务提交之前将日志写入磁盘。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 6,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 53
+      },
+      "hiddenSeries": false,
+      "id": 50,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Detailed descriptions about metrics",
+          "url": "https://www.percona.com/doc/percona-monitoring-and-management/dashboard.mysql-overview.html#mysql-internal-memory-overview"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:2315",
+          "alias": "System Memory",
+          "fill": 0,
+          "stack": false
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_status_innodb_page_size{job=~\"$job\", instance=~\"$instance\"} * on (instance) mysql_global_status_buffer_pool_pages{job=~\"$job\", instance=~\"$instance\", state=\"data\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "InnoDB Buffer Pool Data",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_variables_innodb_log_buffer_size{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "InnoDB Log Buffer Size",
+          "refId": "D",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_variables_innodb_additional_mem_pool_size{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 2,
+          "legendFormat": "InnoDB Additional Memory Pool Size",
+          "refId": "H",
+          "step": 40
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_status_innodb_mem_dictionary{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "InnoDB Dictionary Size",
+          "refId": "F",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_variables_key_buffer_size{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Key Buffer Size",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_variables_query_cache_size{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Query Cache Size",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_status_innodb_mem_adaptive_hash{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Adaptive Hash Index Size",
+          "refId": "E",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "sum(mysql_global_variables_tokudb_cache_size{job=~\"$job\", instance=~\"$instance\"})",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "TokuDB Cache Size",
+          "refId": "I",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 内存使用总览",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2324",
+          "format": "bytes",
+          "label": "",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2325",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 60
+      },
+      "id": 390,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "命令，处理，进程",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**Top Command Counters**\n\nCom_{{xxx}} 语句计数器变量表示每个 xxx 语句的执行次数。每种类型的语句都有一个状态变量。例如，Com_delete 和 Com_update 分别计数 [``DELETE``](https://dev.mysql.com/doc/refman/5.7/en/delete.html) 和 [``UPDATE``](https://dev.mysql.com/doc/refman/5.7/en/update.html) 语句。Com_delete_multi 和 Com_update_multi 类似，但适用于使用多表语法的 [``DELETE``](https://dev.mysql.com/doc/refman/5.7/en/delete.html) 和 [``UPDATE``](https://dev.mysql.com/doc/refman/5.7/en/update.html) 语句。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 61
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Server Status Variables (Com_xxx)",
+          "url": "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Com_xxx"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "topk(5, rate(mysql_global_status_commands_total{job=~\"$job\", instance=~\"$instance\"}[$__interval])>0)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Com_{{ command }}",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "命令数统计",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2475",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2476",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Handlers**\n\n处理程序统计信息是有关 MySQL 如何选择、更新、插入和修改行、表和索引的内部统计信息。\n\n这实际上是存储引擎和 MySQL 之间的层。\n\n* 当服务器执行全表扫描时，`read_rnd_next` 会递增，您肯定不希望看到此计数器的值过高。\n* 当使用索引完成读取时，`read_key` 会递增。\n* 当要求存储引擎“读取下一个索引条目”时，`read_next` 会递增。值过高意味着执行了大量索引扫描。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 68
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_handlers_total{instance=~\"$host\", handler!~\"commit|rollback|savepoint.*|prepare\"}[$__interval]) or irate(mysql_global_status_handlers_total{instance=~\"$host\", handler!~\"commit|rollback|savepoint.*|prepare\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{ handler }}",
+          "metric": "",
+          "refId": "J",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 处理统计",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2792",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2793",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 75
+      },
+      "hiddenSeries": false,
+      "id": 28,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_handlers_total{instance=~\"$host\", handler=~\"commit|rollback|savepoint.*|prepare\"}[$__interval]) or irate(mysql_global_status_handlers_total{instance=~\"$host\", handler=~\"commit|rollback|savepoint.*|prepare\"}[5m])",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{ handler }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 事务处理",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2955",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2956",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 82
+      },
+      "hiddenSeries": false,
+      "id": 40,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_info_schema_threads{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{ state }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "进程状态",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2629",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2630",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 6,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 89
+      },
+      "hiddenSeries": false,
+      "id": 49,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "topk(5, avg_over_time(mysql_info_schema_threads{job=~\"$job\", instance=~\"$instance\"}[1h]))",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{ state }}",
+          "metric": "",
+          "refId": "A",
+          "step": 3600
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": "24h",
+      "timeRegions": [],
+      "title": "每小时进程状态",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3268",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3269",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 96
+      },
+      "id": 391,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "查询缓存",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Query Cache Memory**\n\n查询缓存存在巨大的可扩展性问题，因为只有一个线程可以同时在查询缓存中执行操作。这种序列化不仅适用于 SELECT，也适用于 INSERT/UPDATE/DELETE。\n\n这也意味着 `query_cache_size` 设置的越大，这些操作就越慢。在并发环境中，MySQL 查询缓存很快就会成为争用点，从而降低性能。MariaDB 和 AWS Aurora 已努力尝试消除其 MySQL 版本中的查询缓存争用，而 MySQL 8.0 已取消查询缓存功能。\n\n大多数环境的推荐设置是设置：\n``query_cache_type=0``\n``query_cache_size=0``\n\n请注意，虽然您可以动态更改这些值，但要完全消除争用点，您必须重新启动数据库。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 97
+      },
+      "hiddenSeries": false,
+      "id": 46,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_qcache_free_memory{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Free Memory",
+          "metric": "",
+          "refId": "F",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_variables_query_cache_size{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Query Cache Size",
+          "metric": "",
+          "refId": "E",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 查询缓存大小",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3447",
+          "format": "bytes",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3448",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Query Cache Activity**\n\n查询缓存存在巨大的可扩展性问题，因为只有一个线程可以同时在查询缓存中执行操作。这种序列化不仅适用于 SELECT，也适用于 INSERT/UPDATE/DELETE。\n\n这也意味着 `query_cache_size` 设置的越大，这些操作就越慢。在并发环境中，MySQL 查询缓存很快就会成为争用点，从而降低性能。MariaDB 和 AWS Aurora 已努力尝试消除其 MySQL 版本中的查询缓存争用，而 MySQL 8.0 已取消查询缓存功能。\n\n大多数环境的推荐设置是设置：\n``query_cache_type=0``\n``query_cache_size=0``\n\n请注意，虽然您可以动态更改这些值，但要完全消除争用点，您必须重新启动数据库。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 97
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 45,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_qcache_hits{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_qcache_hits{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Hits",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_qcache_inserts{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_qcache_inserts{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Inserts",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_qcache_not_cached{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_qcache_not_cached{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Not Cached",
+          "metric": "",
+          "refId": "D",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_qcache_lowmem_prunes{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_qcache_lowmem_prunes{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Prunes",
+          "metric": "",
+          "refId": "F",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_qcache_queries_in_cache{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Queries in Cache",
+          "metric": "",
+          "refId": "E",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 查询缓存活跃情况",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3628",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3629",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 104
+      },
+      "id": 392,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "文件数量",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 105
+      },
+      "hiddenSeries": false,
+      "id": 43,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_opened_files{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_opened_files{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Openings",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 当前文件打开数",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3805",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3806",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 105
+      },
+      "hiddenSeries": false,
+      "id": 41,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_open_files{job=~\"$job\", instance=~\"$instance\"}",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Open Files",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_variables_open_files_limit{job=~\"$job\", instance=~\"$instance\"}",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Open Files Limit",
+          "metric": "",
+          "refId": "D",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "mysql_global_status_innodb_num_open_files{job=~\"$job\", instance=~\"$instance\"}",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "InnoDB Open Files",
+          "refId": "B",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 文件打开统计",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:4157",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:4158",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 112
+      },
+      "id": 393,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "打开的表",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Table Open Cache Status**\n\n建议将 `table_open_cache_instances` 设置为与虚拟 CPU 松散关联，请记住，实例越多意味着缓存被拆分的次数越多。如果您将缓存设置为 500，但有 10 个实例，则每个缓存将只缓存 50 个。\n\n`table_definition_cache` 和 `table_open_cache` 可以保留为默认值，因为它们是自动调整大小的 MySQL 5.6 及更高版本（即：不要将它们设置为任何值）。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 113
+      },
+      "hiddenSeries": false,
+      "id": 44,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Server Status Variables (table_open_cache)",
+          "url": "http://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_table_open_cache"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:4338",
+          "alias": "Table Open Cache Hit Ratio",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_opened_tables{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_opened_tables{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Openings",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "rate(mysql_global_status_table_open_cache_hits{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_table_open_cache_hits{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Hits",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "rate(mysql_global_status_table_open_cache_misses{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_table_open_cache_misses{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Misses",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "rate(mysql_global_status_table_open_cache_overflows{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_table_open_cache_overflows{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Misses due to Overflows",
+          "refId": "D",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "(rate(mysql_global_status_table_open_cache_hits{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_table_open_cache_hits{job=~\"$job\", instance=~\"$instance\"}[5m]))/((rate(mysql_global_status_table_open_cache_hits{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_table_open_cache_hits{job=~\"$job\", instance=~\"$instance\"}[5m]))+(rate(mysql_global_status_table_open_cache_misses{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_table_open_cache_misses{job=~\"$job\", instance=~\"$instance\"}[5m])))",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Table Open Cache Hit Ratio",
+          "refId": "E",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 表状态",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:4345",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:4346",
+          "format": "percentunit",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Open Tables**\n\n建议将 `table_open_cache_instances` 设置为与虚拟 CPU 松散关联，请记住，实例越多意味着缓存被拆分的次数越多。如果您将缓存设置为 500，但有 10 个实例，则每个缓存将只缓存 50 个。\n\n`table_definition_cache` 和 `table_open_cache` 可以保留为默认值，因为它们是自动调整大小的 MySQL 5.6 及更高版本（即：不要将它们设置为任何值）。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 113
+      },
+      "hiddenSeries": false,
+      "id": 42,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Server Status Variables (table_open_cache)",
+          "url": "http://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_table_open_cache"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_open_tables{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Open Tables",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_variables_table_open_cache{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Table Open Cache",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 打开的表",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:4711",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:4712",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 120
+      },
+      "id": 394,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "MySQL 表定义",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 2,
+      "description": "**MySQL Table Definition Cache**\n\n建议将 `table_open_cache_instances` 设置为与虚拟 CPU 松散关联，请记住，实例越多意味着缓存被拆分的次数越多。如果您将缓存设置为 500，但有 10 个实例，则每个缓存将只缓存 50 个。\n\n`table_definition_cache` 和 `table_open_cache` 可以保留为默认值，因为它们是自动调整大小的 MySQL 5.6 及更高版本（即：不要将它们设置为任何值）。",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 121
+      },
+      "hiddenSeries": false,
+      "id": 54,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Server Status Variables (table_open_cache)",
+          "url": "http://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_table_open_cache"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:4892",
+          "alias": "Opened Table Definitions",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_open_table_definitions{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Open Table Definitions",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_variables_table_definition_cache{job=~\"$job\", instance=~\"$instance\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Table Definitions Cache Size",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "expr": "rate(mysql_global_status_opened_table_definitions{job=~\"$job\", instance=~\"$instance\"}[$__interval]) or irate(mysql_global_status_opened_table_definitions{job=~\"$job\", instance=~\"$instance\"}[5m])",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Opened Table Definitions",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "MySQL 表定义缓存",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:4899",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:4900",
+          "format": "short",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "APO-VictoriaMetric",
+          "value": "APO-VictoriaMetric"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(mysql_up, job)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "job",
+        "options": [],
+        "query": "label_values(mysql_up, job)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(mysql_up, instance)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "instance",
+        "options": [],
+        "query": "label_values(mysql_up, instance)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "collapse": false,
+    "enable": true,
+    "hidden": false,
+    "notice": false,
+    "now": true,
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "status": "Stable",
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ],
+    "type": "timepicker"
+  },
+  "timezone": "",
+  "title": "MySQL 指标",
+  "uid": "0D6dTg3Zk",
+  "version": 37,
+  "weekStart": ""
+}

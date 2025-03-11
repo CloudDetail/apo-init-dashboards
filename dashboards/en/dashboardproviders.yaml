@@ -1,0 +1,19 @@
+apiVersion: 1
+providers:
+- name: 'default'
+  orgId: 1
+  folder: ''
+  type: file
+  disableDeletion: false
+  editable: true
+  options:
+    path: /var/lib/grafana/dashboards/default
+- name: 'middleware'
+  orgId: 1
+  folderUid: edwu5b9rkv94wb
+  folder: 'middleware'
+  type: file
+  disableDeletion: false
+  editable: true
+  options:
+    path: /var/lib/grafana/dashboards/middleware

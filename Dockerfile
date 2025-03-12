@@ -9,6 +9,6 @@ COPY ./dashboardproviders.yaml /app/
 
 WORKDIR /app
 
-CMD ["sh", "-c", "cp -r ./dashboards /var/lib/grafana/dashboards &\
+CMD ["sh", "-c", "cp -r ./dashboards/* /var/lib/grafana/dashboards/ &\
       cp ./dashboardproviders.yaml /etc/grafana/provisioning/dashboards/ &\
       cp -r ./plugins/ /var/lib/grafana/plugins/"]

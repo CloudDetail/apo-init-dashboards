@@ -6,11 +6,9 @@ RUN mkdir -p /app/plugins
 COPY dashboards /app/dashboards
 COPY plugins /app/plugins
 COPY ./dashboardproviders.yaml /app/
-COPY ./grafana.ini /app/
 
 WORKDIR /app
 
 CMD ["sh", "-c", "cp -r ./dashboards/* /var/lib/grafana/dashboards/ &\
       cp ./dashboardproviders.yaml /etc/grafana/provisioning/dashboards/ &\
-      cp -r ./plugins/ /var/lib/grafana/plugins/ &\
-      cp ./grafana.ini /etc/grafana/grafana-ini/grafana.ini"]
+      cp -r ./plugins/ /var/lib/grafana/plugins/"]

@@ -1,0 +1,733 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 31,
+    "links": [],
+    "panels": [
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 5,
+        "panels": [],
+        "title": "统计",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "APO-Clickhouse"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 1
+        },
+        "id": 1,
+        "options": {
+          "minVizHeight": 75,
+          "minVizWidth": 75,
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "sizing": "auto"
+        },
+        "pluginVersion": "",
+        "targets": [
+          {
+            "builderOptions": {
+              "aggregates": [],
+              "columns": [
+                {
+                  "alias": "timestamp",
+                  "custom": false,
+                  "name": "timestamp",
+                  "type": "DateTime64(9)"
+                }
+              ],
+              "database": "apo",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "labels",
+                  "label": "labels",
+                  "mapKey": "host_name",
+                  "operator": "=",
+                  "type": "Map(LowCardinality(String), String)",
+                  "value": "${node_name}"
+                }
+              ],
+              "groupBy": [],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [],
+              "queryType": "table",
+              "table": "originx_agent_event"
+            },
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "APO-Clickhouse"
+            },
+            "editorType": "sql",
+            "format": 1,
+            "meta": {
+              "builderOptions": {
+                "aggregates": [],
+                "columns": [
+                  {
+                    "alias": "timestamp",
+                    "custom": false,
+                    "name": "timestamp",
+                    "type": "DateTime64(9)"
+                  }
+                ],
+                "database": "apo",
+                "filters": [
+                  {
+                    "condition": "AND",
+                    "filterType": "custom",
+                    "key": "labels",
+                    "label": "labels",
+                    "mapKey": "host_name",
+                    "operator": "=",
+                    "type": "Map(LowCardinality(String), String)",
+                    "value": "${node_name}"
+                  }
+                ],
+                "groupBy": [],
+                "limit": 1000,
+                "meta": {},
+                "mode": "list",
+                "orderBy": [],
+                "queryType": "table",
+                "table": "originx_agent_event"
+              }
+            },
+            "pluginVersion": "4.5.1",
+            "queryType": "table",
+            "rawSql": "SELECT count(1) as not_monit_num FROM apo.originx_agent_event\r\nWHERE name='attach_java' and labels['node_name']='${node_name}' and labels['agent_start_time']='${start_time}'\r\nand labels['container_id'] != '' and status=false",
+            "refId": "未监控"
+          },
+          {
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "APO-Clickhouse"
+            },
+            "editorType": "sql",
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "",
+                "limit": 1000,
+                "mode": "list",
+                "queryType": "table",
+                "table": ""
+              }
+            },
+            "pluginVersion": "4.5.1",
+            "queryType": "table",
+            "rawSql": "SELECT count(1) as monited_num FROM apo.originx_agent_event\r\nWHERE name='attach_java' and labels['node_name']='${node_name}' and labels['agent_start_time']='${start_time}'\r\nand labels['container_id'] != '' and status=true",
+            "refId": "已监控"
+          }
+        ],
+        "title": "容器Java应用统计",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "APO-Clickhouse"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 1
+        },
+        "id": 6,
+        "options": {
+          "minVizHeight": 75,
+          "minVizWidth": 75,
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "sizing": "auto"
+        },
+        "pluginVersion": "",
+        "targets": [
+          {
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "APO-Clickhouse"
+            },
+            "editorType": "sql",
+            "format": 1,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "",
+                "limit": 1000,
+                "mode": "list",
+                "queryType": "table",
+                "table": ""
+              }
+            },
+            "pluginVersion": "4.5.1",
+            "queryType": "table",
+            "rawSql": "SELECT count(1) as not_monit_num FROM apo.originx_agent_event\r\nWHERE name='attach_java' and labels['node_name']='${node_name}' and labels['agent_start_time']='${start_time}'\r\nand labels['container_id'] = '' and status=false",
+            "refId": "未监控"
+          },
+          {
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "APO-Clickhouse"
+            },
+            "editorType": "sql",
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "",
+                "limit": 1000,
+                "mode": "list",
+                "queryType": "table",
+                "table": ""
+              }
+            },
+            "pluginVersion": "4.5.1",
+            "queryType": "table",
+            "rawSql": "SELECT count(1) as monited_num FROM apo.originx_agent_event\r\nWHERE name='attach_java' and labels['node_name']='${node_name}' and labels['agent_start_time']='${start_time}'\r\nand labels['container_id'] = '' and status=true",
+            "refId": "已监控"
+          }
+        ],
+        "title": "虚机Java应用统计",
+        "type": "gauge"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 9
+        },
+        "id": 2,
+        "panels": [],
+        "title": "明细",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "APO-Clickhouse"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "fixedColor": "text",
+              "mode": "fixed"
+            },
+            "custom": {
+              "align": "auto",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "inspect": false
+            },
+            "mappings": [
+              {
+                "options": {
+                  "false": {
+                    "color": "orange",
+                    "index": 0,
+                    "text": "未监控"
+                  },
+                  "true": {
+                    "color": "transparent",
+                    "index": 1,
+                    "text": "已监控"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "timestamp"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 132
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "container_id"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 118
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "host_name"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 383
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pod_name"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 364
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "status"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 72
+                },
+                {
+                  "id": "custom.align",
+                  "value": "center"
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "color-background"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 13,
+          "w": 12,
+          "x": 0,
+          "y": 10
+        },
+        "id": 3,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "frameIndex": 0,
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "",
+        "targets": [
+          {
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "APO-Clickhouse"
+            },
+            "editorType": "sql",
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "",
+                "limit": 1000,
+                "mode": "list",
+                "queryType": "table",
+                "table": ""
+              }
+            },
+            "pluginVersion": "4.5.1",
+            "queryType": "table",
+            "rawSql": "SELECT timestamp, status, labels['pod_name'] as pod_name, labels['container_id'] as container_id, labels['host_name'] as host_name\r\nFROM apo.originx_agent_event\r\nWHERE name='attach_java' and labels['node_name']='${node_name}' and labels['agent_start_time']='${start_time}'\r\nand container_id !=''\r\nORDER BY status, timestamp desc\r\nLIMIT 1000",
+            "refId": "A"
+          }
+        ],
+        "title": "容器应用列表",
+        "transformations": [
+          {
+            "id": "convertFieldType",
+            "options": {
+              "conversions": [
+                {
+                  "dateFormat": "YYYY-HH-DD HH:mm",
+                  "destinationType": "string",
+                  "targetField": "timestamp"
+                }
+              ],
+              "fields": {}
+            }
+          }
+        ],
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "APO-Clickhouse"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "auto",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "inspect": false
+            },
+            "mappings": [
+              {
+                "options": {
+                  "false": {
+                    "color": "orange",
+                    "index": 0,
+                    "text": "未监控"
+                  },
+                  "true": {
+                    "color": "transparent",
+                    "index": 1,
+                    "text": "已监控"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "timestamp"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 130
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pid"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 79
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "status"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 80
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "mode": "gradient",
+                    "type": "color-background"
+                  }
+                },
+                {
+                  "id": "custom.align",
+                  "value": "center"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 13,
+          "w": 12,
+          "x": 12,
+          "y": 10
+        },
+        "id": 4,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "frameIndex": 0,
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "",
+        "targets": [
+          {
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "APO-Clickhouse"
+            },
+            "editorType": "sql",
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "",
+                "limit": 1000,
+                "mode": "list",
+                "queryType": "table",
+                "table": ""
+              }
+            },
+            "pluginVersion": "4.5.1",
+            "queryType": "table",
+            "rawSql": "SELECT timestamp, status, pid, labels['command_line'] as cmd_line\r\nFROM apo.originx_agent_event\r\nWHERE name='attach_java' and labels['node_name']='${node_name}' and labels['agent_start_time']='${start_time}'\r\nand labels['container_id'] =''\r\nORDER BY timestamp desc\r\nLIMIT 1000",
+            "refId": "A"
+          }
+        ],
+        "title": "虚机应用服务列表",
+        "transformations": [
+          {
+            "id": "convertFieldType",
+            "options": {
+              "conversions": [
+                {
+                  "dateFormat": "YYYY-HH-DD HH:mm",
+                  "destinationType": "string",
+                  "targetField": "timestamp"
+                }
+              ],
+              "fields": {}
+            }
+          }
+        ],
+        "type": "table"
+      }
+    ],
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": false,
+            "text": "",
+            "value": ""
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "APO-Clickhouse"
+          },
+          "definition": "select labels['node_name'] as node_name\nfrom apo.originx_agent_event\ngroup by node_name\norder by node_name",
+          "hide": 0,
+          "includeAll": false,
+          "label": "探针所在节点",
+          "multi": false,
+          "name": "node_name",
+          "options": [],
+          "query": "select labels['node_name'] as node_name\nfrom apo.originx_agent_event\ngroup by node_name\norder by node_name",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 1,
+          "type": "query"
+        },
+        {
+          "current": {
+            "selected": false,
+            "text": "",
+            "value": ""
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "APO-Clickhouse"
+          },
+          "definition": "SELECT labels['agent_start_time'] as start_time FROM apo.originx_agent_event\nWHERE name='start_agent' and labels['node_name']='${node_name}' and labels['agent_start_time'] != ''\nGROUP BY start_time\nORDER BY start_time  desc",
+          "hide": 0,
+          "includeAll": false,
+          "label": "探针启动时间",
+          "multi": false,
+          "name": "start_time",
+          "options": [],
+          "query": "SELECT labels['agent_start_time'] as start_time FROM apo.originx_agent_event\nWHERE name='start_agent' and labels['node_name']='${node_name}' and labels['agent_start_time'] != ''\nGROUP BY start_time\nORDER BY start_time  desc",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-30m",
+      "to": "now"
+    },
+    "timepicker": {
+      "hidden": true,
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ]
+    },
+    "timezone": "browser",
+    "title": "Java探针监控",
+    "uid": "eegzb9fe03dogb",
+    "version": 33,
+    "weekStart": ""
+  }

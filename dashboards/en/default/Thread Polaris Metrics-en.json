@@ -1,0 +1,4828 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 27,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 49,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 1
+          },
+          "id": 1,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "rate(container_cpu_usage_seconds_total{container=\"ebpf-agent\"}[2m])",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "CPU Usage Rate",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 1
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "container_memory_rss{container=\"ebpf-agent\"}",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Memory Usage",
+          "type": "timeseries"
+        }
+      ],
+      "title": "Agent Resources Usage",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 5,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 2
+          },
+          "id": 28,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "rate(container_cpu_usage_seconds_total{name=~\"$container_id.*\"}[2m])",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "CPU Usage Rate",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 2
+          },
+          "id": 29,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "container_memory_rss{name=~\"$container_id.*\"}",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Memory Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 10
+          },
+          "id": 46,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"cpu\"}[$interval]) > 0) or 0",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Active Thread Count",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 10
+          },
+          "id": 47,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"futex\"}[$interval]) > 0) or 0",
+              "instant": false,
+              "legendFormat": "Futex",
+              "range": true,
+              "refId": "futex"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"net\"}[$interval]) > 0) or 0",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Net",
+              "range": true,
+              "refId": "net"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"epoll\"}[$interval]) > 0) or 0",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Epoll",
+              "range": true,
+              "refId": "epoll"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"file\"}[$interval]) > 0) or 0",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "File",
+              "range": true,
+              "refId": "file"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"other\"}[$interval]) > 0) or 0",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Other",
+              "range": true,
+              "refId": "other"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"runq\"}[$interval]) > 0) or 0",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Runq",
+              "range": true,
+              "refId": "runq"
+            }
+          ],
+          "title": "Thread Count by Type",
+          "type": "timeseries"
+        }
+      ],
+      "title": "Application Resources Usage",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 39,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 3
+          },
+          "id": 40,
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Reds",
+              "steps": 32
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto",
+              "value": "Count"
+            },
+            "tooltip": {
+              "mode": "single",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "ns"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"cpu\"})[$interval]))",
+              "format": "heatmap",
+              "instant": true,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "CPU Time Histogram",
+          "type": "heatmap"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 3
+          },
+          "id": 38,
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Reds",
+              "steps": 32
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto",
+              "value": "Count"
+            },
+            "tooltip": {
+              "mode": "single",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "ns"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"futex\"})[$interval]))",
+              "format": "heatmap",
+              "instant": true,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Futex Time Histogram",
+          "type": "heatmap"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "id": 41,
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Reds",
+              "steps": 32
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto",
+              "value": "Count"
+            },
+            "tooltip": {
+              "mode": "single",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "ns"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"net\"})[$interval]))",
+              "format": "heatmap",
+              "instant": true,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Net Time Histogram",
+          "type": "heatmap"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "id": 42,
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Reds",
+              "steps": 32
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto",
+              "value": "Count"
+            },
+            "tooltip": {
+              "mode": "single",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "ns"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"epoll\"})[$interval]))",
+              "format": "heatmap",
+              "instant": true,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Epoll Time Histogram",
+          "type": "heatmap"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 23
+          },
+          "id": 43,
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Reds",
+              "steps": 32
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto",
+              "value": "Count"
+            },
+            "tooltip": {
+              "mode": "single",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "ns"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"file\"})[$interval]))",
+              "format": "heatmap",
+              "instant": true,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "File Time Histogram",
+          "type": "heatmap"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 23
+          },
+          "id": 44,
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Reds",
+              "steps": 32
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto",
+              "value": "Count"
+            },
+            "tooltip": {
+              "mode": "single",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "ns"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"other\"})[$interval]))",
+              "format": "heatmap",
+              "instant": true,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Other Time Histogram",
+          "type": "heatmap"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 33
+          },
+          "id": 45,
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Reds",
+              "steps": 32
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto",
+              "value": "Count"
+            },
+            "tooltip": {
+              "mode": "single",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "ns"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"runq\"})[$interval]))",
+              "format": "heatmap",
+              "instant": true,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Runq Time Histogram",
+          "type": "heatmap"
+        }
+      ],
+      "title": "Polaris Histogram Metrics",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 30,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 4
+          },
+          "id": 31,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"cpu\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "OnCPU Count",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 4
+          },
+          "id": 35,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"futex\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Futex",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 12
+          },
+          "id": 33,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"net\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Net",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 12
+          },
+          "id": 34,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"epoll\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Epoll",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 20
+          },
+          "id": 32,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"file\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "File",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 20
+          },
+          "id": 36,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"other\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Other",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 28
+          },
+          "id": 37,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"runq\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Runq",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 28
+          },
+          "id": 48,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid=~\"$tid\", type=\"idle\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Idle",
+          "type": "timeseries"
+        }
+      ],
+      "title": "Polaris Call Count (All Threads)",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 4,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 5
+          },
+          "id": 11,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=~\"$tid\", type=\"cpu\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "On CPU",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 5
+          },
+          "id": 16,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"cpu\"}[$interval]))  by (container_id, tid, vmrange))",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "On CPU P90",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "id": 7,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=~\"$tid\", type=\"file\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "File",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "id": 17,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"file\"}[$interval]))  by (container_id, tid, vmrange))",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "File P90",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 21
+          },
+          "id": 8,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=~\"$tid\", type=\"net\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Net",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 21
+          },
+          "id": 18,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"net\"}[$interval]))  by (container_id, tid, vmrange))",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Net P90",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 29
+          },
+          "id": 9,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=~\"$tid\", type=\"epoll\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Epoll",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 29
+          },
+          "id": 19,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"epoll\"}[$interval]))  by (container_id, tid, vmrange))",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Epoll P90",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 37
+          },
+          "id": 3,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=~\"$tid\", type=\"futex\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Futex",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 37
+          },
+          "id": 20,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"futex\"}[$interval]))  by (container_id, tid, vmrange))",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Futex P90",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 45
+          },
+          "id": 10,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=~\"$tid\", type=\"other\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Other",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 45
+          },
+          "id": 22,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"other\"}[$interval]))  by (container_id, tid, vmrange))",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Other P90",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 53
+          },
+          "id": 12,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=~\"$tid\", type=\"runq\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Runqueue Latency",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 53
+          },
+          "id": 21,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid=~\"$tid\", type=\"runq\"}[$interval]))  by (container_id, tid, vmrange))",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Runq P90",
+          "type": "timeseries"
+        }
+      ],
+      "title": "Polaris Metrics (All Threads)",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 23,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "bars",
+                "fillOpacity": 68,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 6
+          },
+          "id": 25,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"cpu\"})[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "OnCPU",
+              "range": true,
+              "refId": "oncpu"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"file\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "File",
+              "range": true,
+              "refId": "File"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"net\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Net",
+              "range": true,
+              "refId": "net"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"epoll\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Epoll",
+              "range": true,
+              "refId": "epoll"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"futex\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Futex",
+              "range": true,
+              "refId": "futex"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"idle\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Idle",
+              "range": true,
+              "refId": "idle"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"other\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Other",
+              "range": true,
+              "refId": "other"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"runq\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Runqueue",
+              "range": true,
+              "refId": "runq"
+            }
+          ],
+          "title": "Time Stack",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 6
+          },
+          "id": 24,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"cpu\"})[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "OnCPU",
+              "range": true,
+              "refId": "oncpu"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"file\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "File",
+              "range": true,
+              "refId": "File"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"net\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Net",
+              "range": true,
+              "refId": "net"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"epoll\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Epoll",
+              "range": true,
+              "refId": "epoll"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"futex\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Futex",
+              "range": true,
+              "refId": "futex"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"idle\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Idle",
+              "range": true,
+              "refId": "idle"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"other\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Other",
+              "range": true,
+              "refId": "other"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"runq\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Runqueue",
+              "range": true,
+              "refId": "runq"
+            }
+          ],
+          "title": "Time Lines",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 16
+          },
+          "id": 27,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "name"
+            ],
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "sum"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"cpu\"})[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "OnCPU",
+              "range": true,
+              "refId": "oncpu"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"file\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "File",
+              "range": true,
+              "refId": "File"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"net\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Net",
+              "range": true,
+              "refId": "net"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"epoll\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Epoll",
+              "range": true,
+              "refId": "epoll"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"futex\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Futex",
+              "range": true,
+              "refId": "futex"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"idle\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Idle",
+              "range": true,
+              "refId": "idle"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"other\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Other",
+              "range": true,
+              "refId": "other"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(sum without (tid) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"runq\"})[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Runqueue",
+              "range": true,
+              "refId": "runq"
+            }
+          ],
+          "title": "Time Pie Chart",
+          "type": "piechart"
+        }
+      ],
+      "title": "Polaris Metrics (Process Level)",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 13,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "bars",
+                "fillOpacity": 68,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 7
+          },
+          "id": 15,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"cpu\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "OnCPU",
+              "range": true,
+              "refId": "oncpu"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"file\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "File",
+              "range": true,
+              "refId": "File"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"net\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Net",
+              "range": true,
+              "refId": "net"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"epoll\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Epoll",
+              "range": true,
+              "refId": "epoll"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"futex\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Futex",
+              "range": true,
+              "refId": "futex"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"idle\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Idle",
+              "range": true,
+              "refId": "idle"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"other\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Other",
+              "range": true,
+              "refId": "other"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"runq\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Runqueue",
+              "range": true,
+              "refId": "runq"
+            }
+          ],
+          "title": "Time Stack",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 7
+          },
+          "id": 6,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"cpu\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "OnCPU",
+              "range": true,
+              "refId": "oncpu"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"file\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "File",
+              "range": true,
+              "refId": "File"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"net\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Net",
+              "range": true,
+              "refId": "net"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"epoll\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Epoll",
+              "range": true,
+              "refId": "epoll"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"futex\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Futex",
+              "range": true,
+              "refId": "futex"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"idle\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Idle",
+              "range": true,
+              "refId": "idle"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"other\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Other",
+              "range": true,
+              "refId": "other"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"runq\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Runqueue",
+              "range": true,
+              "refId": "runq"
+            }
+          ],
+          "title": "Time Lines",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [],
+              "unit": "ns"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 0,
+            "y": 17
+          },
+          "id": 14,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "sum"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"cpu\"}[$interval])",
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "OnCPU",
+              "range": true,
+              "refId": "oncpu"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"file\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "File",
+              "range": true,
+              "refId": "File"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"net\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Net",
+              "range": true,
+              "refId": "net"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"epoll\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Epoll",
+              "range": true,
+              "refId": "epoll"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"futex\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Futex",
+              "range": true,
+              "refId": "futex"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"idle\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Idle",
+              "range": true,
+              "refId": "idle"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"other\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Other",
+              "range": true,
+              "refId": "other"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid=\"$tid\", type=\"runq\"}[$interval])",
+              "hide": false,
+              "instant": false,
+              "interval": "$interval",
+              "legendFormat": "Runqueue",
+              "range": true,
+              "refId": "runq"
+            }
+          ],
+          "title": "Time Pie Chart",
+          "type": "piechart"
+        }
+      ],
+      "title": "Polaris Metrics (Only when single thread is selected)",
+      "type": "row"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "train-ticket"
+          ],
+          "value": [
+            "train-ticket"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "APO-VictoriaMetric"
+        },
+        "definition": "label_values(container_cpu_usage_seconds_total,namespace)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "namespace",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(container_cpu_usage_seconds_total,namespace)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "ts-basic-service-6c487d8c6d-8df4x",
+          "value": "ts-basic-service-6c487d8c6d-8df4x"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "APO-VictoriaMetric"
+        },
+        "definition": "label_values(container_cpu_usage_seconds_total{namespace=\"$namespace\"},pod)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "pod",
+        "multi": false,
+        "name": "pod",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(container_cpu_usage_seconds_total{namespace=\"$namespace\"},pod)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "aa84b410b1ff",
+          "value": "aa84b410b1ff"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "APO-VictoriaMetric"
+        },
+        "definition": "label_values(container_cpu_usage_seconds_total{pod=\"$pod\", namespace=\"$namespace\"},name)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "ContainerID",
+        "multi": false,
+        "name": "container_id",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(container_cpu_usage_seconds_total{pod=\"$pod\", namespace=\"$namespace\"},name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "/(^.{1,12})/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allValue": "",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "APO-VictoriaMetric"
+        },
+        "definition": "label_values(originx_thread_polaris_nanoseconds_count{container_id=\"$container_id\"},tid)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "ThreadID",
+        "multi": true,
+        "name": "tid",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(originx_thread_polaris_nanoseconds_count{container_id=\"$container_id\"},tid)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "selected": true,
+          "text": "1m",
+          "value": "1m"
+        },
+        "hide": 0,
+        "label": "Interval",
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "15s",
+            "value": "15s"
+          },
+          {
+            "selected": false,
+            "text": "30s",
+            "value": "30s"
+          },
+          {
+            "selected": true,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          }
+        ],
+        "query": "15s,30s,1m,5m,10m,30m,1h,6h,12h,1d,7d",
+        "queryValue": "",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Thread Polaris Metrics",
+  "uid": "fee6ksbmadlhcb",
+  "version": 18,
+  "weekStart": ""
+}

@@ -38,10 +38,10 @@ jobs:
         build-args: |
           APP_NAME=${{ env.CONTAINER_NAME }}
         tags: |
-          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${{ github.ref }}
+          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${GITHUB_REF/refs\/tags\//}
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        name: Release ${{ github.ref }}
-        tag_name: ${{ github.ref }}
+        name: Release ${GITHUB_REF/refs\/tags\//}
+        tag_name: ${GITHUB_REF/refs\/tags\//}

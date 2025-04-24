@@ -1,9 +1,11 @@
 name: tag release image
 
 on:
-  push:
-    tags:
-    - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'The tag to release'
+        required: true
 
 env:
   REGISTRY_HOST: registry.cn-hangzhou.aliyuncs.com
@@ -17,6 +19,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.inputs.tag }}
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -41,10 +45,12 @@ jobs:
         build-args: |
           APP_NAME=${{ env.CONTAINER_NAME }}
         tags: |
-          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${{ env.TAG_NAME }}
+          ${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/apo-grafana-init-dashboards:${{ github.event.inputs.tag }}
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        name: Release ${{ env.TAG_NAME }}
-        tag_name: ${{ env.TAG_NAME }}
+        name: Release ${{ github.event.inputs.tag }}
+        tag_name: ${{ github.event.inputs.tag }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

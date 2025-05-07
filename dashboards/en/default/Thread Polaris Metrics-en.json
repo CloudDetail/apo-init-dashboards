@@ -4679,9 +4679,9 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "aa84b410b1ff",
-          "value": "aa84b410b1ff"
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -4689,7 +4689,7 @@
         },
         "definition": "label_values(container_cpu_usage_seconds_total{pod=\"$pod\", namespace=\"$namespace\"},name)",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "ContainerID",
         "multi": false,
         "name": "container_id",

@@ -18,10 +18,11 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 27,
+  "id": 26,
   "links": [],
   "panels": [
     {
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -29,200 +30,202 @@
         "y": 0
       },
       "id": 49,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 1
+          },
+          "id": 1,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "rate(container_cpu_usage_seconds_total{container=\"ebpf-agent\"}[2m])",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "探针CPU使用量",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "APO-VictoriaMetric"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 1
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "APO-VictoriaMetric"
+              },
+              "editorMode": "code",
+              "expr": "container_memory_rss{container=\"ebpf-agent\"}",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "探针内存使用量",
+          "type": "timeseries"
+        }
+      ],
       "title": "探针资源用量",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 1
-      },
-      "id": 1,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
-          },
-          "editorMode": "code",
-          "expr": "rate(container_cpu_usage_seconds_total{container=\"ebpf-agent\"}[2m])",
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "探针CPU使用量",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "APO-VictoriaMetric"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 1
-      },
-      "id": 2,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "APO-VictoriaMetric"
-          },
-          "editorMode": "code",
-          "expr": "container_memory_rss{container=\"ebpf-agent\"}",
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "探针内存使用量",
-      "type": "timeseries"
     },
     {
       "collapsed": false,
@@ -230,7 +233,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 1
       },
       "id": 5,
       "panels": [],
@@ -300,7 +303,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 10
+        "y": 2
       },
       "id": 28,
       "options": {
@@ -397,7 +400,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 10
+        "y": 2
       },
       "id": 29,
       "options": {
@@ -492,7 +495,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 18
+        "y": 10
       },
       "id": 46,
       "options": {
@@ -514,7 +517,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"cpu\"}[$interval]) > 0) or 0",
+          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", type=\"cpu\"}[$interval]) > 0) or 0",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -587,7 +590,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 18
+        "y": 10
       },
       "id": 47,
       "options": {
@@ -609,7 +612,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"futex\"}[$interval]) > 0) or 0",
+          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", type=\"futex\"}[$interval]) > 0) or 0",
           "instant": false,
           "legendFormat": "Futex",
           "range": true,
@@ -621,7 +624,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"net\"}[$interval]) > 0) or 0",
+          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", type=\"net\"}[$interval]) > 0) or 0",
           "hide": false,
           "instant": false,
           "legendFormat": "Net",
@@ -634,7 +637,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"epoll\"}[$interval]) > 0) or 0",
+          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", type=\"epoll\"}[$interval]) > 0) or 0",
           "hide": false,
           "instant": false,
           "legendFormat": "Epoll",
@@ -647,7 +650,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"file\"}[$interval]) > 0) or 0",
+          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", type=\"file\"}[$interval]) > 0) or 0",
           "hide": false,
           "instant": false,
           "legendFormat": "File",
@@ -660,7 +663,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"other\"}[$interval]) > 0) or 0",
+          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", type=\"other\"}[$interval]) > 0) or 0",
           "hide": false,
           "instant": false,
           "legendFormat": "Other",
@@ -673,7 +676,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", type=\"runq\"}[$interval]) > 0) or 0",
+          "expr": "count(increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", type=\"runq\"}[$interval]) > 0) or 0",
           "hide": false,
           "instant": false,
           "legendFormat": "Runq",
@@ -690,7 +693,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 18
       },
       "id": 39,
       "panels": [],
@@ -723,7 +726,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 27
+        "y": 19
       },
       "id": 40,
       "options": {
@@ -770,7 +773,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"cpu\"})[$interval]))",
+          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"cpu\"})[$interval]))",
           "format": "heatmap",
           "instant": true,
           "interval": "$interval",
@@ -808,7 +811,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 27
+        "y": 19
       },
       "id": 38,
       "options": {
@@ -855,7 +858,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"futex\"})[$interval]))",
+          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"futex\"})[$interval]))",
           "format": "heatmap",
           "instant": true,
           "interval": "$interval",
@@ -893,7 +896,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 37
+        "y": 29
       },
       "id": 41,
       "options": {
@@ -940,7 +943,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"net\"})[$interval]))",
+          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"net\"})[$interval]))",
           "format": "heatmap",
           "instant": true,
           "interval": "$interval",
@@ -978,7 +981,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 37
+        "y": 29
       },
       "id": 42,
       "options": {
@@ -1025,7 +1028,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"epoll\"})[$interval]))",
+          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"epoll\"})[$interval]))",
           "format": "heatmap",
           "instant": true,
           "interval": "$interval",
@@ -1063,7 +1066,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 39
       },
       "id": 43,
       "options": {
@@ -1110,7 +1113,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"file\"})[$interval]))",
+          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"file\"})[$interval]))",
           "format": "heatmap",
           "instant": true,
           "interval": "$interval",
@@ -1148,7 +1151,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 39
       },
       "id": 44,
       "options": {
@@ -1195,7 +1198,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"other\"})[$interval]))",
+          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"other\"})[$interval]))",
           "format": "heatmap",
           "instant": true,
           "interval": "$interval",
@@ -1233,7 +1236,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 57
+        "y": 49
       },
       "id": 45,
       "options": {
@@ -1280,7 +1283,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"runq\"})[$interval]))",
+          "expr": "sum by (le)(increase(prometheus_buckets(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"runq\"})[$interval]))",
           "format": "heatmap",
           "instant": true,
           "interval": "$interval",
@@ -1298,7 +1301,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 67
+        "y": 59
       },
       "id": 30,
       "panels": [],
@@ -1352,8 +1355,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1369,7 +1371,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 68
+        "y": 60
       },
       "id": 31,
       "options": {
@@ -1391,7 +1393,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"cpu\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"cpu\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1449,8 +1451,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1466,7 +1467,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 68
+        "y": 60
       },
       "id": 35,
       "options": {
@@ -1488,7 +1489,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"futex\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"futex\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1546,8 +1547,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1563,7 +1563,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 76
+        "y": 68
       },
       "id": 33,
       "options": {
@@ -1585,7 +1585,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"net\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"net\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1643,8 +1643,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1660,7 +1659,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 76
+        "y": 68
       },
       "id": 34,
       "options": {
@@ -1682,7 +1681,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"epoll\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"epoll\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1740,8 +1739,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1757,7 +1755,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 84
+        "y": 76
       },
       "id": 32,
       "options": {
@@ -1779,7 +1777,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"file\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"file\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1837,8 +1835,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1854,7 +1851,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 84
+        "y": 76
       },
       "id": 36,
       "options": {
@@ -1876,7 +1873,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"other\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"other\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1934,8 +1931,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1951,7 +1947,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 92
+        "y": 84
       },
       "id": 37,
       "options": {
@@ -1973,7 +1969,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"runq\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"runq\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2031,8 +2027,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2048,7 +2043,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 92
+        "y": 84
       },
       "id": 48,
       "options": {
@@ -2070,7 +2065,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_count{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"idle\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\", tid_key=~\"$tid\", type=\"idle\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2087,7 +2082,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 100
+        "y": 92
       },
       "id": 4,
       "panels": [],
@@ -2141,8 +2136,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2158,7 +2152,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 101
+        "y": 93
       },
       "id": 11,
       "options": {
@@ -2180,7 +2174,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"cpu\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=~\"$tid\", type=\"cpu\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2238,8 +2232,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2255,7 +2248,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 101
+        "y": 93
       },
       "id": 16,
       "options": {
@@ -2277,7 +2270,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"cpu\"}[$interval]))  by (container_id, tid, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"cpu\"}[$interval]))  by (container_id, tid, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2335,8 +2328,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2352,7 +2344,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 109
+        "y": 101
       },
       "id": 7,
       "options": {
@@ -2374,7 +2366,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"file\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=~\"$tid\", type=\"file\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2432,8 +2424,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2449,7 +2440,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 109
+        "y": 101
       },
       "id": 17,
       "options": {
@@ -2471,7 +2462,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"file\"}[$interval]))  by (container_id, tid, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"file\"}[$interval]))  by (container_id, tid, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2529,8 +2520,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2546,7 +2536,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 117
+        "y": 109
       },
       "id": 8,
       "options": {
@@ -2568,7 +2558,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"net\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=~\"$tid\", type=\"net\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2626,8 +2616,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2643,7 +2632,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 117
+        "y": 109
       },
       "id": 18,
       "options": {
@@ -2665,7 +2654,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"net\"}[$interval]))  by (container_id, tid, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"net\"}[$interval]))  by (container_id, tid, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2723,8 +2712,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2740,7 +2728,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 125
+        "y": 117
       },
       "id": 9,
       "options": {
@@ -2762,7 +2750,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"epoll\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=~\"$tid\", type=\"epoll\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2820,8 +2808,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2837,7 +2824,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 125
+        "y": 117
       },
       "id": 19,
       "options": {
@@ -2859,7 +2846,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"epoll\"}[$interval]))  by (container_id, tid, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"epoll\"}[$interval]))  by (container_id, tid, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2917,8 +2904,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2934,7 +2920,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 133
+        "y": 125
       },
       "id": 3,
       "options": {
@@ -2956,7 +2942,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"futex\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=~\"$tid\", type=\"futex\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -3014,8 +3000,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3031,7 +3016,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 133
+        "y": 125
       },
       "id": 20,
       "options": {
@@ -3053,7 +3038,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"futex\"}[$interval]))  by (container_id, tid, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"futex\"}[$interval]))  by (container_id, tid, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -3111,8 +3096,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3128,7 +3112,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 141
+        "y": 133
       },
       "id": 10,
       "options": {
@@ -3150,7 +3134,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"other\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=~\"$tid\", type=\"other\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -3208,8 +3192,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3225,7 +3208,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 141
+        "y": 133
       },
       "id": 22,
       "options": {
@@ -3247,7 +3230,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"other\"}[$interval]))  by (container_id, tid, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"other\"}[$interval]))  by (container_id, tid, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -3305,8 +3288,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3322,7 +3304,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 149
+        "y": 141
       },
       "id": 12,
       "options": {
@@ -3344,7 +3326,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"runq\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=~\"$tid\", type=\"runq\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -3402,8 +3384,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3419,7 +3400,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 149
+        "y": 141
       },
       "id": 21,
       "options": {
@@ -3441,7 +3422,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{container_id=~\"$container_id\", tid_key=~\"$tid\", type=\"runq\"}[$interval]))  by (container_id, tid, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(originx_thread_polaris_nanoseconds_bucket{pid=~\"$pid\", tid_key=~\"$tid\", type=\"runq\"}[$interval]))  by (container_id, tid, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -3458,7 +3439,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 157
+        "y": 149
       },
       "id": 23,
       "panels": [
@@ -3549,7 +3530,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"cpu\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"cpu\"})[$interval])",
               "instant": false,
               "interval": "$interval",
               "legendFormat": "OnCPU",
@@ -3562,7 +3543,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"file\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"file\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3576,7 +3557,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"net\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"net\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3590,7 +3571,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"epoll\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"epoll\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3604,7 +3585,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"futex\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"futex\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3618,7 +3599,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"idle\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"idle\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3632,7 +3613,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"other\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"other\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3646,7 +3627,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"runq\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"runq\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3743,7 +3724,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"cpu\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"cpu\"})[$interval])",
               "instant": false,
               "interval": "$interval",
               "legendFormat": "OnCPU",
@@ -3756,7 +3737,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"file\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"file\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3770,7 +3751,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"net\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"net\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3784,7 +3765,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"epoll\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"epoll\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3798,7 +3779,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"futex\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"futex\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3812,7 +3793,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"idle\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"idle\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3826,7 +3807,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"other\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"other\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3840,7 +3821,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"runq\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"runq\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3915,7 +3896,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"cpu\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"cpu\"})[$interval])",
               "instant": false,
               "interval": "$interval",
               "legendFormat": "OnCPU",
@@ -3928,7 +3909,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"file\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"file\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3942,7 +3923,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"net\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"net\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3956,7 +3937,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"epoll\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"epoll\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3970,7 +3951,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"futex\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"futex\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3984,7 +3965,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"idle\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"idle\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -3998,7 +3979,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"other\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"other\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -4012,7 +3993,7 @@
                 "uid": "APO-VictoriaMetric"
               },
               "editorMode": "code",
-              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", type=\"runq\"})[$interval])",
+              "expr": "increase(sum without (tid_key) (originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", type=\"runq\"})[$interval])",
               "hide": false,
               "instant": false,
               "interval": "$interval",
@@ -4034,7 +4015,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 158
+        "y": 150
       },
       "id": 13,
       "panels": [],
@@ -4089,8 +4070,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4106,7 +4086,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 159
+        "y": 151
       },
       "id": 15,
       "options": {
@@ -4129,7 +4109,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"cpu\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"cpu\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "OnCPU",
@@ -4142,7 +4122,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"file\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"file\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4156,7 +4136,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"net\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"net\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4170,7 +4150,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"epoll\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"epoll\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4184,7 +4164,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"futex\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"futex\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4198,7 +4178,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"idle\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"idle\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4212,7 +4192,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"other\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"other\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4226,7 +4206,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"runq\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"runq\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4285,8 +4265,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4302,7 +4281,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 159
+        "y": 151
       },
       "id": 6,
       "options": {
@@ -4324,7 +4303,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"cpu\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"cpu\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "OnCPU",
@@ -4337,7 +4316,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"file\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"file\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4351,7 +4330,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"net\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"net\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4365,7 +4344,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"epoll\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"epoll\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4379,7 +4358,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"futex\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"futex\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4393,7 +4372,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"idle\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"idle\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4407,7 +4386,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"other\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"other\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4421,7 +4400,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"runq\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"runq\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4459,7 +4438,7 @@
         "h": 10,
         "w": 8,
         "x": 0,
-        "y": 169
+        "y": 161
       },
       "id": 14,
       "options": {
@@ -4492,7 +4471,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"cpu\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"cpu\"}[$interval])",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "OnCPU",
@@ -4505,7 +4484,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"file\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"file\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4519,7 +4498,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"net\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"net\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4533,7 +4512,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"epoll\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"epoll\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4547,7 +4526,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"futex\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"futex\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4561,7 +4540,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"idle\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"idle\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4575,7 +4554,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"other\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"other\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4589,7 +4568,7 @@
             "uid": "APO-VictoriaMetric"
           },
           "editorMode": "code",
-          "expr": "increase(originx_thread_polaris_nanoseconds_sum{container_id=~\"$container_id\", tid_key=\"$tid\", type=\"runq\"}[$interval])",
+          "expr": "increase(originx_thread_polaris_nanoseconds_sum{pid=~\"$pid\", tid_key=\"$tid\", type=\"runq\"}[$interval])",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -4610,54 +4589,23 @@
       {
         "current": {
           "selected": true,
-          "text": [
-            "apo"
-          ],
-          "value": [
-            "apo"
-          ]
+          "text": "node-56",
+          "value": "node-56"
         },
         "datasource": {
           "type": "prometheus",
           "uid": "APO-VictoriaMetric"
         },
-        "definition": "label_values(container_cpu_usage_seconds_total,namespace)",
-        "hide": 0,
-        "includeAll": true,
-        "multi": true,
-        "name": "namespace",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(container_cpu_usage_seconds_total,namespace)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 2,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
-      {
-        "current": {
-          "selected": true,
-          "text": "apo-alertmanager-6cbcf9ddc8-c946w",
-          "value": "apo-alertmanager-6cbcf9ddc8-c946w"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
-        },
-        "definition": "label_values(container_cpu_usage_seconds_total{namespace=\"$namespace\"},pod)",
+        "definition": "label_values(originx_thread_polaris_nanoseconds_count{type=\"cpu\"},node_name)",
         "hide": 0,
         "includeAll": false,
-        "label": "pod",
+        "label": "HostName",
         "multi": false,
-        "name": "pod",
+        "name": "node",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(container_cpu_usage_seconds_total{namespace=\"$namespace\"},pod)",
+          "query": "label_values(originx_thread_polaris_nanoseconds_count{type=\"cpu\"},node_name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -4669,27 +4617,23 @@
       {
         "current": {
           "selected": true,
-          "text": "All",
-          "value": "$__all"
+          "text": "24743",
+          "value": "24743"
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "APO-VictoriaMetric"
-        },
-        "definition": "label_values(container_cpu_usage_seconds_total{pod=\"$pod\", namespace=\"$namespace\"},name)",
+        "definition": "label_values(originx_thread_polaris_nanoseconds_count{type=\"cpu\", node_name=\"$node\"},pid)",
         "hide": 0,
-        "includeAll": true,
-        "label": "ContainerID",
+        "includeAll": false,
+        "label": "PID",
         "multi": false,
-        "name": "container_id",
+        "name": "pid",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(container_cpu_usage_seconds_total{pod=\"$pod\", namespace=\"$namespace\"},name)",
+          "query": "label_values(originx_thread_polaris_nanoseconds_count{type=\"cpu\", node_name=\"$node\"},pid)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
-        "regex": "/(^.{1,12})/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
@@ -4709,7 +4653,7 @@
           "type": "prometheus",
           "uid": "APO-VictoriaMetric"
         },
-        "definition": "label_values(originx_thread_polaris_nanoseconds_count{container_id=\"$container_id\"},tid_key)",
+        "definition": "label_values(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\"},tid_key)",
         "hide": 0,
         "includeAll": true,
         "label": "Thread",
@@ -4718,7 +4662,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(originx_thread_polaris_nanoseconds_count{container_id=\"$container_id\"},tid_key)",
+          "query": "label_values(originx_thread_polaris_nanoseconds_count{pid=~\"$pid\"},tid_key)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -4810,8 +4754,8 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "线程级北极星指标",
-  "uid": "fee6ksbmadlhcc",
-  "version": 14,
+  "title": "线程级北极星指标(VM)",
+  "uid": "fee6ksbmadlhce",
+  "version": 1,
   "weekStart": ""
 }

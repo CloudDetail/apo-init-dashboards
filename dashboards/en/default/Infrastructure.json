@@ -3046,7 +3046,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3061,7 +3061,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3076,7 +3076,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"nice\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"nice\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3091,7 +3091,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by(instance) (irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum by(instance) (irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3106,7 +3106,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3121,7 +3121,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"softirq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"softirq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3136,7 +3136,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"steal\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"steal\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3151,7 +3151,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}) by (cpu)))",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3562,7 +3562,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"} - node_memory_MemFree_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"} - node_memory_Buffers_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"} - node_memory_Cached_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"} - node_memory_Slab_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"} - node_memory_PageTables_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"} - node_memory_SwapCached_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_MemTotal_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"} - node_memory_MemFree_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"} - node_memory_Buffers_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"} - node_memory_Cached_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"} - node_memory_Slab_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"} - node_memory_PageTables_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"} - node_memory_SwapCached_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3578,7 +3578,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_PageTables_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_PageTables_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3594,7 +3594,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_SwapCached_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_SwapCached_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3609,7 +3609,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_Slab_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_Slab_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3625,7 +3625,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_Cached_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_Cached_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3641,7 +3641,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_Buffers_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_Buffers_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3657,7 +3657,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemFree_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_MemFree_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3673,7 +3673,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(node_memory_SwapTotal_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"} - node_memory_SwapFree_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"})",
+          "expr": "(node_memory_SwapTotal_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"} - node_memory_SwapFree_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"})",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3689,7 +3689,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_memory_HardwareCorrupted_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_memory_HardwareCorrupted_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -3870,7 +3870,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_bytes_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_receive_bytes_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}[$__rate_interval])*8",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3885,7 +3885,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_bytes_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_transmit_bytes_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}[$__rate_interval])*8",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -3993,7 +3993,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_filefd_maximum{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_filefd_maximum{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 4,
@@ -4008,7 +4008,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_filefd_allocated{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\"}",
+          "expr": "node_filefd_allocated{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\"}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -4442,7 +4442,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_reads_completed_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_reads_completed_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "interval": "$resolution",
           "intervalFactor": 4,
           "legendFormat": "{{device}} - Read",
@@ -4456,7 +4456,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_writes_completed_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_writes_completed_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "interval": "$resolution",
           "intervalFactor": 1,
           "legendFormat": "{{device}} - Write",
@@ -4676,7 +4676,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_read_bytes_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_read_bytes_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4692,7 +4692,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_written_bytes_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "expr": "irate(node_disk_written_bytes_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device=~\"$diskdevices\"}[$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4800,7 +4800,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_avail_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device!~'rootfs'}",
+          "expr": "node_filesystem_avail_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "hide": true,
           "interval": "$resolution",
@@ -4817,7 +4817,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_free_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device!~'rootfs'}",
+          "expr": "node_filesystem_free_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4833,7 +4833,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device!~'rootfs'}",
+          "expr": "node_filesystem_size_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",
@@ -4941,7 +4941,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device!~'rootfs'} - node_filesystem_avail_bytes{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device!~'rootfs'}",
+          "expr": "node_filesystem_size_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device!~'rootfs'} - node_filesystem_avail_bytes{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device!~'rootfs'}",
           "format": "time_series",
           "interval": "$resolution",
           "intervalFactor": 1,
@@ -5076,7 +5076,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_io_time_seconds_total{instance_name=~\"${related_nodes, cluster_id=~\"$cluster_id\"}\",job_name=\"$job_name\",device=~\"$diskdevices\"} [$__rate_interval])",
+          "expr": "irate(node_disk_io_time_seconds_total{instance_name=~\"$related_nodes\", cluster_id=~\"$cluster_id\",job_name=\"$job_name\",device=~\"$diskdevices\"} [$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "interval": "$resolution",

@@ -3928,6 +3928,31 @@
         "type": "datasource"
       },
       {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "集群",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
         "current": {
           "selected": true,
           "text": [
@@ -3969,13 +3994,13 @@
         "datasource": {
           "uid": "${datasource}"
         },
-        "definition": "label_values(mysql_up, instance)",
+        "definition": "label_values(mysql_up{cluster_id=~\"$cluster_id\"}, instance)",
         "hide": 0,
         "includeAll": true,
         "multi": true,
         "name": "instance",
         "options": [],
-        "query": "label_values(mysql_up, instance)",
+        "query": "label_values(mysql_up{cluster_id=~\"$cluster_id\"}, instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

@@ -490,7 +490,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "redis_up{account=~\"$account\",group=~\"$group\"}",
+          "expr": "redis_up{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -505,7 +505,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(redis_connected_clients{account=~\"$account\",group=~\"$group\"})by(instance)",
+          "expr": "sum(redis_connected_clients{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"})by(instance)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -520,7 +520,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(irate(redis_commands_total{account=~\"$account\",group=~\"$group\"} [2m]))by(instance)",
+          "expr": "sum(irate(redis_commands_total{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"} [2m]))by(instance)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -535,7 +535,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "redis_uptime_in_seconds{account=~\"$account\",group=~\"$group\"} - 0",
+          "expr": "redis_uptime_in_seconds{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"} - 0",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -550,7 +550,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "avg(irate(redis_keyspace_hits_total{account=~\"$account\",group=~\"$group\"}[2m]) / (irate(redis_keyspace_misses_total{account=~\"$account\",group=~\"$group\"}[1m]) + irate(redis_keyspace_hits_total{account=~\"$account\",group=~\"$group\"}[2m]))) by (instance)",
+          "expr": "avg(irate(redis_keyspace_hits_total{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}[2m]) / (irate(redis_keyspace_misses_total{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}[1m]) + irate(redis_keyspace_hits_total{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}[2m]))) by (instance)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -565,7 +565,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum (redis_db_keys{account=~\"$account\",group=~\"$group\"}) by (instance)",
+          "expr": "sum (redis_db_keys{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}) by (instance)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -580,7 +580,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(irate(redis_net_input_bytes_total{account=~\"$account\",group=~\"$group\"}[2m])) by (instance)",
+          "expr": "sum(irate(redis_net_input_bytes_total{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}[2m])) by (instance)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -595,7 +595,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(irate(redis_net_output_bytes_total{account=~\"$account\",group=~\"$group\"}[2m])) by (instance)",
+          "expr": "sum(irate(redis_net_output_bytes_total{account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}[2m])) by (instance)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -858,7 +858,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "redis_uptime_in_seconds{instance=~\"$instance\"}",
+          "expr": "redis_uptime_in_seconds{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "Uptime",
@@ -889,7 +889,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(redis_connected_clients{instance=~\"$instance\"})",
+          "expr": "sum(redis_connected_clients{instance=~\"$instance\", cluster_id=~\"$cluster_id\"})",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -921,7 +921,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(irate(redis_commands_total{instance=~\"$instance\"} [2m]))",
+          "expr": "sum(irate(redis_commands_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"} [2m]))",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -1002,7 +1002,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "redis_memory_used_bytes{instance=~\"$instance\"}",
+          "expr": "redis_memory_used_bytes{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "used",
@@ -1019,7 +1019,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "redis_memory_max_bytes{instance=~\"$instance\"}",
+          "expr": "redis_memory_max_bytes{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1124,7 +1124,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(redis_net_input_bytes_total{instance=~\"$instance\"}[2m]))",
+          "expr": "sum(irate(redis_net_input_bytes_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "流入",
@@ -1138,7 +1138,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(redis_net_output_bytes_total{instance=~\"$instance\"}[2m]))",
+          "expr": "sum(irate(redis_net_output_bytes_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1242,7 +1242,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(redis_keyspace_hits_total{instance=~\"$instance\"}[2m])",
+          "expr": "irate(redis_keyspace_hits_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1260,7 +1260,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(redis_keyspace_misses_total{instance=~\"$instance\"}[2m])",
+          "expr": "irate(redis_keyspace_misses_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1375,7 +1375,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(redis_commands_total{instance=~\"$instance\"} [2m])) by (cmd) >1",
+          "expr": "sum(irate(redis_commands_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"} [2m])) by (cmd) >1",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1481,7 +1481,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "avg(irate(redis_keyspace_hits_total{instance=~\"$instance\"}[2m]) / (irate(redis_keyspace_misses_total{instance=~\"$instance\"}[1m]) + irate(redis_keyspace_hits_total{instance=~\"$instance\"}[2m]))) by (instance)",
+          "expr": "avg(irate(redis_keyspace_hits_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m]) / (irate(redis_keyspace_misses_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[1m]) + irate(redis_keyspace_hits_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m]))) by (instance)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1583,7 +1583,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum(redis_connected_clients{instance=~\"$instance\"})",
+          "expr": "sum(redis_connected_clients{instance=~\"$instance\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "connected",
@@ -1594,7 +1594,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum(redis_blocked_clients{instance=~\"$instance\"})",
+          "expr": "sum(redis_blocked_clients{instance=~\"$instance\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "blocked",
@@ -1698,7 +1698,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum(irate(redis_commands_duration_seconds_total{instance =~ \"$instance\"}[2m])) by (cmd)\n  /\nsum(irate(redis_commands_total{instance =~ \"$instance\"}[2m])) by (cmd)\n",
+          "expr": "sum(irate(redis_commands_duration_seconds_total{instance =~ \"$instance\", cluster_id=~\"$cluster_id\"}[2m])) by (cmd)\n  /\nsum(irate(redis_commands_total{instance =~ \"$instance\", cluster_id=~\"$cluster_id\"}[2m])) by (cmd)\n",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1806,7 +1806,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum(irate(redis_commands_duration_seconds_total{instance=~\"$instance\"}[2m])) by (cmd) != 0",
+          "expr": "sum(irate(redis_commands_duration_seconds_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m])) by (cmd) != 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1906,7 +1906,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(redis_connected_slaves{instance=~\"$instance\"}) by (instance)",
+          "expr": "sum(redis_connected_slaves{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) by (instance)",
           "interval": "",
           "legendFormat": "__auto",
           "range": true,
@@ -2007,7 +2007,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum (redis_db_keys{instance=~\"$instance\"}) by (instance) - sum (redis_db_keys_expiring{instance=~\"$instance\"}) by (instance)",
+          "expr": "sum (redis_db_keys{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) by (instance) - sum (redis_db_keys_expiring{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) by (instance)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -2023,7 +2023,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum (redis_db_keys_expiring{instance=~\"$instance\"}) by (instance)",
+          "expr": "sum (redis_db_keys_expiring{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) by (instance)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2131,7 +2131,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(redis_expired_keys_total{instance=~\"$instance\"}[2m])) by (instance)",
+          "expr": "sum(irate(redis_expired_keys_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m])) by (instance)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -2149,7 +2149,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(rate(redis_evicted_keys_total{instance=~\"$instance\"}[5m])) by (instance)",
+          "expr": "sum(rate(redis_evicted_keys_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[5m])) by (instance)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -2259,7 +2259,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "irate(redis_evicted_keys_total{instance=~\"$instance\"}[2m])",
+          "expr": "irate(redis_evicted_keys_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[2m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -2368,7 +2368,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum (redis_db_keys{instance=~\"$instance\"}) by (db, instance)",
+          "expr": "sum (redis_db_keys{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) by (db, instance)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -2444,6 +2444,31 @@
         "type": "datasource"
       },
       {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "集群",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
         "current": {
           "isNone": true,
           "selected": false,
@@ -2454,7 +2479,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(redis_up, vendor)",
+        "definition": "label_values(redis_up{cluster_id=~\"$cluster_id\"}, vendor)",
         "hide": 0,
         "includeAll": false,
         "label": "云厂商",
@@ -2462,7 +2487,7 @@
         "name": "vendor",
         "options": [],
         "query": {
-          "query": "label_values(redis_up, vendor)",
+          "query": "label_values(redis_up{cluster_id=~\"$cluster_id\"}, vendor)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2485,7 +2510,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(redis_up{vendor=~\"$vendor\"}, account)",
+        "definition": "label_values(redis_up{vendor=~\"$vendor\", cluster_id=~\"$cluster_id\"}, account)",
         "hide": 0,
         "includeAll": false,
         "label": "账号",
@@ -2493,7 +2518,7 @@
         "name": "account",
         "options": [],
         "query": {
-          "query": "label_values(redis_up{vendor=~\"$vendor\"}, account)",
+          "query": "label_values(redis_up{vendor=~\"$vendor\", cluster_id=~\"$cluster_id\"}, account)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2515,7 +2540,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\"}, group)",
+        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\", cluster_id=~\"$cluster_id\"}, group)",
         "hide": 0,
         "includeAll": true,
         "label": "属组",
@@ -2523,7 +2548,7 @@
         "name": "group",
         "options": [],
         "query": {
-          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\"}, group)",
+          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\", cluster_id=~\"$cluster_id\"}, group)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
@@ -2545,7 +2570,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\"}, name)",
+        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}, name)",
         "hide": 0,
         "includeAll": true,
         "label": "名称",
@@ -2553,7 +2578,7 @@
         "name": "name",
         "options": [],
         "query": {
-          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\"}, name)",
+          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\", cluster_id=~\"$cluster_id\"}, name)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
@@ -2575,14 +2600,14 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\"}, instance)",
+        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\", cluster_id=~\"$cluster_id\"}, instance)",
         "hide": 0,
         "includeAll": false,
         "multi": false,
         "name": "instance",
         "options": [],
         "query": {
-          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\"}, instance)",
+          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\", cluster_id=~\"$cluster_id\"}, instance)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
@@ -2605,14 +2630,14 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\"}, iid)",
+        "definition": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\", cluster_id=~\"$cluster_id\"}, iid)",
         "hide": 2,
         "includeAll": false,
         "multi": false,
         "name": "iid",
         "options": [],
         "query": {
-          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\"}, iid)",
+          "query": "label_values(redis_up{vendor=~\"$vendor\",account=~\"$account\",group=~\"$group\",name=~\"$name\", cluster_id=~\"$cluster_id\"}, iid)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,

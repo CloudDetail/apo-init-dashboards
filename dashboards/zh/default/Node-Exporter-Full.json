@@ -184,7 +184,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "irate(node_pressure_cpu_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+          "expr": "irate(node_pressure_cpu_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -200,7 +200,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "irate(node_pressure_memory_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+          "expr": "irate(node_pressure_memory_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -217,7 +217,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "irate(node_pressure_io_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+          "expr": "irate(node_pressure_io_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -308,7 +308,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100 * (1 - avg(rate(node_cpu_seconds_total{mode=\"idle\", instance_name=\"$node\"}[$__rate_interval])))",
+          "expr": "100 * (1 - avg(rate(node_cpu_seconds_total{mode=\"idle\", instance_name=\"$node\", cluster_id=~\"$cluster_id\"}[$__rate_interval])))",
           "hide": false,
           "instant": true,
           "intervalFactor": 1,
@@ -398,7 +398,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "scalar(node_load1{instance_name=\"$node\",job_name=\"$job\"}) * 100 / count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu))",
+          "expr": "scalar(node_load1{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) * 100 / count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu))",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -479,7 +479,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "((node_memory_MemTotal_bytes{instance_name=\"$node\", job_name=\"$job\"} - node_memory_MemFree_bytes{instance_name=\"$node\", job_name=\"$job\"}) / node_memory_MemTotal_bytes{instance_name=\"$node\", job_name=\"$job\"}) * 100",
+          "expr": "((node_memory_MemTotal_bytes{instance_name=\"$node\", job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_MemFree_bytes{instance_name=\"$node\", job_name=\"$job\", cluster_id=~\"$cluster_id\"}) / node_memory_MemTotal_bytes{instance_name=\"$node\", job_name=\"$job\", cluster_id=~\"$cluster_id\"}) * 100",
           "format": "time_series",
           "hide": true,
           "instant": true,
@@ -495,7 +495,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "(1 - (node_memory_MemAvailable_bytes{instance_name=\"$node\", job_name=\"$job\"} / node_memory_MemTotal_bytes{instance_name=\"$node\", job_name=\"$job\"})) * 100",
+          "expr": "(1 - (node_memory_MemAvailable_bytes{instance_name=\"$node\", job_name=\"$job\", cluster_id=~\"$cluster_id\"} / node_memory_MemTotal_bytes{instance_name=\"$node\", job_name=\"$job\", cluster_id=~\"$cluster_id\"})) * 100",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -585,7 +585,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "((node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\"}) / (node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\"})) * 100",
+          "expr": "((node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) / (node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"})) * 100",
           "instant": true,
           "intervalFactor": 1,
           "range": false,
@@ -673,7 +673,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100 - ((node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"} * 100) / node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"})",
+          "expr": "100 - ((node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\", cluster_id=~\"$cluster_id\"} * 100) / node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -757,7 +757,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu))",
+          "expr": "count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu))",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -841,7 +841,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "node_time_seconds{instance_name=\"$node\",job_name=\"$job\"} - node_boot_time_seconds{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_time_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_boot_time_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "instant": true,
           "intervalFactor": 1,
           "range": false,
@@ -929,7 +929,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"}",
+          "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -1015,7 +1015,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "instant": true,
           "intervalFactor": 1,
           "range": false,
@@ -1099,7 +1099,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "instant": true,
           "intervalFactor": 1,
           "range": false,
@@ -1334,7 +1334,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"system\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -1350,7 +1350,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1365,7 +1365,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"iowait\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Busy Iowait",
@@ -1379,7 +1379,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=~\".*irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=~\".*irq\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Busy IRQs",
@@ -1393,7 +1393,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\",  mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq'}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\",  mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq', cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Busy Other",
@@ -1407,7 +1407,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"idle\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Idle",
@@ -1877,7 +1877,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1890,7 +1890,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"} - (node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\"})",
+          "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - (node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} + node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} + node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1903,7 +1903,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"} + node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} + node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} + node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "RAM Cache + Buffer",
@@ -1915,7 +1915,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "RAM Free",
@@ -1927,7 +1927,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "(node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\"})",
+          "expr": "(node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "SWAP Used",
@@ -2384,7 +2384,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "irate(node_network_receive_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_receive_bytes_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])*8",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "recv {{device}}",
@@ -2396,7 +2396,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "irate(node_network_transmit_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_transmit_bytes_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])*8",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "trans {{device}} ",
@@ -2497,7 +2497,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "100 - ((node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'} * 100) / node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'})",
+          "expr": "100 - ((node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"} * 100) / node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{mountpoint}}",
@@ -2737,7 +2737,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"system\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -2752,7 +2752,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "User - Normal processes executing in user mode",
@@ -2766,7 +2766,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"nice\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"nice\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Nice - Niced processes executing in user mode",
@@ -2780,7 +2780,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum by(instance) (irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum by(instance) (irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"iowait\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Iowait - Waiting for I/O to complete",
@@ -2794,7 +2794,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"irq\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Irq - Servicing interrupts",
@@ -2808,7 +2808,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"softirq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"softirq\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Softirq - Servicing softirqs",
@@ -2822,7 +2822,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"steal\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"steal\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Steal - Time spent in other operating systems when running in a virtualized environment",
@@ -2836,7 +2836,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}) by (cpu)))",
+              "expr": "sum(irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"idle\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}) by (cpu)))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3243,7 +3243,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_Slab_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_PageTables_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_SwapCached_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_MemTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_Slab_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_PageTables_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_SwapCached_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3256,7 +3256,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_PageTables_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_PageTables_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3269,7 +3269,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_SwapCached_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_SwapCached_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "SwapCache - Memory that keeps track of pages that have been fetched from swap but not yet been modified",
@@ -3281,7 +3281,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_Slab_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_Slab_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3294,7 +3294,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_Cached_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3307,7 +3307,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_Buffers_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3320,7 +3320,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_MemFree_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3333,7 +3333,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "(node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\"})",
+              "expr": "(node_memory_SwapTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} - node_memory_SwapFree_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"})",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3346,7 +3346,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_memory_HardwareCorrupted_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_memory_HardwareCorrupted_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3521,7 +3521,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
+              "expr": "irate(node_network_receive_bytes_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])*8",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Receive",
@@ -3533,7 +3533,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])*8",
+              "expr": "irate(node_network_transmit_bytes_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])*8",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Transmit",
@@ -3636,7 +3636,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'} - node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"} - node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{mountpoint}}",
@@ -4066,7 +4066,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
+              "expr": "irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Reads completed",
               "refId": "A",
@@ -4077,7 +4077,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
+              "expr": "irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Writes completed",
               "refId": "B",
@@ -4293,7 +4293,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_read_bytes_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
+              "expr": "irate(node_disk_read_bytes_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -4306,7 +4306,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_written_bytes_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
+              "expr": "irate(node_disk_written_bytes_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -4438,7 +4438,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_io_time_seconds_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\"} [$__rate_interval])",
+              "expr": "irate(node_disk_io_time_seconds_total{instance_name=\"$node\",job_name=\"$job\",device=~\"$diskdevices\", cluster_id=~\"$cluster_id\"} [$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -4571,7 +4571,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum by(instance) (irate(node_cpu_guest_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\"}[1m])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[1m])))",
+              "expr": "sum by(instance) (irate(node_cpu_guest_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"user\", cluster_id=~\"$cluster_id\"}[1m])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[1m])))",
               "hide": false,
               "legendFormat": "Guest - Time spent running a virtual CPU for a guest operating system",
               "range": true,
@@ -4583,7 +4583,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum by(instance) (irate(node_cpu_guest_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"nice\"}[1m])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[1m])))",
+              "expr": "sum by(instance) (irate(node_cpu_guest_seconds_total{instance_name=\"$node\",job_name=\"$job\", mode=\"nice\", cluster_id=~\"$cluster_id\"}[1m])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[1m])))",
               "hide": false,
               "legendFormat": "GuestNice - Time spent running a niced guest  (virtual CPU for guest operating system)",
               "range": true,
@@ -4982,7 +4982,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Inactive_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Inactive_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Inactive - Memory which has been less recently used.  It is more eligible to be reclaimed for other purposes",
@@ -4994,7 +4994,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Active_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Active_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Active - Memory that has been used more recently and usually not reclaimed unless absolutely necessary",
@@ -5374,7 +5374,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Committed_AS_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Committed_AS_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Committed_AS - Amount of memory presently allocated on the system",
@@ -5386,7 +5386,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_CommitLimit_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_CommitLimit_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "CommitLimit - Amount of  memory currently available to be allocated on the system",
@@ -5747,7 +5747,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Inactive_file_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Inactive_file_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -5760,7 +5760,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Inactive_anon_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Inactive_anon_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -5773,7 +5773,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Active_file_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Active_file_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -5786,7 +5786,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Active_anon_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Active_anon_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -6177,7 +6177,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Writeback_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Writeback_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Writeback - Memory which is actively being written back to disk",
@@ -6189,7 +6189,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_WritebackTmp_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_WritebackTmp_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "WritebackTmp - Memory used by FUSE for temporary writeback buffers",
@@ -6201,7 +6201,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Dirty_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Dirty_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Dirty - Memory which is waiting to get written back to the disk",
@@ -6583,7 +6583,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Mapped_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Mapped_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Mapped - Used memory in mapped pages files which have been mapped, such as libraries",
@@ -6595,7 +6595,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Shmem_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Shmem_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Shmem - Used shared memory (shared between several processes, thus including RAM disks)",
@@ -6607,7 +6607,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_ShmemHugePages_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_ShmemHugePages_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -6620,7 +6620,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_ShmemPmdMapped_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_ShmemPmdMapped_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -7008,7 +7008,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_SUnreclaim_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_SUnreclaim_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "SUnreclaim - Part of Slab, that cannot be reclaimed on memory pressure",
@@ -7020,7 +7020,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_SReclaimable_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "SReclaimable - Part of Slab, that might be reclaimed, such as caches",
@@ -7392,7 +7392,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_VmallocChunk_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_VmallocChunk_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -7405,7 +7405,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_VmallocTotal_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_VmallocTotal_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -7418,7 +7418,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_VmallocUsed_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_VmallocUsed_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -7777,7 +7777,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Bounce_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Bounce_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Bounce - Memory used for block device bounce buffers",
@@ -8161,7 +8161,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_AnonHugePages_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_AnonHugePages_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "AnonHugePages - Memory in anonymous huge pages",
@@ -8173,7 +8173,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_AnonPages_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_AnonPages_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "AnonPages - Memory in user pages not backed by files",
@@ -8531,7 +8531,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_KernelStack_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_KernelStack_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "KernelStack - Kernel memory stack. This is not reclaimable",
@@ -8543,7 +8543,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Percpu_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Percpu_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -8915,7 +8915,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_HugePages_Free{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_HugePages_Free{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "HugePages_Free - Huge pages in the pool that are not yet allocated",
@@ -8927,7 +8927,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_HugePages_Rsvd{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_HugePages_Rsvd{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "HugePages_Rsvd - Huge pages for which a commitment to allocate from the pool has been made, but no allocation has yet been made",
@@ -8939,7 +8939,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_HugePages_Surp{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_HugePages_Surp{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "HugePages_Surp - Huge pages in the pool above the value in /proc/sys/vm/nr_hugepages",
@@ -9310,7 +9310,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_HugePages_Total{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_HugePages_Total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "HugePages - Total size of the pool of huge pages",
@@ -9322,7 +9322,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Hugepagesize_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Hugepagesize_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Hugepagesize - Huge Page size",
@@ -9693,7 +9693,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_DirectMap1G_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_DirectMap1G_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "DirectMap1G - Amount of pages mapped as this size",
@@ -9705,7 +9705,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_DirectMap2M_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_DirectMap2M_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -9718,7 +9718,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_DirectMap4k_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_DirectMap4k_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -10077,7 +10077,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Unevictable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Unevictable_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Unevictable - Amount of unevictable memory that can't be swapped out for a variety of reasons",
@@ -10089,7 +10089,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_Mlocked_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_Mlocked_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "MLocked - Size of pages locked to memory using the mlock() system call",
@@ -10476,7 +10476,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_memory_NFS_Unstable_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+          "expr": "node_memory_NFS_Unstable_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "NFS Unstable - Memory in NFS pages sent to the server, but not yet committed to the storage",
@@ -10606,7 +10606,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_pgpgin{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_pgpgin{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Pagesin - Page in operations",
@@ -10618,7 +10618,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_pgpgout{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_pgpgout{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Pagesout - Page out operations",
@@ -10734,7 +10734,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_pswpin{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_pswpin{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Pswpin - Pages swapped in",
@@ -10746,7 +10746,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_pswpout{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_pswpout{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Pswpout - Pages swapped out",
@@ -11126,7 +11126,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_pgfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_pgfault{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Pgfault - Page major and minor fault operations",
@@ -11138,7 +11138,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_pgmajfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_pgmajfault{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Pgmajfault - Major page fault operations",
@@ -11150,7 +11150,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_pgfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])  - irate(node_vmstat_pgmajfault{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_pgfault{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])  - irate(node_vmstat_pgmajfault{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Pgminfault - Minor page fault operations",
@@ -11540,7 +11540,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_vmstat_oom_kill{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_vmstat_oom_kill{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -11688,7 +11688,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_estimated_error_seconds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_estimated_error_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -11702,7 +11702,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_offset_seconds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_offset_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -11716,7 +11716,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_maxerror_seconds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_maxerror_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -11822,7 +11822,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_loop_time_constant{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_loop_time_constant{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -11940,7 +11940,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_sync_status{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_sync_status{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -11953,7 +11953,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_frequency_adjustment_ratio{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_frequency_adjustment_ratio{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12055,7 +12055,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_tick_seconds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_tick_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12068,7 +12068,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_timex_tai_offset_seconds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_timex_tai_offset_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12200,7 +12200,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_procs_blocked{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_procs_blocked{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Processes blocked waiting for I/O to complete",
@@ -12212,7 +12212,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_procs_running{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_procs_running{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Processes in runnable state",
@@ -12317,7 +12317,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_processes_state{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_processes_state{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12422,7 +12422,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_forks_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_forks_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -12540,7 +12540,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(process_virtual_memory_bytes{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(process_virtual_memory_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -12553,7 +12553,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "process_resident_memory_max_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "process_resident_memory_max_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -12566,7 +12566,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(process_virtual_memory_bytes{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(process_virtual_memory_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -12579,7 +12579,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(process_virtual_memory_max_bytes{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(process_virtual_memory_max_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -12705,7 +12705,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_processes_pids{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_processes_pids{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12718,7 +12718,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_processes_max_processes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_processes_max_processes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12835,7 +12835,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_schedstat_running_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_schedstat_running_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12848,7 +12848,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_schedstat_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_schedstat_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12974,7 +12974,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_processes_threads{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_processes_threads{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -12987,7 +12987,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_processes_max_threads{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_processes_max_threads{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -13119,7 +13119,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_context_switches_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_context_switches_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Context switches",
@@ -13131,7 +13131,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_intr_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_intr_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -13236,7 +13236,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_load1{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_load1{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 4,
               "legendFormat": "Load 1m",
@@ -13248,7 +13248,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_load5{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_load5{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 4,
               "legendFormat": "Load 5m",
@@ -13260,7 +13260,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_load15{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_load15{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 4,
               "legendFormat": "Load 15m",
@@ -13439,7 +13439,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "node_cpu_scaling_frequency_hertz{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_cpu_scaling_frequency_hertz{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -13455,7 +13455,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "avg(node_cpu_scaling_frequency_max_hertz{instance_name=\"$node\",job_name=\"$job\"})",
+              "expr": "avg(node_cpu_scaling_frequency_max_hertz{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -13471,7 +13471,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "avg(node_cpu_scaling_frequency_min_hertz{instance_name=\"$node\",job_name=\"$job\"})",
+              "expr": "avg(node_cpu_scaling_frequency_min_hertz{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"})",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -13641,7 +13641,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "rate(node_pressure_cpu_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "rate(node_pressure_cpu_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "CPU some",
@@ -13655,7 +13655,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "rate(node_pressure_memory_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "rate(node_pressure_memory_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -13670,7 +13670,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "rate(node_pressure_memory_stalled_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "rate(node_pressure_memory_stalled_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -13685,7 +13685,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "rate(node_pressure_io_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "rate(node_pressure_io_waiting_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -13700,7 +13700,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "rate(node_pressure_io_stalled_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "rate(node_pressure_io_stalled_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -13846,7 +13846,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_interrupts_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_interrupts_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -13950,7 +13950,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_schedstat_timeslices_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_schedstat_timeslices_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -14055,7 +14055,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_entropy_available_bits{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_entropy_available_bits{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Entropy available to random number generators",
@@ -14158,7 +14158,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(process_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(process_cpu_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -14283,7 +14283,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "process_max_fds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "process_max_fds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "Maximum open file descriptors",
@@ -14295,7 +14295,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "process_open_fds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "process_open_fds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "Open file descriptors",
@@ -14465,7 +14465,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_hwmon_temp_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_hwmon_temp_celsius{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -14478,7 +14478,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_hwmon_temp_crit_alarm_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_hwmon_temp_crit_alarm_celsius{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": true,
               "interval": "",
@@ -14492,7 +14492,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_hwmon_temp_crit_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_hwmon_temp_crit_celsius{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -14505,7 +14505,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_hwmon_temp_crit_hyst_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_hwmon_temp_crit_hyst_celsius{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": true,
               "interval": "",
@@ -14519,7 +14519,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_hwmon_temp_max_celsius{instance_name=\"$node\",job_name=\"$job\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_hwmon_temp_max_celsius{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"} * on(chip) group_left(chip_name) node_hwmon_chip_names{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": true,
               "interval": "",
@@ -14644,7 +14644,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_cooling_device_cur_state{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_cooling_device_cur_state{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -14658,7 +14658,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_cooling_device_max_state{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_cooling_device_max_state{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -14762,7 +14762,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_power_supply_online{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_power_supply_online{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -14895,7 +14895,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_systemd_socket_accepted_connections_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_systemd_socket_accepted_connections_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -15075,7 +15075,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"activating\"}",
+              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"activating\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -15088,7 +15088,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"active\"}",
+              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"active\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -15101,7 +15101,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"deactivating\"}",
+              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"deactivating\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -15114,7 +15114,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"failed\"}",
+              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"failed\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -15127,7 +15127,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"inactive\"}",
+              "expr": "node_systemd_units{instance_name=\"$node\",job_name=\"$job\",state=\"inactive\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -15570,7 +15570,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Reads completed",
               "refId": "A",
@@ -15581,7 +15581,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Writes completed",
               "refId": "B",
@@ -15995,7 +15995,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_read_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_read_bytes_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Read bytes",
@@ -16007,7 +16007,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_written_bytes_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_written_bytes_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Written bytes",
@@ -16422,7 +16422,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_read_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval]) / irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_read_time_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval]) / irate(node_disk_reads_completed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "hide": false,
               "interval": "",
               "intervalFactor": 4,
@@ -16435,7 +16435,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_write_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval]) / irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_write_time_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval]) / irate(node_disk_writes_completed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
@@ -16840,7 +16840,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_io_time_weighted_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_io_time_weighted_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "intervalFactor": 4,
               "legendFormat": "{{device}}",
@@ -17255,7 +17255,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_reads_merged_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_reads_merged_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Read merged",
               "refId": "A",
@@ -17266,7 +17266,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_writes_merged_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_writes_merged_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Write merged",
               "refId": "B",
@@ -17669,7 +17669,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_io_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_io_time_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "intervalFactor": 4,
               "legendFormat": "{{device}} - IO",
@@ -17681,7 +17681,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_discard_time_seconds_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_discard_time_seconds_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "intervalFactor": 4,
               "legendFormat": "{{device}} - discard",
@@ -18085,7 +18085,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_disk_io_now{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_disk_io_now{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "interval": "",
               "intervalFactor": 4,
               "legendFormat": "{{device}} - IO now",
@@ -18488,7 +18488,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_discards_completed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_discards_completed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Discards completed",
@@ -18500,7 +18500,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_disk_discards_merged_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_disk_discards_merged_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Discards merged",
@@ -18630,7 +18630,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_avail_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -18644,7 +18644,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_free_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_free_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": true,
               "intervalFactor": 1,
@@ -18657,7 +18657,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_size_bytes{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": true,
               "intervalFactor": 1,
@@ -18761,7 +18761,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_files_free{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_files_free{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -18865,7 +18865,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filefd_maximum{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_filefd_maximum{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 4,
               "legendFormat": "Max open files",
@@ -18877,7 +18877,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filefd_allocated{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_filefd_allocated{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Open files",
@@ -18980,7 +18980,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_files{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_files{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -19101,7 +19101,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_readonly{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_readonly{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{mountpoint}} - ReadOnly",
@@ -19113,7 +19113,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_filesystem_device_error{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs',fstype!~'tmpfs'}",
+              "expr": "node_filesystem_device_error{instance_name=\"$node\",job_name=\"$job\",device!~'rootfs',fstype!~'tmpfs', cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -19316,7 +19316,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_packets_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_receive_packets_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -19329,7 +19329,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_packets_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_transmit_packets_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -19445,7 +19445,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_errs_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_receive_errs_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Receive errors",
@@ -19457,7 +19457,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_errs_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_transmit_errs_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Transmit errors",
@@ -19572,7 +19572,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_drop_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_receive_drop_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Receive drop",
@@ -19584,7 +19584,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_drop_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_transmit_drop_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Transmit drop",
@@ -19699,7 +19699,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_compressed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_receive_compressed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Receive compressed",
@@ -19711,7 +19711,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_compressed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_transmit_compressed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Transmit compressed",
@@ -19826,7 +19826,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_multicast_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_receive_multicast_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Receive multicast",
@@ -19941,7 +19941,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_fifo_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_receive_fifo_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Receive fifo",
@@ -19953,7 +19953,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_fifo_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_transmit_fifo_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Transmit fifo",
@@ -20068,7 +20068,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_receive_frame_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_receive_frame_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -20171,7 +20171,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_carrier_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_transmit_carrier_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Statistic transmit_carrier",
@@ -20286,7 +20286,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_network_transmit_colls_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_network_transmit_colls_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{device}} - Transmit colls",
@@ -20408,7 +20408,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_nf_conntrack_entries{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_nf_conntrack_entries{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "NF conntrack entries",
@@ -20420,7 +20420,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_nf_conntrack_entries_limit{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_nf_conntrack_entries_limit{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "NF conntrack limit",
@@ -20522,7 +20522,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_arp_entries{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_arp_entries{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{ device }} - ARP entries",
@@ -20625,7 +20625,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_network_mtu_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_network_mtu_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{ device }} - Bytes",
@@ -20728,7 +20728,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_network_speed_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_network_speed_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{ device }} - Speed",
@@ -20831,7 +20831,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_network_transmit_queue_length{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_network_transmit_queue_length{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{ device }} -   Interface transmit queue length",
@@ -20946,7 +20946,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_softnet_processed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_softnet_processed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -20959,7 +20959,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_softnet_dropped_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_softnet_dropped_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21062,7 +21062,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_softnet_times_squeezed_total{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_softnet_times_squeezed_total{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21165,7 +21165,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_network_up{operstate=\"up\",instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_network_up{operstate=\"up\",instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}} - Operational state UP",
@@ -21177,7 +21177,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_network_carrier{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_network_carrier{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "instant": false,
               "legendFormat": "{{device}} - Physical link state",
@@ -21306,7 +21306,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_TCP_alloc{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_TCP_alloc{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21319,7 +21319,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_TCP_inuse{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_TCP_inuse{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21332,7 +21332,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_TCP_mem{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_TCP_mem{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": true,
               "interval": "",
@@ -21346,7 +21346,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_TCP_orphan{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_TCP_orphan{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21359,7 +21359,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_TCP_tw{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_TCP_tw{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21463,7 +21463,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_UDPLITE_inuse{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_UDPLITE_inuse{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21476,7 +21476,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_UDP_inuse{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_UDP_inuse{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21489,7 +21489,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_UDP_mem{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_UDP_mem{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21593,7 +21593,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_FRAG_inuse{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_FRAG_inuse{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21606,7 +21606,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_RAW_inuse{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_RAW_inuse{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21710,7 +21710,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_TCP_mem_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_TCP_mem_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21723,7 +21723,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_UDP_mem_bytes{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_UDP_mem_bytes{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21736,7 +21736,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_FRAG_memory{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_FRAG_memory{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "FRAG_memory - Used memory for frag",
@@ -21838,7 +21838,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_sockstat_sockets_used{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_sockstat_sockets_used{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21983,7 +21983,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_IpExt_InOctets{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_IpExt_InOctets{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -21996,7 +21996,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_IpExt_OutOctets{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_IpExt_OutOctets{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "OutOctets - Sent octets",
@@ -22101,7 +22101,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Ip_Forwarding{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Ip_Forwarding{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22218,7 +22218,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Icmp_InMsgs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Icmp_InMsgs{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22231,7 +22231,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Icmp_OutMsgs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Icmp_OutMsgs{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22348,7 +22348,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Icmp_InErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Icmp_InErrors{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22477,7 +22477,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Udp_InDatagrams{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Udp_InDatagrams{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22490,7 +22490,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Udp_OutDatagrams{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Udp_OutDatagrams{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22594,7 +22594,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Udp_InErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Udp_InErrors{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22607,7 +22607,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Udp_NoPorts{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Udp_NoPorts{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22620,7 +22620,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_UdpLite_InErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_UdpLite_InErrors{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "legendFormat": "InErrors Lite - UDPLite Datagrams that could not be delivered to an application",
               "refId": "C"
@@ -22630,7 +22630,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Udp_RcvbufErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Udp_RcvbufErrors{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22643,7 +22643,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Udp_SndbufErrors{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Udp_SndbufErrors{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22772,7 +22772,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Tcp_InSegs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Tcp_InSegs{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -22786,7 +22786,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Tcp_OutSegs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Tcp_OutSegs{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22892,7 +22892,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_TcpExt_ListenOverflows{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_ListenOverflows{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -22906,7 +22906,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_TcpExt_ListenDrops{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_ListenDrops{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -22920,7 +22920,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_TcpExt_TCPSynRetrans{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_TCPSynRetrans{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -22933,7 +22933,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Tcp_RetransSegs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Tcp_RetransSegs{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "legendFormat": "RetransSegs - Segments retransmitted - that is, the number of TCP segments transmitted containing one or more previously transmitted octets",
               "refId": "D"
@@ -22943,7 +22943,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Tcp_InErrs{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Tcp_InErrs{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "legendFormat": "InErrs - Segments received in error (e.g., bad TCP checksums)",
               "refId": "E"
@@ -22953,7 +22953,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Tcp_OutRsts{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Tcp_OutRsts{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "interval": "",
               "legendFormat": "OutRsts - Segments sent with RST flag",
               "refId": "F"
@@ -22964,7 +22964,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "irate(node_netstat_TcpExt_TCPRcvQDrop{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_TCPRcvQDrop{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "hide": false,
               "interval": "",
               "legendFormat": "TCPRcvQDrop - Packets meant to be queued in rcv queue but dropped because socket rcvbuf limit hit",
@@ -22977,7 +22977,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "irate(node_netstat_TcpExt_TCPOFOQueue{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_TCPOFOQueue{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "hide": false,
               "interval": "",
               "legendFormat": "TCPOFOQueue - TCP layer receives an out of order packet and has enough memory to queue it",
@@ -23101,7 +23101,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_netstat_Tcp_CurrEstab{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_netstat_Tcp_CurrEstab{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23115,7 +23115,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_netstat_Tcp_MaxConn{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_netstat_Tcp_MaxConn{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23234,7 +23234,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_TcpExt_SyncookiesFailed{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_SyncookiesFailed{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23248,7 +23248,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_TcpExt_SyncookiesRecv{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_SyncookiesRecv{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23262,7 +23262,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_TcpExt_SyncookiesSent{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_TcpExt_SyncookiesSent{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23368,7 +23368,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Tcp_ActiveOpens{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Tcp_ActiveOpens{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -23381,7 +23381,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "irate(node_netstat_Tcp_PassiveOpens{instance_name=\"$node\",job_name=\"$job\"}[$__rate_interval])",
+              "expr": "irate(node_netstat_Tcp_PassiveOpens{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -23484,7 +23484,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "node_tcp_connection_states{state=\"established\",instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_tcp_connection_states{state=\"established\",instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -23499,7 +23499,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "node_tcp_connection_states{state=\"fin_wait2\",instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_tcp_connection_states{state=\"fin_wait2\",instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23515,7 +23515,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "node_tcp_connection_states{state=\"listen\",instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_tcp_connection_states{state=\"listen\",instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23531,7 +23531,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "node_tcp_connection_states{state=\"time_wait\",instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_tcp_connection_states{state=\"time_wait\",instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23665,7 +23665,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_scrape_collector_duration_seconds{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_scrape_collector_duration_seconds{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23794,7 +23794,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_scrape_collector_success{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_scrape_collector_success{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23808,7 +23808,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "node_textfile_scrape_error{instance_name=\"$node\",job_name=\"$job\"}",
+              "expr": "node_textfile_scrape_error{instance_name=\"$node\",job_name=\"$job\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -23863,6 +23863,31 @@
         "type": "datasource"
       },
       {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "集群",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
         "current": {},
         "datasource": {
           "type": "prometheus",
@@ -23895,7 +23920,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(node_uname_info{job_name=\"$job\"},instance_name)",
+        "definition": "label_values(node_uname_info{job_name=\"$job\", cluster_id=~\"$cluster_id\"},instance_name)",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -23904,7 +23929,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(node_uname_info{job_name=\"$job\"},instance_name)",
+          "query": "label_values(node_uname_info{job_name=\"$job\", cluster_id=~\"$cluster_id\"},instance_name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,

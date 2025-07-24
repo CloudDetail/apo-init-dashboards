@@ -132,7 +132,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_sum{svc_name=\"$service\"}[$__rate_interval])) / sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\"}[$__rate_interval])) ",
+          "expr": "sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_sum{svc_name=\"$service\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) / sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) ",
           "instant": false,
           "interval": "$resolution",
           "legendFormat": "{{db_url}}/{{db_name}}: {{name}}",
@@ -234,7 +234,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\",is_error=\"true\"}[$__rate_interval]))  / sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\"}[$__rate_interval])) or (sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\"}[$__rate_interval]))*0)",
+          "expr": "sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\",is_error=\"true\", cluster_id=~\"$cluster_id\"}[$__rate_interval]))  / sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\", cluster_id=~\"$cluster_id\"}[$__rate_interval])) or (sum by (svc_name, db_system, db_name, name, db_url) (increase(kindling_db_duration_nanoseconds_count{svc_name=\"$service\", cluster_id=~\"$cluster_id\"}[$__rate_interval]))*0)",
           "instant": false,
           "interval": "$resolution",
           "legendFormat": "{{db_url}}/{{db_name}}: {{name}}",
@@ -359,7 +359,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (svc_name, db_system, db_name, name, db_url) (irate(kindling_db_duration_nanoseconds_count{svc_name=\"$service\"}[$__rate_interval]))  ",
+          "expr": "sum by (svc_name, db_system, db_name, name, db_url) (irate(kindling_db_duration_nanoseconds_count{svc_name=\"$service\", cluster_id=~\"$cluster_id\"}[$__rate_interval]))  ",
           "instant": false,
           "interval": "$resolution",
           "legendFormat": "{{db_url}}/{{db_name}}: {{name}}",
@@ -394,6 +394,31 @@
         "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "Cluster",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       },
       {
         "current": {
@@ -459,7 +484,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(kindling_db_duration_nanoseconds_sum,svc_name)",
+        "definition": "label_values(kindling_db_duration_nanoseconds_sum{cluster_id=~\"$cluster_id\"},svc_name)",
         "hide": 0,
         "includeAll": false,
         "label": "Service Name",
@@ -468,7 +493,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(kindling_db_duration_nanoseconds_sum,svc_name)",
+          "query": "label_values(kindling_db_duration_nanoseconds_sum{cluster_id=~\"$cluster_id\"},svc_name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,

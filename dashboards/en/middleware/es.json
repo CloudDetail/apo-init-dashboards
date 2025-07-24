@@ -1372,7 +1372,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_jvm_gc_collection_seconds_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_jvm_gc_collection_seconds_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -1478,7 +1478,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_jvm_gc_collection_seconds_sum{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_jvm_gc_collection_seconds_sum{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -1603,7 +1603,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_translog_operations{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_translog_operations{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}",
@@ -1696,7 +1696,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_translog_size_in_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_translog_size_in_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}",
@@ -1816,7 +1816,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_breakers_tripped{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_breakers_tripped{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: {{breaker}}",
@@ -1909,7 +1909,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_breakers_estimated_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_breakers_estimated_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: {{breaker}}",
@@ -1919,7 +1919,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_breakers_limit_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_breakers_limit_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: limit for {{breaker}}",
@@ -2548,7 +2548,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "1-(elasticsearch_filesystem_data_available_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}/elasticsearch_filesystem_data_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"})",
+              "expr": "1-(elasticsearch_filesystem_data_available_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}/elasticsearch_filesystem_data_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"})",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -2676,7 +2676,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_transport_tx_size_bytes_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_transport_tx_size_bytes_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -2688,7 +2688,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "-irate(elasticsearch_transport_rx_size_bytes_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "-irate(elasticsearch_transport_rx_size_bytes_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: received",
@@ -3368,7 +3368,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_search_query_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval]) ",
+              "expr": "irate(elasticsearch_indices_search_query_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval]) ",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -3472,7 +3472,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_indexing_index_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_indexing_index_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -3578,7 +3578,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_merges_total_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_merges_total_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -3684,7 +3684,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_store_throttle_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_store_throttle_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -3817,7 +3817,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_indexing_index_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_indexing_index_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -3830,7 +3830,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_search_query_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_search_query_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: query",
@@ -3841,7 +3841,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_search_fetch_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_search_fetch_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: fetch",
@@ -3852,7 +3852,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_merges_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_merges_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: merges",
@@ -3863,7 +3863,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_refresh_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_refresh_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: refresh",
@@ -3874,7 +3874,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_flush_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_flush_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: flush",
@@ -3885,7 +3885,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_get_exists_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_get_exists_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: get_exists",
@@ -3896,7 +3896,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_get_missing_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_get_missing_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: get_missing",
@@ -3907,7 +3907,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_get_tota{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_get_tota{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: get",
@@ -3918,7 +3918,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_indexing_delete_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_indexing_delete_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: indexing_delete",
@@ -4022,7 +4022,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_indexing_index_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_indexing_index_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -4035,7 +4035,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_search_query_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_search_query_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: query",
@@ -4046,7 +4046,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_search_fetch_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_search_fetch_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: fetch",
@@ -4057,7 +4057,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_merges_total_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_merges_total_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: merges",
@@ -4068,7 +4068,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_refresh_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_refresh_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: refresh",
@@ -4079,7 +4079,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_flush_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_flush_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: flush",
@@ -4090,7 +4090,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_get_exists_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_get_exists_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: get_exists",
@@ -4101,7 +4101,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_get_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_get_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: get_time",
@@ -4112,7 +4112,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_get_missing_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_get_missing_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: get_missing",
@@ -4123,7 +4123,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_indexing_delete_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_indexing_delete_time_seconds_total{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: indexing_delete",
@@ -4134,7 +4134,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_indices_get_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_indices_get_time_seconds{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: get",
@@ -4259,7 +4259,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_thread_pool_rejected_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_thread_pool_rejected_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: {{ type }}",
@@ -4358,7 +4358,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_thread_pool_active_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_thread_pool_active_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: {{ type }}",
@@ -4458,7 +4458,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_thread_pool_active_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_thread_pool_active_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: {{ type }}",
@@ -4557,7 +4557,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "irate(elasticsearch_thread_pool_completed_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "irate(elasticsearch_thread_pool_completed_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}: {{ type }}",
@@ -4687,7 +4687,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_fielddata_memory_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_indices_fielddata_memory_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -4793,7 +4793,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_fielddata_evictions{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_fielddata_evictions{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -4899,7 +4899,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_query_cache_memory_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_indices_query_cache_memory_size_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -5005,7 +5005,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_query_cache_evictions{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_query_cache_evictions{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -5111,7 +5111,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "rate(elasticsearch_indices_filter_cache_evictions{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}[$__rate_interval])",
+              "expr": "rate(elasticsearch_indices_filter_cache_evictions{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}[$__rate_interval])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -5238,7 +5238,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_segments_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_indices_segments_count{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}",
@@ -5333,7 +5333,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_segments_memory_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\"}",
+              "expr": "elasticsearch_indices_segments_memory_bytes{job=\"$job\",instance=~\"$instance\",cluster=\"$cluster\",name=~\"$name\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{name}}",
@@ -5455,7 +5455,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_docs_primary{job=\"$job\",instance=~\"$instance\"}",
+              "expr": "elasticsearch_indices_docs_primary{job=\"$job\",instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -5551,7 +5551,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_store_size_bytes_primary{job=\"$job\",instance=~\"$instance\"}",
+              "expr": "elasticsearch_indices_store_size_bytes_primary{job=\"$job\",instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -5647,7 +5647,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_store_size_bytes_total{job=\"$job\",instance=~\"$instance\"}",
+              "expr": "elasticsearch_indices_store_size_bytes_total{job=\"$job\",instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -5758,7 +5758,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_segment_doc_values_memory_bytes_primary{job=\"$job\",instance=~\"$instance\"}",
+              "expr": "elasticsearch_indices_segment_doc_values_memory_bytes_primary{job=\"$job\",instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{index}}",
@@ -5837,7 +5837,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_segment_doc_values_memory_bytes_total{job=\"$job\",instance=~\"$instance\"}",
+              "expr": "elasticsearch_indices_segment_doc_values_memory_bytes_total{job=\"$job\",instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{index}}",
@@ -5955,7 +5955,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_segment_fields_memory_bytes_primary{job=\"$job\",instance=~\"$instance\"}",
+              "expr": "elasticsearch_indices_segment_fields_memory_bytes_primary{job=\"$job\",instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{index}}",
@@ -6050,7 +6050,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "elasticsearch_indices_segment_fields_memory_bytes_total{job=\"$job\",instance=~\"$instance\"}",
+              "expr": "elasticsearch_indices_segment_fields_memory_bytes_total{job=\"$job\",instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{index}}",
@@ -6126,6 +6126,31 @@
         "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "Cluster",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       },
       {
         "current": {

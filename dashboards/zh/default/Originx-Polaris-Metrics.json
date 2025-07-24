@@ -141,7 +141,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -239,7 +239,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{is_error=\"false\", svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) OR on() vector(0)",
+          "expr": "sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{is_error=\"false\", svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) OR on() vector(0)",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -337,7 +337,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/1000000",
+          "expr": "sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (svc_name, content_key) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/1000000",
           "instant": false,
           "interval": "1m",
           "legendFormat": "__auto",
@@ -436,7 +436,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "P90: 服务名={{svc_name}}, 请求端点={{content_key}}",
@@ -449,7 +449,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.95, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -463,7 +463,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.99, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.99, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -574,7 +574,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -588,7 +588,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -602,7 +602,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -616,7 +616,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_file_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_file_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -630,7 +630,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_futex_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_futex_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -644,7 +644,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_cpu_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_cpu_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -658,7 +658,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -672,7 +672,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_other_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_other_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -770,7 +770,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange)) + histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange)) + histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -784,7 +784,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_span_trace_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -899,7 +899,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "CPU资源等待耗时",
@@ -912,7 +912,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -1009,7 +1009,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_cpu_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_cpu_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_cpu_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_cpu_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1105,7 +1105,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_net_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_net_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_net_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_net_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1201,7 +1201,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_cpu_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_cpu_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1297,7 +1297,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_net_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "hide": false,
           "instant": false,
           "interval": "$interval",
@@ -1394,7 +1394,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_epoll_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_epoll_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_epoll_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_epoll_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1490,7 +1490,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_futex_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_futex_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_futex_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_futex_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1586,7 +1586,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_epoll_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1682,7 +1682,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_futex_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_futex_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1778,7 +1778,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_other_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_other_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_other_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_other_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1874,7 +1874,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_runq_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_runq_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_runq_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_runq_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -1970,7 +1970,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_file_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_file_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval]))",
+          "expr": "sum by (content_key, svc_name) (increase(kindling_profiling_file_duration_nanoseconds_sum{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))/sum by (content_key, svc_name) (increase(kindling_profiling_file_duration_nanoseconds_count{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval]))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2066,7 +2066,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_runq_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2162,7 +2162,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_file_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\"}[$interval])) by (svc_name, content_key, vmrange))",
+          "expr": "histogram_quantile(0.9, sum(rate(kindling_profiling_file_duration_nanoseconds_bucket{svc_name=~\"$service_name\", content_key=~\"$content_key\", cluster_id=~\"$cluster_id\"}[$interval])) by (svc_name, content_key, vmrange))",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "__auto",
@@ -2199,6 +2199,31 @@
         "type": "datasource"
       },
       {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "集群",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
         "allValue": "All",
         "current": {},
         "datasource": {
@@ -2230,7 +2255,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\"},content_key)",
+        "definition": "label_values(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", cluster_id=~\"$cluster_id\"},content_key)",
         "hide": 0,
         "includeAll": true,
         "label": "请求端点",
@@ -2239,7 +2264,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\"},content_key)",
+          "query": "label_values(kindling_span_trace_duration_nanoseconds_count{svc_name=~\"$service_name\", cluster_id=~\"$cluster_id\"},content_key)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,

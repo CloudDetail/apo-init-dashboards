@@ -105,7 +105,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_up{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_up{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "metric": "rabbitmq_up",
@@ -205,7 +205,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_running{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_running{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{node}}",
@@ -309,7 +309,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_exchangesTotal{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_exchangesTotal{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}:exchanges",
@@ -412,7 +412,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_channelsTotal{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_channelsTotal{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}:channels",
@@ -516,7 +516,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "rabbitmq_consumersTotal{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_consumersTotal{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}:consumers",
@@ -620,7 +620,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_connectionsTotal{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_connectionsTotal{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}:connections",
@@ -723,7 +723,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_queuesTotal{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_queuesTotal{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}:queues",
@@ -826,7 +826,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (vhost)(rabbitmq_queue_messages_ready{instance=~\"$instance.*\"})",
+          "expr": "sum by (vhost)(rabbitmq_queue_messages_ready{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{vhost}}:ready",
@@ -839,7 +839,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (vhost)(rabbitmq_queue_messages_published_total{instance=~\"$instance.*\"})",
+          "expr": "sum by (vhost)(rabbitmq_queue_messages_published_total{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{vhost}}:published",
@@ -852,7 +852,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (vhost)(rabbitmq_queue_messages_delivered_total{instance=~\"$instance.*\"})",
+          "expr": "sum by (vhost)(rabbitmq_queue_messages_delivered_total{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{vhost}}:delivered",
@@ -865,7 +865,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (vhost)(rabbitmq_queue_messages_unacknowledged{instance=~\"$instance.*\"})",
+          "expr": "sum by (vhost)(rabbitmq_queue_messages_unacknowledged{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{vhost}}:unack",
@@ -965,7 +965,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_queue_messages{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_queue_messages{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{queue}}:{{durable}}",
@@ -1068,7 +1068,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_node_mem_used{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_node_mem_used{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{node}}:used",
@@ -1081,7 +1081,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_node_mem_limit{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_node_mem_limit{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{node}}:limit",
@@ -1184,7 +1184,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_fd_used{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_fd_used{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{node}}:used",
@@ -1197,7 +1197,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_fd_total{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_fd_total{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{node}}:total",
@@ -1300,7 +1300,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_sockets_used{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_sockets_used{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{node}}:used",
@@ -1313,7 +1313,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "rabbitmq_sockets_total{instance=~\"$instance.*\"}",
+          "expr": "rabbitmq_sockets_total{instance=~\"$instance.*\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{node}}:total",
@@ -1348,6 +1348,31 @@
         "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "集群",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       },
       {
         "allValue": ".*",

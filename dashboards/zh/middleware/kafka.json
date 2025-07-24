@@ -125,7 +125,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "kafka_brokers{job=\"$job\",name=\"$name\"}",
+          "expr": "kafka_brokers{job=\"$job\",name=\"$name\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "range": true,
@@ -209,7 +209,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "count(kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\"})",
+          "expr": "count(kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -291,7 +291,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum (kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\"})",
+          "expr": "sum (kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -374,7 +374,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "count(kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\"})",
+          "expr": "count(kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "range": true,
@@ -458,7 +458,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\"})",
+          "expr": "sum(kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "range": true,
@@ -533,7 +533,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum(kafka_topic_partition_replicas{job=\"$job\",name=\"$name\"})",
+          "expr": "sum(kafka_topic_partition_replicas{job=\"$job\",name=\"$name\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -607,7 +607,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum(kafka_topic_partition_in_sync_replica{job=\"$job\",name=\"$name\"})",
+          "expr": "sum(kafka_topic_partition_in_sync_replica{job=\"$job\",name=\"$name\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -691,7 +691,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "count(kafka_topic_partition_leader_is_preferred{job=\"$job\",name=\"$name\"}<1)",
+          "expr": "count(kafka_topic_partition_leader_is_preferred{job=\"$job\",name=\"$name\", cluster_id=~\"$cluster_id\"}<1)",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -771,7 +771,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\"}[3m]))",
+          "expr": "sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\", cluster_id=~\"$cluster_id\"}[3m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "range": true,
@@ -852,7 +852,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name'}[3m]))",
+          "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name', cluster_id=~\"$cluster_id\"}[3m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "range": true,
@@ -933,7 +933,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\"})",
+          "expr": "sum(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\", cluster_id=~\"$cluster_id\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "range": true,
@@ -1043,7 +1043,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup=~\"$consumergroup_hide\",consumergroup!~\"__.*\"}",
+          "expr": "kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup=~\"$consumergroup_hide\",consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"}",
           "format": "table",
           "instant": true,
           "intervalFactor": 1,
@@ -1167,7 +1167,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(topic) (kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\",topic=~\"$topic\"})",
+          "expr": "sum by(topic) (kafka_topic_partitions{job=\"$job\",name=\"$name\",topic !~\"__.*\",topic=~\"$topic\", cluster_id=~\"$cluster_id\"})",
           "format": "table",
           "instant": true,
           "intervalFactor": 1,
@@ -1304,7 +1304,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\",consumergroup=~\"$consumer_group\",consumergroup!~\"__.*\",topic!~\"__.*\"}) by (consumergroup, topic)>100",
+          "expr": "sum(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\",consumergroup=~\"$consumer_group\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}) by (consumergroup, topic)>100",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1424,7 +1424,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\",topic=~\"$topic\"}[3m])) by (topic)>0",
+          "expr": "sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\",topic=~\"$topic\", cluster_id=~\"$cluster_id\"}[3m])) by (topic)>0",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{topic}}",
@@ -1525,7 +1525,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',consumergroup=~\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}[3m])) by (consumergroup, topic)",
+          "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',consumergroup=~\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}[3m])) by (consumergroup, topic)",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{consumergroup}} (topic: {{topic}})",
@@ -1633,7 +1633,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}[3m])) by (topic) - sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic!~\"__.*\",topic=~\"$topic\"}[3m])) by (topic) * count(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\",topic=~\"$topic\"}) by(topic) != 0",
+          "expr": "sum(irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}[3m])) by (topic) - sum(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic!~\"__.*\",topic=~\"$topic\", cluster_id=~\"$cluster_id\"}[3m])) by (topic) * count(kafka_consumergroup_lag_sum{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\",topic=~\"$topic\", cluster_id=~\"$cluster_id\"}) by(topic) != 0",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{topic}}",
@@ -1734,7 +1734,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (consumergroup,job,name) (kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\"}) unless sum by (consumergroup,job,name)(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\"}) ",
+          "expr": "sum by (consumergroup,job,name) (kafka_consumergroup_members{job=\"$job\",name=\"$name\",consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"}) unless sum by (consumergroup,job,name)(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}) ",
           "format": "time_series",
           "instant": false,
           "legendFormat": "{{consumergroup}}",
@@ -1890,7 +1890,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (topic,job,name)(kafka_topic_partition_current_offset{job=\"$job\",name=~\"$name\",topic !~\"__.*\"} - kafka_topic_partition_oldest_offset{job=\"$job\",name=~\"$name\",topic !~\"__.*\"}) unless count by (topic,job,name)(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\"}) ",
+          "expr": "sum by (topic,job,name)(kafka_topic_partition_current_offset{job=\"$job\",name=~\"$name\",topic !~\"__.*\", cluster_id=~\"$cluster_id\"} - kafka_topic_partition_oldest_offset{job=\"$job\",name=~\"$name\",topic !~\"__.*\", cluster_id=~\"$cluster_id\"}) unless count by (topic,job,name)(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}) ",
           "format": "time_series",
           "instant": false,
           "legendFormat": "{{topic}} 总消息数",
@@ -1903,7 +1903,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (topic,job,name)(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\"}[3m])) unless count by (topic,job,name)(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\"}) ",
+          "expr": "sum by (topic,job,name)(irate(kafka_topic_partition_current_offset{job=\"$job\",name=\"$name\",topic !~ \"__.*\", cluster_id=~\"$cluster_id\"}[3m])) unless count by (topic,job,name)(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}) ",
           "hide": false,
           "instant": false,
           "legendFormat": "{{topic}} 每秒生产",
@@ -2034,7 +2034,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(kafka_consumergroup_lag{job=\"$job\",name=\"$name\",consumergroup=\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}) by (consumergroup, topic,partition)",
+              "expr": "sum(kafka_consumergroup_lag{job=\"$job\",name=\"$name\",consumergroup=\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}) by (consumergroup, topic,partition)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -2155,7 +2155,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',consumergroup=\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\"}[3m])",
+              "expr": "irate(kafka_consumergroup_current_offset{job=\"$job\",name=~'$name',consumergroup=\"$consumer_group\",topic=~\"$topic\",consumergroup!~\"__.*\",topic!~\"__.*\", cluster_id=~\"$cluster_id\"}[3m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{consumergroup}} (topic: {{topic}}) 分区:{{partition}}",
@@ -2200,6 +2200,31 @@
         "type": "datasource"
       },
       {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "集群",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
         "current": {
           "isNone": true,
           "selected": false,
@@ -2238,7 +2263,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(kafka_brokers{job=~\"$job\"},name)",
+        "definition": "label_values(kafka_brokers{job=~\"$job\", cluster_id=~\"$cluster_id\"},name)",
         "hide": 0,
         "includeAll": false,
         "label": "名称",
@@ -2246,7 +2271,7 @@
         "name": "name",
         "options": [],
         "query": {
-          "query": "label_values(kafka_brokers{job=~\"$job\"},name)",
+          "query": "label_values(kafka_brokers{job=~\"$job\", cluster_id=~\"$cluster_id\"},name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -2268,7 +2293,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "query_result(count by (consumergroup)(kafka_consumergroup_members{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\"}))",
+        "definition": "query_result(count by (consumergroup)(kafka_consumergroup_members{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"}))",
         "description": "显示所有消费组列表",
         "hide": 0,
         "includeAll": true,
@@ -2278,7 +2303,7 @@
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result(count by (consumergroup)(kafka_consumergroup_members{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\"}))",
+          "query": "query_result(count by (consumergroup)(kafka_consumergroup_members{job=\"$job\",name=~\"$name\",consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"}))",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -2297,7 +2322,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",topic !~\"__.*\",consumergroup=~\"$consumer_group\"},topic)",
+        "definition": "label_values(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",topic !~\"__.*\",consumergroup=~\"$consumer_group\", cluster_id=~\"$cluster_id\"},topic)",
         "description": "仅显示有消费组消费的Topic，无消费组消费的Topic在下方图表展示。",
         "hide": 0,
         "includeAll": true,
@@ -2306,7 +2331,7 @@
         "name": "topic",
         "options": [],
         "query": {
-          "query": "label_values(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",topic !~\"__.*\",consumergroup=~\"$consumer_group\"},topic)",
+          "query": "label_values(kafka_consumergroup_lag_sum{job=\"$job\",name=~\"$name\",topic !~\"__.*\",consumergroup=~\"$consumer_group\", cluster_id=~\"$cluster_id\"},topic)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -2325,7 +2350,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(kafka_consumergroup_lag_sum{job=\"$job\", name=~\"$name\", topic!~\"__.*\", topic=~\"$topic\", consumergroup!~\"__.*\"},consumergroup)",
+        "definition": "label_values(kafka_consumergroup_lag_sum{job=\"$job\", name=~\"$name\", topic!~\"__.*\", topic=~\"$topic\", consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"},consumergroup)",
         "hide": 2,
         "includeAll": true,
         "label": "consumergroup_hide",
@@ -2334,7 +2359,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(kafka_consumergroup_lag_sum{job=\"$job\", name=~\"$name\", topic!~\"__.*\", topic=~\"$topic\", consumergroup!~\"__.*\"},consumergroup)",
+          "query": "label_values(kafka_consumergroup_lag_sum{job=\"$job\", name=~\"$name\", topic!~\"__.*\", topic=~\"$topic\", consumergroup!~\"__.*\", cluster_id=~\"$cluster_id\"},consumergroup)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,

@@ -532,7 +532,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "avg by (topic_name) (rate(kminion_kafka_topic_high_water_mark_sum{topic_name=~\"$highThroughputTopics\"}[$__rate_interval]))",
+          "expr": "avg by (topic_name) (rate(kminion_kafka_topic_high_water_mark_sum{topic_name=~\"$highThroughputTopics\", cluster_id=~\"$cluster_id\"}[$__rate_interval]))",
           "interval": "",
           "legendFormat": "{{topic_name}}",
           "refId": "A"
@@ -624,7 +624,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "avg by (group_id) (rate(kminion_kafka_consumer_group_offset_commits_total{group_id=~\"$topOffsetCommitters\"}[$__rate_interval]))",
+          "expr": "avg by (group_id) (rate(kminion_kafka_consumer_group_offset_commits_total{group_id=~\"$topOffsetCommitters\", cluster_id=~\"$cluster_id\"}[$__rate_interval]))",
           "interval": "",
           "legendFormat": "{{group_id}}",
           "refId": "A"
@@ -764,6 +764,31 @@
   "tags": [],
   "templating": {
     "list": [
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "Cluster",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
       {
         "current": {
           "selected": false,

@@ -94,7 +94,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "max(max_over_time(redis_uptime_in_seconds{instance=~\"$instance\"}[$__interval]))",
+          "expr": "max(max_over_time(redis_uptime_in_seconds{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[$__interval]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -179,7 +179,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "redis_connected_clients{instance=~\"$instance\"}",
+          "expr": "redis_connected_clients{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "",
@@ -268,7 +268,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "100 * (redis_memory_used_bytes{instance=~\"$instance\"}  / redis_memory_max_bytes{instance=~\"$instance\"} )",
+          "expr": "100 * (redis_memory_used_bytes{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}  / redis_memory_max_bytes{instance=~\"$instance\", cluster_id=~\"$cluster_id\"} )",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "",
@@ -339,7 +339,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "rate(redis_commands_processed_total{instance=~\"$instance\"}[1m])",
+          "expr": "rate(redis_commands_processed_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[1m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -440,7 +440,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "irate(redis_keyspace_hits_total{instance=~\"$instance\"}[5m])",
+          "expr": "irate(redis_keyspace_hits_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -456,7 +456,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "irate(redis_keyspace_misses_total{instance=~\"$instance\"}[5m])",
+          "expr": "irate(redis_keyspace_misses_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -563,7 +563,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "redis_memory_used_bytes{instance=~\"$instance\"} ",
+          "expr": "redis_memory_used_bytes{instance=~\"$instance\", cluster_id=~\"$cluster_id\"} ",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "used",
@@ -577,7 +577,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "redis_memory_max_bytes{instance=~\"$instance\"} ",
+          "expr": "redis_memory_max_bytes{instance=~\"$instance\", cluster_id=~\"$cluster_id\"} ",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -676,7 +676,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "rate(redis_net_input_bytes_total{instance=~\"$instance\"}[5m])",
+          "expr": "rate(redis_net_input_bytes_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{ input }}",
@@ -688,7 +688,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "rate(redis_net_output_bytes_total{instance=~\"$instance\"}[5m])",
+          "expr": "rate(redis_net_output_bytes_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[5m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -788,7 +788,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "sum (redis_db_keys{instance=~\"$instance\"}) by (db)",
+          "expr": "sum (redis_db_keys{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) by (db)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -887,7 +887,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "sum (redis_db_keys{instance=~\"$instance\"}) - sum (redis_db_keys_expiring{instance=~\"$instance\"}) ",
+          "expr": "sum (redis_db_keys{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) - sum (redis_db_keys_expiring{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) ",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -901,7 +901,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "sum (redis_db_keys_expiring{instance=~\"$instance\"}) ",
+          "expr": "sum (redis_db_keys_expiring{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}) ",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1002,7 +1002,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "sum(rate(redis_expired_keys_total{instance=~\"$instance\"}[5m])) by (instance)",
+          "expr": "sum(rate(redis_expired_keys_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[5m])) by (instance)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1018,7 +1018,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "sum(rate(redis_evicted_keys_total{instance=~\"$instance\"}[5m])) by (instance)",
+          "expr": "sum(rate(redis_evicted_keys_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"}[5m])) by (instance)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1109,7 +1109,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "topk(5, irate(redis_commands_total{instance=~\"$instance\"} [1m]))",
+          "expr": "topk(5, irate(redis_commands_total{instance=~\"$instance\", cluster_id=~\"$cluster_id\"} [1m]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1198,7 +1198,7 @@
             "type": "prometheus",
             "uid": "APO-VictoriaMetric"
           },
-          "expr": "redis_connected_clients{instance=\"$instance\"}",
+          "expr": "redis_connected_clients{instance=\"$instance\", cluster_id=~\"$cluster_id\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -1260,6 +1260,31 @@
         "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "Cluster",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       },
       {
         "current": {

@@ -2479,7 +2479,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(redis_up, vendor)",
+        "definition": "label_values(redis_up{cluster_id=~\"$cluster_id\"}, vendor)",
         "hide": 0,
         "includeAll": false,
         "label": "云厂商",
@@ -2487,7 +2487,7 @@
         "name": "vendor",
         "options": [],
         "query": {
-          "query": "label_values(redis_up, vendor)",
+          "query": "label_values(redis_up{cluster_id=~\"$cluster_id\"}, vendor)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,

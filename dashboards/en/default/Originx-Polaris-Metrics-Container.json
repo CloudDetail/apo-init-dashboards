@@ -2341,7 +2341,7 @@
           "type": "prometheus",
           "uid": "APO-VictoriaMetric"
         },
-        "definition": "label_values(kindling_span_trace_duration_nanoseconds_count,svc_name)",
+        "definition": "label_values(kindling_span_trace_duration_nanoseconds_count{cluster_id=~\"$cluster_id\"},svc_name)",
         "hide": 0,
         "includeAll": false,
         "label": "Service Name",
@@ -2350,7 +2350,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(kindling_span_trace_duration_nanoseconds_count,svc_name)",
+          "query": "label_values(kindling_span_trace_duration_nanoseconds_count{cluster_id=~\"$cluster_id\"},svc_name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,

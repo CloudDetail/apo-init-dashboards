@@ -8153,7 +8153,7 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(rabbitmq_identity_info, namespace)",
+        "definition": "label_values(rabbitmq_identity_info{cluster_id=~\"$cluster_id\"}, namespace)",
         "hide": 0,
         "includeAll": false,
         "label": "Namespace",
@@ -8161,7 +8161,7 @@
         "name": "namespace",
         "options": [],
         "query": {
-          "query": "label_values(rabbitmq_identity_info, namespace)",
+          "query": "label_values(rabbitmq_identity_info{cluster_id=~\"$cluster_id\"}, namespace)",
           "refId": "Prometheus-namespace-Variable-Query"
         },
         "refresh": 2,

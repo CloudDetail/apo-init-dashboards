@@ -808,7 +808,7 @@
           "type": "prometheus",
           "uid": "APO-VictoriaMetric"
         },
-        "definition": "label_values(originx_agent_ready,node_name)",
+        "definition": "label_values(originx_agent_ready{cluster_id=~\"$cluster_id\"},node_name)",
         "hide": 0,
         "includeAll": true,
         "label": "探针所在节点",
@@ -817,7 +817,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(originx_agent_ready,node_name)",
+          "query": "label_values(originx_agent_ready{cluster_id=~\"$cluster_id\"},node_name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,

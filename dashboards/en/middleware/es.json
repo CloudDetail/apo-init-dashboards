@@ -6188,14 +6188,14 @@
         "datasource": {
           "uid": "$datasource"
         },
-        "definition": "label_values(elasticsearch_indices_docs{job=\"$job\"},cluster)",
+        "definition": "label_values(elasticsearch_indices_docs{job=\"$job\",cluster_id=~\"$cluster_id\"},cluster)",
         "hide": 0,
         "includeAll": false,
         "label": "",
         "multi": false,
         "name": "cluster",
         "options": [],
-        "query": "label_values(elasticsearch_indices_docs{job=\"$job\"},cluster)",
+        "query": "label_values(elasticsearch_indices_docs{job=\"$job\",cluster_id=~\"$cluster_id\"},cluster)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

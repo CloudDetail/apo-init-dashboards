@@ -3994,13 +3994,13 @@
         "datasource": {
           "uid": "${datasource}"
         },
-        "definition": "label_values(mysql_up, instance)",
+        "definition": "label_values(mysql_up{cluster_id=~\"$cluster_id\"}, instance)",
         "hide": 0,
         "includeAll": true,
         "multi": true,
         "name": "instance",
         "options": [],
-        "query": "label_values(mysql_up, instance)",
+        "query": "label_values(mysql_up{cluster_id=~\"$cluster_id\"}, instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

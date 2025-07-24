@@ -1391,7 +1391,7 @@
         "multi": false,
         "name": "instance",
         "options": [],
-        "query": "label_values(rabbitmq_up, instance)",
+        "query": "label_values(rabbitmq_up{cluster_id=~\"$cluster_id\"}, instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

@@ -4657,7 +4657,7 @@
           "type": "prometheus",
           "uid": "APO-VictoriaMetric"
         },
-        "definition": "label_values(container_cpu_usage_seconds_total,namespace)",
+        "definition": "label_values(container_cpu_usage_seconds_total{cluster_id=~\"$cluster_id\"},namespace)",
         "hide": 0,
         "includeAll": true,
         "multi": true,
@@ -4665,7 +4665,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(container_cpu_usage_seconds_total,namespace)",
+          "query": "label_values(container_cpu_usage_seconds_total{cluster_id=~\"$cluster_id\"},namespace)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,

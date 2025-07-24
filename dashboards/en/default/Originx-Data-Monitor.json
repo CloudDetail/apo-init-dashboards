@@ -774,6 +774,31 @@
   "templating": {
     "list": [
       {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "APO-PostgreSQL"
+        },
+        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "hide": 0,
+        "includeAll":true,
+        "label": "Cluster",
+        "multi": true,
+        "name": "cluster_id",
+        "options": [],
+        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
         "current": {
           "selected": true,
           "text": "large-server-6",
@@ -783,7 +808,7 @@
           "type": "prometheus",
           "uid": "APO-VictoriaMetric"
         },
-        "definition": "label_values(originx_agent_ready,node_name)",
+        "definition": "label_values(originx_agent_ready{cluster_id=~\"$cluster_id\"},node_name)",
         "hide": 0,
         "includeAll": true,
         "label": "Node",
@@ -792,7 +817,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(originx_agent_ready,node_name)",
+          "query": "label_values(originx_agent_ready{cluster_id=~\"$cluster_id\"},node_name)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -832,31 +857,6 @@
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
-        "type": "query"
-      },
-      {
-        "allValue": ".*",
-        "current": {
-          "selected": true,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": {
-          "type": "grafana-postgresql-datasource",
-          "uid": "APO-PostgreSQL"
-        },
-        "definition": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
-        "hide": 0,
-        "includeAll":true,
-        "label": "Cluster",
-        "multi": true,
-        "name": "cluster_id",
-        "options": [],
-        "query": "SELECT DISTINCT scope_id AS __value, \nCASE \n  WHEN c.name != '' THEN c.name\n  ELSE scope_id\nEND AS __text\nFROM data_scope \nLEFT JOIN clusters c ON scope_id  = c.id\nWHERE type = 'cluster'",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
         "type": "query"
       },
       {

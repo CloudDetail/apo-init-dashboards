@@ -2684,7 +2684,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"true\",jvm_thread_state!=\"\", cluster_id=~\"$cluster_id\",jvm_thread_state!=\"\"}",
+              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"true\",jvm_thread_state!=\"\", cluster_id=~\"$cluster_id\"}",
               "instant": false,
               "interval": "$resolution",
               "legendFormat": "{{jvm_thread_state}}",
@@ -2796,7 +2796,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"false\",jvm_thread_state!=\"\", cluster_id=~\"$cluster_id\",jvm_thread_state!=\"\"}",
+              "expr": "jvm_thread_count{instance=\"$jvm_instance\",jvm_thread_daemon=\"false\",jvm_thread_state!=\"\", cluster_id=~\"$cluster_id\"}",
               "hide": false,
               "instant": false,
               "interval": "$resolution",
